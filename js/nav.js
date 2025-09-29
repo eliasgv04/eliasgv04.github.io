@@ -1,0 +1,1 @@
+// Funcionalidad del navbar (scroll suave, active link)
