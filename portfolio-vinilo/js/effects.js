@@ -1,1 +1,0 @@
-// Animaciones extra (hover, transiciones, etc.)
