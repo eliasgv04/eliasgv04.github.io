@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portafolio Vinilo</title>
+
+  <!-- Meta SEO principal -->
+  <meta name="description" content="Portafolio de Elías González: desarrollo web, interfaces accesibles, proyectos técnicos y creatividad visual." />
+  <meta name="author" content="Elías González" />
+  <link rel="canonical" href="https://eliasgv04.github.io/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Portafolio de Elías González" />
+  <meta property="og:description" content="Desarrollo web, UI accesible, proyectos, skills y contacto." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://eliasgv04.github.io/" />
+  <meta property="og:image" content="https://eliasgv04.github.io/img/foto-perfil.jpeg" />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portafolio de Elías González" />
+  <meta name="twitter:description" content="Desarrollo web, UI accesible y proyectos." />
+  <meta name="twitter:image" content="https://eliasgv04.github.io/img/foto-perfil.jpeg" />
+
+  <!-- Preconnect optimización fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Datos estructurados JSON-LD Person -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Elías González",
+    "jobTitle":"Desarrollador Web",
+  "url":"https://eliasgv04.github.io/",
+  "image":"https://eliasgv04.github.io/img/foto-perfil.jpeg",
+    "sameAs":[
+      "https://github.com/eliasgv04",
+      "https://www.linkedin.com/in/elias-gonzález-valdepeñas-98aa97170"
+    ]
+  }</script>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Fuente moderna Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/brand-icon.svg" />
+  <link rel="apple-touch-icon" href="img/foto-perfil.jpeg" />
+  <meta name="theme-color" content="#ff2e63" />
+
+  <!-- CSS personalizados -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <link rel="stylesheet" href="css/skills.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top shadow-sm main-nav">
+    <div class="container-fluid">
+      <a class="navbar-brand brand-logo d-flex align-items-center" href="#home" aria-label="Inicio">
+        <img src="img/brand-icon.svg" width="38" height="38" alt="Logo E" class="brand-img me-2" />
+        <span class="brand-text">Elías</span>
+      </a>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto nav-links align-items-lg-center align-items-start gap-lg-0 gap-2">
+          <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+ <section id="home" class="home-section site-section d-flex flex-column justify-content-center align-items-center text-center">
+  <p class="home-tagline fade-in">Portafolio de <strong>Elías González</strong> · Desarrollo Web, Interfaces & Accesibilidad</p>
+  <div class="turntable">
+    <div class="vinyl-container">
+      <div class="vinyl">
+        <!-- Anillo de texto exterior (único) -->
+        <div class="vinyl-text-ring" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <defs>
+              <path id="text-circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
+            </defs>
+            <text class="ring-text">
+              <textPath href="#text-circle" startOffset="0%"> ✦ ELÍAS GONZÁLEZ ✦ MI PORTFOLIO ✦ DEVELOPER ✦ INFORMÁTICO ✦</textPath>
+            </text>
+          </svg>
+        </div>
+        <div class="label">
+          <h1 class="artist-name">Elías González</h1>
+          <p class="profession">Informático / Developer</p>
+        </div>
+        <!-- Progreso circular -->
+        <svg class="track-progress" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="bg" cx="60" cy="60" r="54" />
+          <circle class="fg" cx="60" cy="60" r="54" />
+        </svg>
+      </div>
+      <!-- Pulso reactivo -->
+      <div class="audio-pulse" aria-hidden="true"></div>
+      <!-- Knob de volumen -->
+      <div class="volume-knob-wrapper">
+        <div class="volume-label">Volumen</div>
+        <div class="volume-knob" id="volumeKnob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" tabindex="0"></div>
+        <div class="volume-value" id="volumeValue">80%</div>
+        <div class="aux-knobs" aria-label="Controles adicionales">
+          <div class="knob-group">
+            <div class="mini-knob-label">Mute</div>
+            <div class="mini-knob" id="muteKnob" role="switch" aria-label="Silenciar" aria-checked="false" data-state="off" tabindex="0"></div>
+          </div>
+          <div class="knob-group">
+            <div class="mini-knob-label">Boost</div>
+            <div class="mini-knob" id="boostKnob" role="switch" aria-label="Potenciar volumen" aria-checked="false" data-state="off" tabindex="0"></div>
+          </div>
+          <div class="knob-group">
+            <div class="mini-knob-label">Loop</div>
+            <div class="mini-knob" id="loopKnob" role="switch" aria-label="Repetir pista" aria-checked="false" data-state="off" tabindex="0"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tonearm"></div>
+  </div>
+
+  <button id="togglePlay" class="btn btn-outline-dark mt-4">
+    ▶ Play
+  </button>
+  <div class="mini-eq eq-below mt-3" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="time-display mt-2" aria-label="Tiempo de reproducción"><span id="elapsed">0:00</span> / <span id="duration">0:00</span></div>
+  <audio id="audioTrack" preload="auto" src="assets/fonts/demo.mp3"></audio>
+</section>
+
+ <!-- Secciones adicionales -->
+ <section id="about" class="site-section">
+   <div class="container py-5 about-wrapper">
+     <div class="about-grid">
+       <div class="about-photo-block">
+         <figure class="about-photo-figure">
+           <div class="about-photo-frame">
+             <img src="img/foto-perfil.jpeg" alt="Retrato de Elías González Valdepeñas" class="about-photo" loading="lazy" decoding="async" width="300" height="400" />
+             <span class="ap-accent" aria-hidden="true"></span>
+           </div>
+           <figcaption>Elías González</figcaption>
+         </figure>
+       </div>
+       <div class="about-content-block">
+         <h2 class="section-title">Sobre mí</h2>
+         <p class="about-intro">Me defino como alguien curioso y detallista: disfruto creando interfaces limpias, accesibles y con una estética cuidada. Me inspira combinar tecnología y ritmo visual, como se ve en el tocadiscos de inicio.</p>
+         <div class="edu-timeline-wrapper">
+           <div class="education-visual-block legacy-education-block">
+             <div class="edu-visual-record" role="group" aria-label="Línea temporal formativa visual">
+               <div class="record-base" aria-hidden="true"></div>
+               <div class="record-ring ring-stage1" data-stage="1" data-label="Colegio" data-years="2007–2016" aria-hidden="true"></div>
+               <div class="record-ring ring-stage2" data-stage="2" data-label="IES" data-years="2016–2022" aria-hidden="true"></div>
+               <div class="record-ring ring-stage3 current" data-stage="3" data-label="Universidad" data-years="2022–2025" aria-hidden="true"></div>
+               <div class="record-core" aria-hidden="true"></div>
+               <div class="record-hole" aria-hidden="true"></div>
+               <div class="record-center-display" aria-live="polite" aria-label="Etapa formativa actual"></div>
+               <div class="record-stage-info stage-pos-1" data-stage="1">
+                 <span class="stage-years">2007–2016</span>
+                 <span class="stage-place">Colegio Santiago el Mayor</span>
+               </div>
+               <div class="record-stage-info stage-pos-2" data-stage="2">
+                 <span class="stage-years">2016–2022</span>
+                 <span class="stage-place">IES Francisco Nieva</span>
+               </div>
+               <div class="record-stage-info stage-pos-3 current" data-stage="3">
+                 <span class="stage-years">2022–2025</span>
+                 <span class="stage-place">ESI · UCLM</span>
+               </div>
+             </div>
+             <div class="timeline-wave-bg" aria-hidden="true">
+               <svg viewBox="0 0 600 140" preserveAspectRatio="none">
+                 <defs>
+                   <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                     <stop offset="0%" stop-color="var(--primary,#d11141)" stop-opacity="0.15" />
+                     <stop offset="50%" stop-color="var(--primary-accent,#ff3d5e)" stop-opacity="0.5" />
+                     <stop offset="100%" stop-color="var(--primary,#d11141)" stop-opacity="0.15" />
+                   </linearGradient>
+                 </defs>
+                 <polyline class="wave-path" points="0,70 50,65 100,80 150,50 200,90 250,55 300,60 350,40 400,85 450,50 500,78 550,45 600,70" fill="none" stroke="url(#waveGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+               </svg>
+           </div>
+             <div id="eduStageLive" class="sr-only" aria-live="polite"></div>
+           </div>
+           <h3 class="timeline-title sr-only">Mi formación (detalle textual)</h3>
+           <ol class="edu-timeline sr-only" aria-label="Línea temporal de estudios (texto alternativo)">
+             <li class="edu-item" data-year="2007-2016">
+               <div class="track-segment">
+                 <span class="marker" aria-hidden="true"></span>
+                 <div class="edu-info">
+                   <h4>Colegio Santiago el Mayor</h4>
+                   <p>Bases académicas sólidas: aritmética, lectura comprensiva, expresión escrita y lógica intuitiva. Inicio de alfabetización digital: uso básico de ofimática (presentaciones, procesadores de texto), organización de archivos y exploración temprana de internet con sentido crítico. Desarrollo de hábitos: constancia, gestión del tiempo y curiosidad metódica. Se despierta el interés por “cómo funcionan las cosas” (hardware básico: partes de un ordenador, noción de red doméstica) y la relación entre interacción humana y herramientas tecnológicas.</p>
+                 </div>
+               </div>
+             </li>
+             <li class="edu-item" data-year="2016-2022">
+               <div class="track-segment">
+                 <span class="marker" aria-hidden="true"></span>
+                 <div class="edu-info">
+                   <h4>IES Francisco Nieva</h4>
+                   <p>Bachillerato de Ciencias Tecnológicas: física (movimiento, energía, electricidad), matemáticas avanzadas (álgebra matricial, derivadas e integrales, trigonometría aplicada) y fundamentos de química y tecnología. Pensamiento computacional emergente: descomposición de problemas, patrones y abstracción. Primeros proyectos técnicos: lógica booleana, tablas de verdad, simulaciones sencillas, pseudocódigo, introducción a estructuras de datos elementales (listas, arrays) y pequeños scripts exploratorios. Se refuerza la capacidad de análisis crítico, el trabajo organizado por etapas y la curiosidad por la eficiencia de distintas soluciones.</p>
+                 </div>
+               </div>
+             </li>
+             <li class="edu-item current" data-year="2022-2025">
+               <div class="track-segment">
+                 <span class="marker spinning" aria-hidden="true"></span>
+                 <div class="edu-info">
+                   <h4>Escuela Superior de Informática (UCLM)</h4>
+                   <p>Grado en Ingeniería Informática (Itinerario de Tecnologías de la Información): arquitectura de computadores (memoria, cachés, procesador), representación y persistencia de datos, bases de datos relacionales (normalización, índices, transacciones, SQL optimizado) y fundamentos de bases NoSQL. Programación estructurada y orientación a objetos; patrones de diseño (DAO, MVC, Singleton, Strategy) y principios SOLID aplicados a refactorizaciones. Desarrollo web full‑stack: maquetación semántica (HTML5), estilos escalables (CSS modular, responsive), interacción dinámica y DOM eficiente (JavaScript). Backend y servicios: diseño de APIs REST, serialización, validación de entradas, manejo de errores, autenticación básica y nociones de seguridad (inyección, control de acceso). Estructuras de datos avanzadas (árboles, hash, colas de prioridad), análisis de complejidad temporal/espacial y selección de enfoques según contexto. Colaboración con Git (ramas, pull requests, resolución de conflictos), integración gradual de pruebas, documentación técnica clara y enfoque sistemático en mantenibilidad, escalabilidad y experiencia de usuario final.</p>
+                 </div>
+               </div>
+             </li>
+           </ol>
+           <div class="vinyl-progress-bar" aria-hidden="true">
+             <div class="vinyl-progress-fill"></div>
+           </div>
+           <!-- Timeline simplificada clara -->
+           <div class="education-simple" aria-labelledby="eduSimpleTitle">
+             <h3 id="eduSimpleTitle" class="timeline-title">Formación</h3>
+             <!-- Crossfader estilo mesa de mezclas -->
+             <div class="edu-crossfader" role="slider" aria-label="Progresión formativa" aria-valuemin="2007" aria-valuemax="2025" aria-valuenow="2007" aria-valuetext="Año 2007" tabindex="0" data-stage="1" data-ratio="0">
+               <div class="fader-rail">
+                 <div class="fader-track" aria-hidden="true"></div>
+                 <div class="fader-progress" aria-hidden="true"></div>
+                 <div class="fader-pointer" aria-hidden="true">
+                   <div class="fp-bubble">
+                     <span class="fp-label">Colegio</span>
+                     <span class="fp-year">2007</span>
+                   </div>
+                   <div class="fp-knob"><span class="fp-groove"></span></div>
+                 </div>
+                 <div class="fader-ticks" aria-hidden="true">
+                   <div class="tick tick-stage-1 active" data-stage="1"><span class="tick-dot"></span><span class="tick-label">Colegio</span></div>
+                   <div class="tick tick-stage-2" data-stage="2"><span class="tick-dot"></span><span class="tick-label">Instituto</span></div>
+                   <div class="tick tick-stage-3" data-stage="3"><span class="tick-dot"></span><span class="tick-label">Universidad</span></div>
+                   <div class="year-scale" aria-hidden="true">
+                      <span class="year y-start" style="--pos:0%;">2007</span>
+                      <span class="year y-mid1" style="--pos:50%;">2016</span>
+                      <span class="year y-mid2" style="--pos:83.333%;">2022</span>
+                      <span class="year y-end" style="--pos:100%;">2025</span>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="timeline-simple" role="list">
+               <button class="t-step active" role="listitem" data-stage="1" data-years="2007–2016" data-place="Colegio Santiago el Mayor" data-desc="Fundamentos: lectura comprensiva, aritmética, lógica intuitiva y primeros pasos digitales (ofimática básica, exploración web) con hábitos de estudio." aria-pressed="true">
+                 <span class="t-dot" aria-hidden="true"></span>
+                 <span class="t-years">2007–2016</span>
+                 <span class="t-label">Colegio</span>
+               </button>
+               <button class="t-step" role="listitem" data-stage="2" data-years="2016–2022" data-place="IES Francisco Nieva" data-desc="Bachillerato Tecnológico: física, cálculo, álgebra matricial, lógica booleana, pseudocódigo y primeros scripts y proyectos estructurados." aria-pressed="false">
+                 <span class="t-dot" aria-hidden="true"></span>
+                 <span class="t-years">2016–2022</span>
+                 <span class="t-label">Instituto</span>
+               </button>
+               <button class="t-step" role="listitem" data-stage="3" data-years="2022–2025" data-place="ESI · UCLM" data-desc="Ingeniería Informática (TI): arquitectura HW, bases de datos (SQL), estructuras de datos, patrones, APIs REST, seguridad inicial y trabajo colaborativo con Git." aria-pressed="false">
+                 <span class="t-dot" aria-hidden="true"></span>
+                 <span class="t-years">2022–2025</span>
+                 <span class="t-label">Universidad</span>
+               </button>
+               <div class="t-progress" aria-hidden="true"><div class="t-progress-bar"></div></div>
+             </div>
+             <div class="t-detail" aria-live="polite">
+               <strong>Colegio Santiago el Mayor</strong> · Fundamentos: lectura comprensiva, aritmética, lógica intuitiva y primeros pasos digitales (ofimática básica, exploración web) con hábitos de estudio.
+             </div>
+             </div>
+              <!-- Fin bloque visual highlights (reubicado fuera) -->
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+
+ <!-- Franja full-width de highlights personales -->
+ <section class="highlights-strip" aria-labelledby="aboutHighlightsTitle">
+   <div class="hs-inner">
+     <h3 id="aboutHighlightsTitle" class="hs-title">Más de mí</h3>
+     <p class="hs-intro">Me gusta complementar mi perfil técnico con habilidades que aportan valor transversal: comunicación internacional, gestión de identidad digital, criterio estético y experiencia operativa real.</p>
+     <div class="hs-grid" role="list">
+       <div class="hs-card" role="listitem">
+         <div class="hs-icon" aria-hidden="true">
+           <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             <circle cx="24" cy="24" r="19" />
+             <path d="M5 24h38" />
+             <path d="M24 5c5.5 6.5 5.5 30 0 38" />
+             <path d="M13 9c3 2 6 3 11 3 6 0 9 2 11 5" />
+             <path d="M35 39c-3-2-6-3-11-3-6 0-9-2-11-5" />
+           </svg>
+         </div>
+  <h4>Inglés (B2 Cambridge)</h4>
+  <p>Certificación oficial Cambridge B2. Practico el idioma a diario (lectura de documentación técnica, vídeos y conversación) y amplío vocabulario especializado en tecnología, producto y colaboración internacional.</p>
+       </div>
+       <div class="hs-card" role="listitem">
+         <div class="hs-icon" aria-hidden="true">
+           <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             <path d="M10 8h28l-2 18c-1 7-9 12-12 14-3-2-11-7-12-14L10 8Z" />
+             <path d="M18 20h12" />
+             <path d="M16 14h16" />
+             <circle cx="17" cy="28" r="2" />
+             <circle cx="24" cy="28" r="2" />
+             <circle cx="31" cy="28" r="2" />
+           </svg>
+         </div>
+         <h4>Community Manager</h4>
+  <p>Gestión de redes de Torrenueva FS (futsal): planificación de publicaciones, copy adaptado al tono deportivo, coherencia gráfica de identidad y análisis básico de alcance e interacción para iterar contenido.</p>
+       </div>
+       <div class="hs-card" role="listitem">
+         <div class="hs-icon" aria-hidden="true">
+           <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             <rect x="6" y="8" width="24" height="18" rx="3" />
+             <path d="M10 34h16" />
+             <path d="M22 26v8" />
+             <path d="M33 20c3 0 6 2.5 6 5.5 0 1.2-.4 2.2-1 3.2-.5.8-.4 1.9.3 2.5 1.2 1.1.7 3.2-.9 3.6-1.8.4-3.6.2-5.2-.7a8 8 0 0 1-4-7c0-3.8 2.7-6.1 5.8-6.1Z" />
+             <circle cx="33" cy="23" r="1" fill="currentColor" stroke="none" />
+             <circle cx="30" cy="26" r="1" fill="currentColor" stroke="none" />
+             <circle cx="34" cy="28" r="1" fill="currentColor" stroke="none" />
+           </svg>
+         </div>
+         <h4>Creatividad visual</h4>
+  <p>Creación y edición de imágenes (Procreate y herramientas de IA) centrada en narrativa visual, color, composición y adaptación a distintos formatos sociales manteniendo legibilidad y coherencia estética.</p>
+       </div>
+       <div class="hs-card" role="listitem">
+         <div class="hs-icon" aria-hidden="true">
+           <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             <path d="M15 22v14c0 2 1 3 3 3h12c2 0 3-1 3-3V22" />
+             <path d="M12 22h24" />
+             <path d="M18 22c-2-2-3-4-3-6a7 7 0 0 1 14 0c0 2-1 4-3 6" />
+             <circle cx="34" cy="14" r="2" />
+             <circle cx="14" cy="14" r="2" />
+             <path d="M28.5 36.5a4.5 4.5 0 1 0 9 0 4.5 4.5 0 0 0-9 0Z" />
+             <path d="M33 32v2" />
+             <path d="M33 39v2" />
+             <path d="M29.8 34.2 31.2 35" />
+             <path d="M34.8 38.9 36.2 39.7" />
+             <path d="M36.2 34.2 34.8 35" />
+             <path d="M31.2 38.9 29.8 39.7" />
+           </svg>
+         </div>
+         <h4>Experiencia y gestión</h4>
+  <p>Primer verano: cocinero en un bar (ritmo de servicio y trabajo en equipo). Segundo: autónomo en España gestionando y cocinando en mi propio bar de piscina (menú, aprovisionamiento, control de costes, higiene y coordinación en picos de demanda).</p>
+       </div>
+     </div>
+   </div>
+ </section>
+
+ <section id="projects" class="site-section projects-section">
+   <div class="projects-header container-narrow">
+  <h2 class="section-title">PROYECTOS</h2>
+  <p class="projects-intro">Selección compacta de trabajos que combinan desarrollo web, interfaces, lógica de juego, gestión y creación de contenido. Cada tarjeta muestra de forma directa contexto, enfoque técnico y un enlace para explorar más.</p>
+  <p class="projects-intro">La sección irá creciendo con proyectos más profundos (rendimiento, APIs, accesibilidad, multijugador, herramientas propias y colaboraciones) conforme avance mi trayectoria.</p>
+     <div class="projects-filters" role="toolbar" aria-label="Filtrar proyectos">
+       <button class="pf-btn active" type="button" data-filter="all" aria-pressed="true">Todos</button>
+       <button class="pf-btn" type="button" data-filter="web" aria-pressed="false">Web</button>
+       <button class="pf-btn" type="button" data-filter="ui" aria-pressed="false">UI</button>
+       <button class="pf-btn" type="button" data-filter="tools" aria-pressed="false">Herramientas</button>
+       <button class="pf-btn" type="button" data-filter="otros" aria-pressed="false">Otros</button>
+     </div>
+     <div id="projectsLive" class="sr-only" aria-live="polite"></div>
+   </div>
+   <div class="projects-grid-wrapper">
+     <div class="projects-grid" role="list">
+       <!-- Proyecto 1 REAL (restaurado formato básico) -->
+  <article class="project-card" role="listitem" data-cat="web tools" data-stack="Python,HTML,SQL" data-tone="green">
+         <div class="project-thumb" aria-hidden="true">
+           <div class="pt-overlay"></div>
+           <div class="pl-top">THIS IS</div>
+           <div class="pl-title">SPOTIFY → VINYL</div>
+           <div class="pl-bottom">
+             <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+             <div class="pl-meta">PY • HT • SQL</div>
+           </div>
+         </div>
+         <div class="project-body">
+           <h3 class="project-title">Spotify to Vinyl</h3>
+           <p class="project-desc">Aplicación que conecta búsqueda musical con compra de vinilos: localizar discos y artistas, marcar favoritos, recibir notificaciones y acceder a enlaces de compra directos aprovechando el auge del formato físico.</p>
+           <ul class="project-tags" aria-label="Stack principal">
+             <li>Python</li><li>HTML</li><li>SQL</li><li>Notifs</li>
+           </ul>
+         </div>
+         <div class="project-actions">
+           <a href="https://github.com/AlbertoPalenciaQuinones/ISI-LAB" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Spotify to Vinyl"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span>Código</span></a>
+         </div>
+       </article>
+       <!-- Proyecto 6 -->
+  <article class="project-card" role="listitem" data-cat="web tools" data-stack="HTML,CSS,JavaScript" data-tone="cyan">
+         <div class="project-thumb" aria-hidden="true">
+           <div class="pt-overlay"></div>
+           <div class="pl-top">THIS IS</div>
+           <div class="pl-title">INVEN<span style="letter-spacing:1px;">CLOUD</span></div>
+           <div class="pl-bottom">
+             <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+             <div class="pl-meta">INV • CRUD • UX</div>
+           </div>
+         </div>
+         <div class="project-body">
+           <h3 class="project-title">InvenCloud (Inventario Ferretería)</h3>
+           <p class="project-desc">Aplicación web HTML/CSS/JS para gestión de inventario de ferretería: altas/bajas y edición de productos y categorías, seguimiento de stock, búsqueda rápida, login básico, formulario de contacto y enfoque en organización clara en la nube.</p>
+           <ul class="project-tags" aria-label="Stack y focos">
+             <li>HTML</li><li>CSS</li><li>JavaScript</li>
+           </ul>
+         </div>
+         <div class="project-actions">
+           <a href="https://github.com/eliasgv04/InvenCloud" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: InvenCloud">
+             <svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span>Código</span>
+           </a>
+         </div>
+       </article>
+       <!-- Proyecto 2 -->
+  <article class="project-card" role="listitem" data-cat="tools ui" data-stack="Gestión,Calidad,Configuración" data-tone="violet">
+         <div class="project-thumb" aria-hidden="true">
+           <div class="pt-overlay"></div>
+           <div class="pl-top">THIS IS</div>
+           <div class="pl-title">PROJECT MANAGEMENT</div>
+           <div class="pl-bottom">
+             <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+             <div class="pl-meta">ITER • QA • CFG</div>
+           </div>
+         </div>
+         <div class="project-body">
+           <h3 class="project-title">Gestión de Proyecto Iterativa</h3>
+           <p class="project-desc">Dirección y control end‑to‑end: planificación en iteraciones, autoevaluación periódica del equipo, gestión de la calidad (criterios y métricas de aceptación), control de configuración (versionado, trazabilidad de artefactos y baseline), identificación y mitigación de riesgos, comunicación continua y revisión de entregables.</p>
+           <ul class="project-tags" aria-label="Herramientas utilizadas">
+             <li>Visual Paradigm</li><li>Excel</li><li>Teams</li><li>Eclipse</li><li>Maven</li>
+           </ul>
+         </div>
+          <div class="project-actions">
+            <a href="https://github.com/AlejandroFernandezMunoz/ISO2-LAB-C03" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Gestión de Proyecto Iterativa">
+              <svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span>Código</span>
+            </a>
+          </div>
+       </article>
+       <!-- Proyecto 3 -->
+  <article class="project-card" role="listitem" data-cat="ui tools" data-stack="Swift,SwiftUI,API" data-tone="blue">
+         <div class="project-thumb" aria-hidden="true">
+           <div class="pt-overlay"></div>
+           <div class="pl-top">THIS IS</div>
+           <div class="pl-title">SWIFT TUTORIAL</div>
+           <div class="pl-bottom">
+             <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+             <div class="pl-meta">SWF • UI • API</div>
+           </div>
+         </div>
+         <div class="project-body">
+           <h3 class="project-title">Curso / Tutorial de Swift</h3>
+           <p class="project-desc">Recorrido por los fundamentos del lenguaje (tipos, optionals, estructuras, control de flujo y protocolos) culminando en dos mini‑apps: calculadora de IMC y visor de superhéroes consumiendo una API (búsqueda + detalle de características) construido con SwiftUI.</p>
+           <ul class="project-tags" aria-label="Tecnologías">
+             <li>Swift</li><li>SwiftUI</li><li>API</li>
+           </ul>
+         </div>
+         <div class="project-actions">
+           <a href="https://github.com/eliasgv04/Curso-Swift" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Curso Swift"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span>Código</span></a>
+         </div>
+       </article>
+       <!-- Proyecto 4 -->
+  <article class="project-card" role="listitem" data-cat="otros ui" data-stack="Procreate,Photoshop,Video" data-tone="amber">
+         <div class="project-thumb" aria-hidden="true">
+           <div class="pt-overlay"></div>
+           <div class="pl-top">THIS IS</div>
+           <div class="pl-title">TORRENUEVA FUTSAL</div>
+           <div class="pl-bottom">
+             <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+             <div class="pl-meta">SOC • VID • KPI</div>
+           </div>
+         </div>
+         <div class="project-body">
+           <h3 class="project-title">Torrenueva Futsal · Community Manager</h3>
+          <p class="project-desc">Gestión digital del club: planning semanal, piezas gráficas (resultados, convocatorias, highlights), cobertura en vivo (stories y marcador), clips de vídeo corto y seguimiento de métricas para iterar contenido.</p>
+           <ul class="project-tags" aria-label="Herramientas y focos">
+             <li>Procreate</li><li>Photoshop</li><li>Video Edición</li><li>Social Media</li><li>Métricas</li>
+           </ul>
+         </div>
+          <div class="project-actions">
+           <a href="https://www.instagram.com/torrenuevafutsal/" target="_blank" rel="noopener" class="proj-link is-action" title="Instagram oficial Torrenueva Futsal"><svg class="icon inline" aria-hidden="true"><use href="#icon-instagram"/></svg><span>Instagram</span></a>
+          </div>
+       </article>
+       <!-- Proyecto 5 -->
+  <article class="project-card" role="listitem" data-cat="otros ui" data-stack="XAML,C#,Multiplayer" data-tone="teal">
+         <div class="project-thumb" aria-hidden="true">
+           <div class="pt-overlay"></div>
+           <div class="pl-top">THIS IS</div>
+           <div class="pl-title">POKÉMON STYLE GAME</div>
+           <div class="pl-bottom">
+             <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+             <div class="pl-meta">XAM • C# • PVP</div>
+           </div>
+         </div>
+         <div class="project-body">
+           <h3 class="project-title">Juego estilo Pokémon (Diseño + Batallas)</h3>
+           <p class="project-desc">Aplicación en XAML/C#: creador de criatura (nombre, tipos, stats, sprite) y núcleo de juego con colección, sistema de turnos, cálculo de daño, estados, batallas multijugador y notificaciones de eventos/captura.</p>
+           <ul class="project-tags" aria-label="Tecnologías y focos">
+             <li>XAML</li><li>C#</li><li>.NET</li><li>Multiplayer</li><li>Notifs</li>
+           </ul>
+         </div>
+         <div class="project-actions">
+           <a href="https://github.com/eliasgv04/Juego-Pokemon" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Juego estilo Pokémon"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span>Código</span></a>
+         </div>
+       </article>
+     </div>
+   </div>
+ </section>
+
+ <section id="skills" class="site-section skills-section">
+   <div class="container py-5">
+     <h2 class="section-title">Skills</h2>
+     <div class="skills-mixer" role="list">
+        <div class="skill-channel" role="listitem" data-skill="HTML / CSS" data-level="90" data-info="Maquetación semántica, responsive y CSS modular.">
+          <div class="channel-inner">
+            <div class="meter" role="progressbar" aria-label="Nivel HTML y CSS" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-html" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-html"/></svg></span><span class="chan-name">HTML / CSS</span></div>
+          </div>
+        </div>
+        <div class="skill-channel" role="listitem" data-skill="JavaScript" data-level="72" data-info="DOM, eventos, componentes ligeros vanilla.">
+          <div class="channel-inner">
+            <div class="meter" role="progressbar" aria-label="Nivel JavaScript" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-js" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-js"/></svg></span><span class="chan-name">JavaScript</span></div>
+          </div>
+        </div>
+        <div class="skill-channel" role="listitem" data-skill="Git / Versionado" data-level="75" data-info="Branching, PRs, merges y resolución de conflictos.">
+          <div class="channel-inner">
+            <div class="meter" role="progressbar" aria-label="Nivel Git y versionado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-git" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-git"/></svg></span><span class="chan-name">Git / Versionado</span></div>
+          </div>
+        </div>
+        <div class="skill-channel" role="listitem" data-skill="Python" data-level="82" data-info="Scripts, parsing, lógica y prototipos backend.">
+          <div class="channel-inner">
+            <div class="meter" role="progressbar" aria-label="Nivel Python" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-py" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-python"/></svg></span><span class="chan-name">Python</span></div>
+          </div>
+        </div>
+        <div class="skill-channel" role="listitem" data-skill="UI / Accesibilidad" data-level="72" data-info="Semántica, ARIA, contraste y foco usable.">
+          <div class="channel-inner">
+            <div class="meter" role="progressbar" aria-label="Nivel UI y accesibilidad" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-a11y" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-a11y"/></svg></span><span class="chan-name">UI / Accesibilidad</span></div>
+          </div>
+        </div>
+        <div class="skill-channel" role="listitem" data-skill="SQL" data-level="75" data-info="Consultas, joins, normalización e índices básicos.">
+          <div class="channel-inner">
+            <div class="meter" role="progressbar" aria-label="Nivel SQL" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-sql" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-sql"/></svg></span><span class="chan-name">SQL</span></div>
+          </div>
+        </div>
+        <div class="skill-channel" role="listitem" data-skill="Gestión / Iteración" data-level="68" data-info="Planificación iterativa y control de calidad.">
+          <div class="channel-inner">
+            <div class="meter" role="progressbar" aria-label="Nivel gestión e iteración" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-mgmt" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-manage"/></svg></span><span class="chan-name">Gestión / Iteración</span></div>
+          </div>
+        </div>
+  <div class="skill-channel" role="listitem" data-skill="Swift / SwiftUI" data-level="48" data-info="Fundamentos y vistas declarativas SwiftUI.">
+          <div class="channel-inner">
+            <div class="meter" role="progressbar" aria-label="Nivel Swift / SwiftUI" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-swift" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-swift"/></svg></span><span class="chan-name">Swift / SwiftUI</span></div>
+          </div>
+        </div>
+  <div class="skill-channel" role="listitem" data-skill="C# / .NET" data-level="45" data-info="POO y base de XAML / .NET.">
+          <div class="channel-inner">
+            <div class="meter" role="progressbar" aria-label="Nivel C# y .NET" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-cs" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-csharp"/></svg></span><span class="chan-name">C# / .NET</span></div>
+          </div>
+        </div>
+  <div class="skill-channel" role="listitem" data-skill="Diseño Visual" data-level="88" data-info="Composición, color y micro‑interacciones UI.">
+          <div class="channel-inner">
+            <div class="meter" role="progressbar" aria-label="Nivel diseño visual" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-design" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-design"/></svg></span><span class="chan-name">Diseño Visual</span></div>
+          </div>
+        </div>
+     </div>
+      <p class="skills-note" aria-live="off">Representación visual aproximada.</p>
+   </div>
+ </section>
+
+ <section id="contact" class="site-section contact-section">
+   <div class="container py-5">
+     <h2 class="section-title">Contacto</h2>
+     <div class="contact-grid">
+       <!-- Casete visual + formulario -->
+       <div class="cassette-wrapper" aria-labelledby="contactTitle" role="group">
+         <div class="cassette" aria-hidden="true">
+           <div class="cassette-shell"></div>
+           <div class="cassette-label">
+             <div class="c-label-top">
+               <span class="c-brand">SIDE A · GET IN TOUCH</span>
+               <span class="c-year">2025</span>
+             </div>
+             <div class="c-window">
+               <div class="reel reel-left"><div class="spokes"></div></div>
+                <div class="tape-level" aria-hidden="true"><div class="tape-level-fill"></div></div>
+               <div class="tape-ticks" aria-hidden="true">
+                 <span></span><span></span><span></span><span></span><span></span>
+               </div>
+               <div class="reel reel-right"><div class="spokes"></div></div>
+             </div>
+             <div class="c-label-bottom">
+               <span class="c-type">HIGH BIAS CHROME</span>
+               <span class="c-code">EG-90</span>
+             </div>
+           </div>
+           <div class="cassette-holes" aria-hidden="true">
+             <span></span><span></span><span></span>
+           </div>
+           <span class="sticker sticker-a" aria-hidden="true">EG MIX</span>
+           <span class="sticker sticker-b" aria-hidden="true">#DEV</span>
+           <span class="scribble" aria-hidden="true">Elías '25</span>
+         </div>
+       </div>
+        <!-- Formulario ahora en una fila aparte a ancho completo -->
+        <form id="contactForm" class="cassette-form wide-form" novalidate>
+          <div class="field-row span-6">
+            <label for="cfName">Nombre</label>
+            <input id="cfName" name="name" type="text" autocomplete="name" maxlength="80" required placeholder="Tu nombre" />
+            <span class="f-msg" data-for="cfName"></span>
+          </div>
+          <div class="field-row span-6">
+            <label for="cfEmail">Email</label>
+            <input id="cfEmail" name="email" type="email" autocomplete="email" required placeholder="tu@email.com" />
+            <span class="f-msg" data-for="cfEmail"></span>
+          </div>
+          <div class="field-row motive-row span-12">
+            <span class="motive-label" id="motiveLabel">Motivo</span>
+            <div class="motive-group" role="radiogroup" aria-labelledby="motiveLabel">
+              <input type="radio" name="subject" id="motColab" value="Colaboración" class="mot-radio" />
+              <label for="motColab" class="mot-pill">Colaboración</label>
+              <input type="radio" name="subject" id="motProy" value="Proyecto" class="mot-radio" />
+              <label for="motProy" class="mot-pill">Proyecto</label>
+              <input type="radio" name="subject" id="motDuda" value="Duda" class="mot-radio" />
+              <label for="motDuda" class="mot-pill">Duda</label>
+              <input type="radio" name="subject" id="motOtro" value="Otro" class="mot-radio" checked />
+              <label for="motOtro" class="mot-pill">Otro</label>
+            </div>
+          </div>
+          <div class="field-row span-12">
+            <label for="cfMessage">Mensaje</label>
+            <textarea id="cfMessage" name="message" rows="4" required placeholder="Cuéntame brevemente tu idea..." maxlength="1200"></textarea>
+            <div class="msg-meter" aria-hidden="true"><div class="mm-fill"></div></div>
+            <span class="f-msg" data-for="cfMessage"></span>
+          </div>
+          <div class="quick-tags span-12" aria-label="Inserta etiquetas rápidas">
+            <button type="button" class="qt-btn" data-tag="Frontend">Frontend</button>
+            <button type="button" class="qt-btn" data-tag="UI/UX">UI/UX</button>
+            <button type="button" class="qt-btn" data-tag="Accesibilidad">Accesibilidad</button>
+            <button type="button" class="qt-btn" data-tag="Prototipo">Prototipo</button>
+            <button type="button" class="qt-btn" data-tag="Consulta">Consulta</button>
+          </div>
+          <div class="form-actions span-12">
+            <button type="submit" class="btn-send" aria-label="Enviar mensaje (abre tu cliente de correo)">
+              <span class="rec-dot" aria-hidden="true"></span><span class="btn-text">ENVIAR / REC</span>
+            </button>
+            <div class="send-status" role="status" aria-live="polite" aria-atomic="true"></div>
+          </div>
+        </form>
+       <!-- Panel de enlaces directos -->
+       <aside class="contact-links" aria-label="Enlaces directos">
+         <h3 class="cl-title">Conecta</h3>
+         <ul class="cl-list">
+            <li>
+              <a class="cl-link" href="mailto:eliagonzalezvaldepenas@gmail.com" data-kind="email" aria-label="Email: eliagonzalezvaldepenas@gmail.com">
+                <span class="cl-icon" aria-hidden="true"><svg class="icon"><use href="#icon-mail"/></svg></span>
+                <span class="cl-label">Email</span>
+                <span class="cl-username">eliagonzalezvaldepenas@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a class="cl-link" href="https://github.com/eliasgv04" target="_blank" rel="noopener" data-kind="github" aria-label="GitHub usuario eliasgv04 (abre nueva pestaña)">
+                <span class="cl-icon" aria-hidden="true"><svg class="icon"><use href="#icon-github"/></svg></span>
+                <span class="cl-label">GitHub</span>
+                <span class="cl-username">@eliasgv04</span>
+              </a>
+            </li>
+            <li>
+              <a class="cl-link" href="https://www.linkedin.com/in/elias-gonzález-valdepeñas-98aa97170" target="_blank" rel="noopener" data-kind="linkedin" aria-label="LinkedIn perfil elias-gonzález-valdepeñas-98aa97170 (abre nueva pestaña)">
+                <span class="cl-icon" aria-hidden="true"><svg class="icon"><use href="#icon-linkedin"/></svg></span>
+                <span class="cl-label">LinkedIn</span>
+                <span class="cl-username">/in/elias-gonzález-valdepeñas-98aa97170</span>
+              </a>
+            </li>
+         </ul>
+       </aside>
+     </div>
+   </div>
+ </section>
+
+<!-- Scripts -->
+<!-- Bootstrap Bundle con Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JS personalizados -->
+  <script src="js/vinyl.js"></script>
+  <script src="js/skills.js"></script>
+  <script src="js/contact.js"></script>
+  <!-- Sprite de iconos inline -->
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-github" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.31 6.84 9.66.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.55 2.34 1.1 2.91.84.09-.66.35-1.1.63-1.35-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .84-.27 2.75 1.05a9.2 9.2 0 0 1 2.5-.35c.85 0 1.7.12 2.5.35 1.9-1.32 2.74-1.05 2.74-1.05.55 1.43.2 2.49.1 2.75.64.72 1.02 1.63 1.02 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .26.18.58.69.48A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" />
+    </symbol>
+    <symbol id="icon-python" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12.27 2c-4.18 0-3.92 1.82-3.92 1.82l.01 1.88h4.01v.57H6.66S4 6.06 4 10.33c0 4.27 2.32 4.13 2.32 4.13h1.39v-1.97s-.07-2.32 2.29-2.32h3.95s2.22.03 2.22-2.15V4.19S16.52 2 12.27 2Zm-2.2 1.27c.4 0 .73.33.73.73 0 .4-.33.73-.73.73a.73.73 0 0 1-.73-.73c0-.4.33-.73.73-.73ZM11.73 22c4.18 0 3.92-1.82 3.92-1.82l-.01-1.88h-4.01v-.57h5.71S20 17.94 20 13.67 17.68 9.54 17.68 9.54h-1.39v1.97s.07 2.32-2.29 2.32h-3.95s-2.22-.03-2.22 2.15v3.83S7.48 22 11.73 22Zm2.2-1.27c-.4 0-.73-.33-.73-.73 0-.4.33-.73.73-.73.4 0 .73.33.73.73 0 .4-.33.73-.73.73Z" />
+    </symbol>
+    <symbol id="icon-html" viewBox="0 0 24 24">
+      <path fill="currentColor" d="m4.2 3 1.6 18L12 21.8l6.18-.8L19.8 3H4.2Zm12.04 5.62H9.47l.17 2.1h6.45l-.5 5.58-3.59 1-.01.01-3.6-1-.23-2.6h1.76l.12 1.3 1.94.52 1.95-.52.2-2.26H8.62L8.1 8.62h7.63l.5-2.1Z" />
+    </symbol>
+    <symbol id="icon-sql" viewBox="0 0 24 24">
+      <ellipse cx="12" cy="5.5" rx="7.5" ry="3.5" fill="currentColor" opacity="0.22" />
+      <path fill="currentColor" d="M12 2C7.86 2 4.5 3.57 4.5 5.5v13c0 1.93 3.36 3.5 7.5 3.5s7.5-1.57 7.5-3.5v-13C19.5 3.57 16.14 2 12 2Zm0 2c3.6 0 5.5 1.24 5.5 1.5S15.6 7 12 7 6.5 5.76 6.5 5.5 8.4 4 12 4Zm0 15c-3.6 0-5.5-1.24-5.5-1.5v-2.05c1.2.68 3.16 1.05 5.5 1.05s4.3-.37 5.5-1.05V17.5c0 .26-1.9 1.5-5.5 1.5Zm0-5c-3.6 0-5.5-1.24-5.5-1.5v-2.05c1.2.68 3.16 1.05 5.5 1.05s4.3-.37 5.5-1.05V12.5c0 .26-1.9 1.5-5.5 1.5Z" />
+    </symbol>
+    <symbol id="icon-info" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm.9 14.5h-1.8v-6h1.8v6Zm0-7.5h-1.8V7h1.8v2Z" />
+    </symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-2.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" />
+    </symbol>
+    <symbol id="icon-css" viewBox="0 0 24 24">
+      <path fill="currentColor" d="m4.2 3 1.6 18L12 21.8l6.18-.8L19.8 3H4.2Zm11.43 4.28-.33 3.74-.02.23H9.3l.2 2.22h5.43l-.52 5.07L12 19.13l-2.44-.64-.16-1.87h-1.9l.27 3.4L12 21.8l4.23-1.11L17.8 7.28h-2.17Z" />
+    </symbol>
+    <symbol id="icon-js" viewBox="0 0 24 24">
+      <!-- Versión simplificada del logotipo JS (solo letras) -->
+      <path fill="currentColor" d="M10.88 16.07c0 1.62-.95 2.29-2.34 2.29-1.26 0-2-.65-2.38-1.44l1.29-.78c.25.44.47.8 1.02.8.52 0 .84-.2.84-.99V10.8h1.57v5.27Zm1.9 2.29c-.99 0-1.78-.47-2.13-1.09l1.3-.75c.34.55.78.76 1.35.76.56 0 .93-.29.93-.67 0-.46-.36-.62-1-.89l-.35-.15c-1-.42-1.67-.95-1.67-2.07 0-1.03.8-1.81 2.04-1.81.89 0 1.52.31 1.97 1.1l-1.21.78c-.26-.46-.55-.64-1.02-.64-.46 0-.77.28-.77.63 0 .45.29.61.91.87l.34.15c1.18.5 1.84 1.02 1.84 2.19 0 1.25-.98 1.93-2.3 1.93Z"/>
+    </symbol>
+    <symbol id="icon-api" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4 4h6v6H4V4Zm2 2v2h2V6H6Zm8-2h6v6h-6V4Zm2 2v2h2V6h-2ZM4 14h6v6H4v-6Zm2 2v2h2v-2H6Zm12.59.17L20 15.76 21.41 17.17 20 18.59l1.41 1.41L20 21.41l-1.41-1.41L17.17 21 15.76 19.59 17.17 18.17 15.76 16.76 17.17 15.34l1.42 1.41Z" />
+    </symbol>
+    <!-- Nuevos iconos para skills -->
+    <symbol id="icon-git" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M2.7 11.3 11.3 2.7a1 1 0 0 1 1.4 0l2 2 1.3 1.3 3.3 3.3a1 1 0 0 1 0 1.4l-8.6 8.6a1 1 0 0 1-1.4 0L2.7 12.7a1 1 0 0 1 0-1.4Zm9.3-5.2 1.9 1.9a1.75 1.75 0 0 1-.2 3.4v3.6a1.75 1.75 0 1 1-1.5 0v-3.6a1.75 1.75 0 0 1-.2-3.4l-1.1-1.1 1.1-1.8Z"/>
+    </symbol>
+    <symbol id="icon-a11y" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2.5a2.25 2.25 0 1 1 0 4.5 2.25 2.25 0 0 1 0-4.5ZM4 7.5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2h-5v5.25l2.9 6.18a1 1 0 0 1-1.8.84L12 15.2l-3.1 5.57a1 1 0 0 1-1.78-.9L10 13.75V8.5H5a1 1 0 0 1-1-1Z"/>
+    </symbol>
+    <symbol id="icon-manage" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M7 3h10a2 2 0 0 1 2 2v14l-7-3-7 3V5a2 2 0 0 1 2-2Zm8 4H9v2h6V7Zm0 4H9v2h6v-2Z"/>
+    </symbol>
+    <symbol id="icon-swift" viewBox="0 0 24 24">
+      <!-- Silueta Swift estilizada -->
+      <path fill="currentColor" d="M17.9 21.3c2-.9 3.1-2.3 3.1-4.3 0-4.9-4.8-9.7-8.9-11.7-1.6-.8-3 .2-3 .2 1.1 1.6 2.7 3.5 3.8 4.6-2.2-1.3-5-4.3-6.3-6C6.1 4.7 5 7 5 9.4c0 6.1 5.4 11 10.2 11 1.5 0 2.9-.4 3.9-1.1-.6.1-1.3.1-1.9 0-2.8-.4-4.7-2.1-6-3.4 1.9.9 5 1.9 6.7.4Z"/>
+    </symbol>
+    <symbol id="icon-csharp" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2 3 7v10l9 5 9-5V7l-9-5Zm0 2.2 7 3.9v7.8l-7 3.9-7-3.9V8.1l7-3.9Zm-3.6 5.3a4.6 4.6 0 0 0 0 6.9c1.7 1.6 4.5 1.6 6.2 0 .4-.4.4-1 0-1.4a1 1 0 0 0-1.4 0c-1 .9-2.4.9-3.4 0a2.6 2.6 0 0 1 0-4c1-.9 2.4-.9 3.4 0a1 1 0 0 0 1.4-1.5 4.6 4.6 0 0 0-6.2 0Zm8.1-.5-.3 1.5H17v1h-.6l-.2 1h.8v1h-1l-.3 1.5h-1L15.5 15h-1l-.3 1.5h-1L13.5 15h-.5v-1h.7l.2-1h-.6v-1h.8l.3-1.5h1l-.3 1.5h1l.3-1.5h1Z"/>
+    </symbol>
+    <symbol id="icon-design" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4 20.5 5.5 15 15 5.5l3.5 3.5L9 18.5 4 20.5Zm8.5-13L14 6 18 10l-1.5 1.5-4-4Z"/>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M3 5h18a2 2 0 0 1 2 2v.3l-11 6.2L1 7.3V7a2 2 0 0 1 2-2Zm-2 5.1 10.4 5.9a2 2 0 0 0 2 0L24 10.1V17a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-6.9Z"/>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm7.5 0h3.8l.2 1.7c.7-1 2.1-2 3.9-2 3.1 0 5.1 2.2 5.1 5.8V21h-4v-6.1c0-1.8-.9-2.9-2.4-2.9-1.6 0-2.6 1.1-2.6 3V21h-4V9Z"/>
+    </symbol>
+  </svg>
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Botón flotante modo claro/oscuro -->
+  <button id="themeToggleFab" class="theme-toggle-fab" type="button" aria-label="Cambiar a modo oscuro" title="Cambiar tema">
+    <span class="icon-sun" aria-hidden="true">☀️</span>
+    <span class="icon-moon" aria-hidden="true">🌙</span>
+  </button>
+</body>
+</html>
