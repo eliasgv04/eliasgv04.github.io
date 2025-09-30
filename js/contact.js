@@ -105,7 +105,7 @@
     if(!validate()) { e.preventDefault(); return; }
     e.preventDefault();
     sending = true;
-    sendStatus.textContent = 'Preparando mensaje…';
+    sendStatus.textContent = '🎵 Preparando tu mensaje...';
     recDot.classList.add('active');
 
     // construir mailto
@@ -126,9 +126,9 @@
     // pequeña animación y abrir
     setTimeout(()=>{
       window.location.href = href;
-      sendStatus.textContent = 'Abriendo tu cliente de correo…';
+      sendStatus.textContent = '📧 Abriendo tu cliente de correo...';
       setTimeout(()=>{
-        sendStatus.textContent = 'Si no se abrió, copia: ' + to;
+        sendStatus.textContent = '💌 Si no se abrió automáticamente, copia: ' + to;
         sending = false;
         recDot.classList.remove('active');
       }, 3200);
