@@ -109,7 +109,7 @@
     recDot.classList.add('active');
 
     // construir mailto
-    const to = 'eliagonzalezvaldepenas@gmail.com';
+    const to = 'eliasgonzalezvaldepenas@gmail.com';
   const chosen = [...subjectRadios].find(r=>r.checked)?.value || 'Mensaje';
   const subj = encodeURIComponent(chosen + ' - ' + nameInput.value.trim());
     const bodyLines = [
