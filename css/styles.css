@@ -164,6 +164,9 @@ body {
 .brand-logo:hover .brand-img { box-shadow: 0 4px 14px -4px rgba(209,17,65,0.55); transform: translateY(-2px); }
 .brand-logo:active .brand-img { transform: translateY(0); }
 
+/* Botón CV en navbar */
+.cv-download { white-space: nowrap; }
+
 /* Hover de sección (ligero levantamiento) */
 .site-section:hover {
   z-index: 2;
