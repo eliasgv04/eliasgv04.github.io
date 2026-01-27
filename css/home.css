@@ -294,7 +294,7 @@ html[data-theme='dark'] .volume-value { color: #b6bcc3; }
   .home-section { padding-top: calc(6rem + env(safe-area-inset-top, 0px)); }
 
   /* Reservamos espacio extra bajo el disco para los controles */
-  .turntable { height: calc(var(--disk-size) + 170px); }
+  .turntable { height: calc(var(--disk-size) + 230px); padding-bottom: 18px; }
 
   /* Pasamos los controles a flujo normal para que no se monten con el botón Play */
   .volume-knob-wrapper {
@@ -302,7 +302,8 @@ html[data-theme='dark'] .volume-value { color: #b6bcc3; }
     left: auto;
     top: auto;
     transform: none;
-    margin-top: 14px;
+    margin-top: 18px;
+    margin-bottom: 14px;
     flex-direction: column;
     align-items: center;
     gap: .6rem;
@@ -313,7 +314,7 @@ html[data-theme='dark'] .volume-value { color: #b6bcc3; }
     flex-direction: row;
     align-items: center;
     gap: .6rem;
-    margin: 0;
+    margin: 0 0 10px 0;
     order: 3; /* los mini-knobs van después del knob grande y su valor */
   }
   /* Reducimos tamaños para ganar aire */
@@ -322,9 +323,9 @@ html[data-theme='dark'] .volume-value { color: #b6bcc3; }
   .volume-label, .volume-value { font-size: .6rem; }
   .volume-label { order: 0; }
   .volume-knob { order: 1; }
-  .volume-value { order: 2; margin-bottom: .8rem; }
+  .volume-value { order: 2; margin-bottom: 1rem; }
   /* Más margen entre el porcentaje y el botón Play */
-  #togglePlay { margin-top: 1.4rem; }
+  #togglePlay { margin-top: 2rem; }
 }
 .track-progress circle { fill:none; stroke-width:4; }
 .track-progress .bg { stroke: rgba(255,255,255,0.15); }
