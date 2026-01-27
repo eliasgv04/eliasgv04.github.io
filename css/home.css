@@ -1,6 +1,6 @@
 /* ===== Sección Home ===== */
 .home-section {
-  height: 100vh;
+  min-height: 100svh;
   background: var(--bg-body, #ffffff); /* usa variable del tema claro si existe */
   color: var(--text-color, #1e1f23);
   display: flex;
@@ -9,7 +9,8 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
-  padding-top: 4rem; /* compensar navbar fija */
+  padding-top: calc(4rem + env(safe-area-inset-top, 0px)); /* compensar navbar fija + zona segura */
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
   position: relative;
 }
 
@@ -38,14 +39,15 @@ html[data-theme='dark'] .home-section::before { opacity: .42; mix-blend-mode: li
 /* Tocadiscos completo */
 .turntable {
   position: relative;
-  width: 420px;
-  height: 420px;
+  --disk-size: clamp(260px, 72vw, 420px);
+  width: var(--disk-size);
+  height: var(--disk-size);
 }
 
 .vinyl-container {
   position: relative;
-  width: 400px; /* tamaño del vinilo */
-  height: 400px;
+  width: var(--disk-size); /* tamaño del vinilo */
+  height: var(--disk-size);
 }
 
 /* Vinilo negro */
@@ -167,8 +169,8 @@ html[data-theme='dark'] .home-section::before { opacity: .42; mix-blend-mode: li
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
+  width: clamp(88px, 27vw, 120px);
+  height: clamp(88px, 27vw, 120px);
   border-radius: 50%;
   background:
     radial-gradient(circle at 35% 30%, rgba(255,255,255,0.35), rgba(255,255,255,0) 55%),
@@ -189,7 +191,7 @@ html[data-theme='dark'] .home-section::before { opacity: .42; mix-blend-mode: li
 }
 
 /* Ecualizador mini reubicado bajo el botón Play */
-.mini-eq { display:flex; gap:8px; justify-content:center; align-items:flex-end; height:44px; }
+.mini-eq { display:flex; gap:8px; justify-content:center; align-items:flex-end; height: clamp(36px, 8vw, 44px); }
 .time-display { font-size:.75rem; font-weight:500; letter-spacing:.5px; color:var(--text-soft,#555); }
 html[data-theme='dark'] .time-display { color:#b8bec4; }
 
@@ -209,8 +211,8 @@ html[data-theme='dark'] .time-display { color:#b8bec4; }
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  width: 340px;
-  height: 340px;
+  width: calc(var(--disk-size) - 80px);
+  height: calc(var(--disk-size) - 80px);
   border-radius: 50%;
   background: radial-gradient(circle at center, rgba(209,17,65,0.35), rgba(209,17,65,0) 60%);
   pointer-events: none;
@@ -226,7 +228,7 @@ html[data-theme='dark'] .time-display { color:#b8bec4; }
 /* (Animación eliminada a petición: barras estáticas) */
 
 /* Progreso circular alrededor del label */
-.track-progress { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotate(-90deg); width:150px; height:150px; pointer-events:none; z-index:4; }
+.track-progress { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotate(-90deg); width: clamp(120px, 34vw, 150px); height: clamp(120px, 34vw, 150px); pointer-events:none; z-index:4; }
 
 /* Knob de volumen */
 .volume-knob-wrapper { position: absolute; top:50%; left:-95px; transform:translateY(-50%); display:flex; flex-direction:column; align-items:center; gap:.35rem; user-select:none; }
@@ -297,14 +299,14 @@ html[data-theme='dark'] .volume-value { color: #b6bcc3; }
 /* .vinyl.playing .mini-eq span { }  (sin animación) */
 
 .label .artist-name {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 3.8vw, 1.05rem);
   line-height: 1.1;
   margin: 0 0 4px 0;
   font-weight: 700;
 }
 
 .label .profession {
-  font-size: 0.65rem;
+  font-size: clamp(0.6rem, 2.8vw, 0.75rem);
   margin: 0;
   line-height: 1.1;
   letter-spacing: 0.5px;
@@ -324,6 +326,10 @@ html[data-theme='dark'] .volume-value { color: #b6bcc3; }
   transition: transform 1s ease;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.45);
   z-index: 10;
+}
+
+@media (max-width: 680px) {
+  .tonearm { display: none; }
 }
 
 /* Cabezal + cápsula + aguja */
@@ -371,7 +377,7 @@ html[data-theme='dark'] .volume-value { color: #b6bcc3; }
 
 /* Botón Play/Pause */
 #togglePlay {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3.8vw, 1.2rem);
   font-weight: bold;
   padding: 10px 25px;
   border-radius: 30px;
