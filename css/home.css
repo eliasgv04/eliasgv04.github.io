@@ -290,14 +290,20 @@ html[data-theme='dark'] .volume-knob { background: radial-gradient(circle at 30%
 html[data-theme='dark'] .volume-value { color: #b6bcc3; }
 
 @media (max-width: 680px) {
-  /* Colocamos los controles debajo del disco y en columna para evitar solapamientos */
+  /* Reservamos espacio extra bajo el disco para los controles */
+  .turntable { height: calc(var(--disk-size) + 170px); }
+
+  /* Pasamos los controles a flujo normal para que no se monten con el botón Play */
   .volume-knob-wrapper {
-    left: 50%;
-    top: calc(100% + 20px);
-    transform: translate(-50%, 0);
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-top: 14px;
     flex-direction: column;
     align-items: center;
     gap: .6rem;
+    z-index: 2;
   }
   /* Fila compacta de mini-knobs */
   .aux-knobs {
@@ -310,6 +316,9 @@ html[data-theme='dark'] .volume-value { color: #b6bcc3; }
   .mini-knob { width: 44px; height: 44px; }
   .volume-knob { width: 62px; height: 62px; }
   .volume-label, .volume-value { font-size: .6rem; }
+  .volume-label { order: 0; }
+  .volume-knob { order: 1; }
+  .volume-value { order: 2; }
   /* El botón Play con un pequeño margen en móvil */
   #togglePlay { margin-top: .5rem; }
 }
