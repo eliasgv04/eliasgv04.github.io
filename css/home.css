@@ -322,9 +322,9 @@ html[data-theme='dark'] .volume-value { color: #b6bcc3; }
   .volume-label, .volume-value { font-size: .6rem; }
   .volume-label { order: 0; }
   .volume-knob { order: 1; }
-  .volume-value { order: 2; margin-bottom: .6rem; }
-  /* El botón Play con un poco más de margen respecto al porcentaje */
-  #togglePlay { margin-top: .8rem; }
+  .volume-value { order: 2; margin-bottom: .8rem; }
+  /* Más margen entre el porcentaje y el botón Play */
+  #togglePlay { margin-top: 1.4rem; }
 }
 .track-progress circle { fill:none; stroke-width:4; }
 .track-progress .bg { stroke: rgba(255,255,255,0.15); }
