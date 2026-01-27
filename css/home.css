@@ -289,8 +289,30 @@ html[data-theme='dark'] .volume-knob { background: radial-gradient(circle at 30%
 .volume-value { font-size: .75rem; font-weight: 500; color: var(--text-soft,#555); letter-spacing: .5px; }
 html[data-theme='dark'] .volume-value { color: #b6bcc3; }
 
-@media (max-width: 680px) { .volume-knob-wrapper { left:50%; top:calc(100% + 28px); transform:translate(-50%,0); flex-direction:row; } .volume-label { order:1; margin-right:.5rem; } .volume-value { order:3; } }
-@media (max-width:680px){ .aux-knobs { flex-direction:row; margin-left:.75rem; align-items:flex-start; } }
+@media (max-width: 680px) {
+  /* Colocamos los controles debajo del disco y en columna para evitar solapamientos */
+  .volume-knob-wrapper {
+    left: 50%;
+    top: calc(100% + 20px);
+    transform: translate(-50%, 0);
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+  }
+  /* Fila compacta de mini-knobs */
+  .aux-knobs {
+    flex-direction: row;
+    align-items: center;
+    gap: .6rem;
+    margin: 0;
+  }
+  /* Reducimos tamaños para ganar aire */
+  .mini-knob { width: 44px; height: 44px; }
+  .volume-knob { width: 62px; height: 62px; }
+  .volume-label, .volume-value { font-size: .6rem; }
+  /* El botón Play con un pequeño margen en móvil */
+  #togglePlay { margin-top: .5rem; }
+}
 .track-progress circle { fill:none; stroke-width:4; }
 .track-progress .bg { stroke: rgba(255,255,255,0.15); }
 .track-progress .fg { stroke: var(--primary,#d11141); stroke-linecap:round; stroke-dasharray:339.292; stroke-dashoffset:339.292; transition: stroke-dashoffset .3s linear; }
