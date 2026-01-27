@@ -290,6 +290,9 @@ html[data-theme='dark'] .volume-knob { background: radial-gradient(circle at 30%
 html[data-theme='dark'] .volume-value { color: #b6bcc3; }
 
 @media (max-width: 680px) {
+  /* Más aire arriba para que se vea el texto del encabezado en móviles */
+  .home-section { padding-top: calc(6rem + env(safe-area-inset-top, 0px)); }
+
   /* Reservamos espacio extra bajo el disco para los controles */
   .turntable { height: calc(var(--disk-size) + 170px); }
 
@@ -311,6 +314,7 @@ html[data-theme='dark'] .volume-value { color: #b6bcc3; }
     align-items: center;
     gap: .6rem;
     margin: 0;
+    order: 3; /* los mini-knobs van después del knob grande y su valor */
   }
   /* Reducimos tamaños para ganar aire */
   .mini-knob { width: 44px; height: 44px; }
@@ -318,9 +322,9 @@ html[data-theme='dark'] .volume-value { color: #b6bcc3; }
   .volume-label, .volume-value { font-size: .6rem; }
   .volume-label { order: 0; }
   .volume-knob { order: 1; }
-  .volume-value { order: 2; }
-  /* El botón Play con un pequeño margen en móvil */
-  #togglePlay { margin-top: .5rem; }
+  .volume-value { order: 2; margin-bottom: .6rem; }
+  /* El botón Play con un poco más de margen respecto al porcentaje */
+  #togglePlay { margin-top: .8rem; }
 }
 .track-progress circle { fill:none; stroke-width:4; }
 .track-progress .bg { stroke: rgba(255,255,255,0.15); }
