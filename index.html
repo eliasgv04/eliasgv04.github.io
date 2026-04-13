@@ -197,7 +197,8 @@
                <div class="record-base" aria-hidden="true"></div>
                <div class="record-ring ring-stage1" data-stage="1" data-label="Colegio" data-years="2007–2016" aria-hidden="true"></div>
                <div class="record-ring ring-stage2" data-stage="2" data-label="IES" data-years="2016–2022" aria-hidden="true"></div>
-               <div class="record-ring ring-stage3 current" data-stage="3" data-label="Universidad" data-years="2022–2026" aria-hidden="true"></div>
+               <div class="record-ring ring-stage3" data-stage="3" data-label="Universidad" data-years="2022–2026" aria-hidden="true"></div>
+               <div class="record-ring ring-stage4 current" data-stage="4" data-label="Prácticas" data-years="2026–Actualidad" aria-hidden="true"></div>
                <div class="record-core" aria-hidden="true"></div>
                <div class="record-hole" aria-hidden="true"></div>
                <div class="record-center-display" aria-live="polite" aria-label="Etapa formativa actual"></div>
@@ -209,9 +210,13 @@
                  <span class="stage-years">2016–2022</span>
                  <span class="stage-place">IES Francisco Nieva</span>
                </div>
-               <div class="record-stage-info stage-pos-3 current" data-stage="3">
+               <div class="record-stage-info stage-pos-3" data-stage="3">
                  <span class="stage-years">2022–2026</span>
                  <span class="stage-place">ESI · UCLM</span>
+               </div>
+               <div class="record-stage-info stage-pos-4 current" data-stage="4">
+                 <span class="stage-years">2026–Actualidad</span>
+                 <span class="stage-place">Minsait · Prácticas</span>
                </div>
              </div>
              <div class="timeline-wave-bg" aria-hidden="true">
@@ -248,12 +253,21 @@
                  </div>
                </div>
              </li>
-             <li class="edu-item current" data-year="2022-2026">
+             <li class="edu-item" data-year="2022-2026">
                <div class="track-segment">
                  <span class="marker spinning" aria-hidden="true"></span>
                  <div class="edu-info">
                    <h4>Escuela Superior de Informática (UCLM)</h4>
                    <p>Grado en Ingeniería Informática (Itinerario de Tecnologías de la Información): arquitectura de computadores (memoria, cachés, procesador), representación y persistencia de datos, bases de datos relacionales (normalización, índices, transacciones, SQL optimizado) y fundamentos de bases NoSQL. Programación estructurada y orientación a objetos; patrones de diseño (DAO, MVC, Singleton, Strategy) y principios SOLID aplicados a refactorizaciones. Desarrollo web full‑stack: maquetación semántica (HTML5), estilos escalables (CSS modular, responsive), interacción dinámica y DOM eficiente (JavaScript). Backend y servicios: diseño de APIs REST, serialización, validación de entradas, manejo de errores, autenticación básica y nociones de seguridad (inyección, control de acceso). Estructuras de datos avanzadas (árboles, hash, colas de prioridad), análisis de complejidad temporal/espacial y selección de enfoques según contexto. Colaboración con Git (ramas, pull requests, resolución de conflictos), integración gradual de pruebas, documentación técnica clara y enfoque sistemático en mantenibilidad, escalabilidad y experiencia de usuario final.</p>
+                 </div>
+               </div>
+             </li>
+             <li class="edu-item current" data-year="2026-actualidad">
+               <div class="track-segment">
+                 <span class="marker spinning" aria-hidden="true"></span>
+                 <div class="edu-info">
+                   <h4>Prácticas en Minsait</h4>
+                   <p>Desde 2026 comienzo mis prácticas en Minsait, trabajando en un proyecto para una aseguradora. Participo en el desarrollo y evolución de funcionalidades con Spring Boot en backend y Angular en frontend, aplicando buenas prácticas de integración y trabajo en equipo.</p>
                  </div>
                </div>
              </li>
@@ -280,6 +294,7 @@
                    <div class="tick tick-stage-1 active" data-stage="1"><span class="tick-dot"></span><span class="tick-label">Colegio</span></div>
                    <div class="tick tick-stage-2" data-stage="2"><span class="tick-dot"></span><span class="tick-label">Instituto</span></div>
                    <div class="tick tick-stage-3" data-stage="3"><span class="tick-dot"></span><span class="tick-label">Universidad</span></div>
+             <div class="tick tick-stage-4" data-stage="4"><span class="tick-dot"></span><span class="tick-label">Prácticas</span></div>
                    <div class="year-scale" aria-hidden="true">
                       <span class="year y-start" style="--pos:0%;">2007</span>
                       <span class="year y-mid1" style="--pos:50%;">2016</span>
@@ -300,11 +315,16 @@
                  <span class="t-years">2016–2022</span>
                  <span class="t-label">Instituto</span>
                </button>
-               <button class="t-step" role="listitem" data-stage="3" data-years="2022–2026" data-place="ESI · UCLM" data-desc="Ingeniería Informática (TI): arquitectura HW, bases de datos (SQL), estructuras de datos, patrones, APIs REST, seguridad inicial y trabajo colaborativo con Git." aria-pressed="false">
+              <button class="t-step" role="listitem" data-stage="3" data-years="2022–2026" data-place="ESI · UCLM" data-desc="Ingeniería Informática (TI): arquitectura HW, bases de datos (SQL), estructuras de datos, patrones, APIs REST, seguridad inicial y trabajo colaborativo con Git." aria-pressed="false">
                  <span class="t-dot" aria-hidden="true"></span>
                  <span class="t-years">2022–2026</span>
                  <span class="t-label">Universidad</span>
                </button>
+              <button class="t-step" role="listitem" data-stage="4" data-years="2026–Actualidad" data-place="Minsait · Prácticas" data-desc="Inicio de prácticas en Minsait en 2026, trabajando en un proyecto para una aseguradora con Spring Boot y Angular." aria-pressed="false">
+                <span class="t-dot" aria-hidden="true"></span>
+                <span class="t-years">2026–Actualidad</span>
+                <span class="t-label">Prácticas</span>
+              </button>
                <div class="t-progress" aria-hidden="true"><div class="t-progress-bar"></div></div>
              </div>
              <div class="t-detail" aria-live="polite">
@@ -615,16 +635,16 @@
             <div class="channel-label"><span class="chan-icon ci-mgmt" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-manage"/></svg></span><span class="chan-name">Gestión / Iteración</span></div>
           </div>
         </div>
-  <div class="skill-channel" role="listitem" data-skill="Swift / SwiftUI" data-level="48" data-info="Fundamentos y vistas declarativas SwiftUI.">
+  <div class="skill-channel" role="listitem" data-skill="Angular" data-level="85" data-info="Componentes, servicios, routing y estado.">
           <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel Swift / SwiftUI" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-swift" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-swift"/></svg></span><span class="chan-name">Swift / SwiftUI</span></div>
+            <div class="meter" role="progressbar" aria-label="Nivel Angular" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-ng" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-angular"/></svg></span><span class="chan-name">Angular</span></div>
           </div>
         </div>
-  <div class="skill-channel" role="listitem" data-skill="C# / .NET" data-level="45" data-info="POO y base de XAML / .NET.">
+  <div class="skill-channel" role="listitem" data-skill="Spring Boot" data-level="80" data-info="APIs REST, JPA, seguridad y servicios.">
           <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel C# y .NET" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-cs" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-csharp"/></svg></span><span class="chan-name">C# / .NET</span></div>
+            <div class="meter" role="progressbar" aria-label="Nivel Spring Boot" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="channel-label"><span class="chan-icon ci-spring" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-spring"/></svg></span><span class="chan-name">Spring Boot</span></div>
           </div>
         </div>
   <div class="skill-channel" role="listitem" data-skill="Diseño Visual" data-level="88" data-info="Composición, color y micro‑interacciones UI.">
@@ -796,6 +816,12 @@
     </symbol>
     <symbol id="icon-manage" viewBox="0 0 24 24">
       <path fill="currentColor" d="M7 3h10a2 2 0 0 1 2 2v14l-7-3-7 3V5a2 2 0 0 1 2-2Zm8 4H9v2h6V7Zm0 4H9v2h6v-2Z"/>
+    </symbol>
+    <symbol id="icon-angular" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2 3.2 5.1l1.35 11.63L12 22l7.45-5.27L20.8 5.1 12 2Zm0 2.2 6.16 2.2-1.02 8.8L12 18.9 6.86 15.2l-1.02-8.8L12 4.2Zm0 3.2-3.66 8.2h1.36l.74-1.84h3.1l.74 1.84h1.38L12 7.4Zm0 2.62 1.02 2.54h-2.03L12 10.02Z"/>
+    </symbol>
+    <symbol id="icon-spring" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M19.6 4.7c-3.9-2-9-.8-12 2.2-2.7 2.8-3.3 6.8-1.7 10 .2.4.7.5 1 .2 1-.8 2.1-1.2 3.4-1.2 1.7 0 3.2.7 4.3 1.9.3.3.8.3 1.1 0 2.2-2.1 4.7-6.1 4-10.6 0-.2-.1-.4-.3-.5-.3-.1-.5-.1-.8 0-2.8 1.4-6.1 1.6-8.9.9 2.5.2 5-.4 7.1-1.8.3-.2.6-.1.8.1.2.2.3.5.2.8-1 2.8-3 5.1-5.7 6.4-.2.1-.4.1-.6 0-1.4-.8-3-.9-4.5-.4 1 1.4 2.6 2.3 4.4 2.3 2.9 0 5.4-2.1 5.9-5 .2-1.3.1-2.7-.2-4 .1-.5.5-.8.9-1 .3-.2.7-.2 1 .1.2.1.3.3.3.6.3 2 .1 4-.6 5.8-.9 2.4-2.5 4.5-4.7 6-.3.2-.6.2-.9 0-.8-.6-1.8-.9-2.8-.9-2.4 0-4.4 1.7-4.9 4 0 .2-.2.4-.4.5-.2.1-.5.1-.7 0-1.9-1-3.3-2.7-3.9-4.8C1 13.1 2 8.9 5 6c3.5-3.5 9.5-4.9 14.4-2.3.3.2.5.6.3 1-.1.3-.5.4-.8.3Z"/>
     </symbol>
     <symbol id="icon-swift" viewBox="0 0 24 24">
       <!-- Silueta Swift estilizada -->

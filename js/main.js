@@ -175,13 +175,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const hiddenSteps = [...document.querySelectorAll('.t-step')];
     let ratio = parseFloat(crossfader.getAttribute('data-ratio')) || 0; // 0..1 continuo
     let dragging = false;
-    const YEAR_START = 2007;
-    const YEAR_END = 2025;
-    const STAGE_BOUNDARIES = [2016, 2022];
+    const YEAR_START = parseInt(crossfader.getAttribute('aria-valuemin'), 10) || 2007;
+    const YEAR_END = parseInt(crossfader.getAttribute('aria-valuemax'), 10) || 2026;
+    const STAGE_BOUNDARIES = [2016, 2022, 2026];
     function stageForYear(y){
       if(y < STAGE_BOUNDARIES[0]) return 1;
       if(y < STAGE_BOUNDARIES[1]) return 2;
-      return 3;
+      if(y < STAGE_BOUNDARIES[2]) return 3;
+      return 4;
     }
     function yearFromRatio(r){
       const span = YEAR_END - YEAR_START; return Math.round(YEAR_START + r * span); }
