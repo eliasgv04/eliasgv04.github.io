@@ -83,6 +83,7 @@
 .ci-mgmt { background: linear-gradient(135deg,#ff8c42,#ffba42); color:#fff; }
 .ci-ng { background: linear-gradient(135deg,#dd0031,#c3002f); color:#fff; }
 .ci-spring { background: linear-gradient(135deg,#6db33f,#3f8f28); color:#fff; }
+.ci-test { background: linear-gradient(135deg,#4caf50,#388e3c); color:#fff; }
 .ci-swift { background: linear-gradient(135deg,#ff5d2d,#ff8e2d); color:#fff; }
 .ci-cs { background: linear-gradient(135deg,#9b4dff,#6f30c9); color:#fff; }
 .ci-design { background: linear-gradient(135deg,#ff2e63,#ffa07a); color:#fff; font-size:.9rem; }
