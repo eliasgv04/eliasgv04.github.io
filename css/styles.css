@@ -157,6 +157,9 @@ body {
 
 /* Brand */
 .brand-logo { text-decoration: none; }
+.brand-logo-wrapper { position: relative; }
+.brand-code { font-weight: 700; font-size: 0.95rem; color: var(--primary); opacity: 0.85; transition: var(--transition); margin-left: -0.4rem; }
+.brand-logo:hover .brand-code { opacity: 1; color: var(--primary-accent); }
 .brand-text { font-weight: 600; font-size: 1.15rem; letter-spacing: .8px; background: linear-gradient(90deg,var(--primary) 0%,var(--primary-accent) 60%,var(--primary) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; position: relative; }
 .brand-logo:hover .brand-text { filter: brightness(1.15); }
 /* Imagen del brand (icono E) */

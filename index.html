@@ -59,8 +59,9 @@
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/certifications.css" />
   <link rel="stylesheet" href="css/projects.css" />
-  <link rel="stylesheet" href="css/skills.css" />
+  <link rel="stylesheet" href="css/skills-grid.css" />
   <link rel="stylesheet" href="css/contact.css" />
 </head>
 <body>
@@ -68,7 +69,10 @@
   <nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top shadow-sm main-nav">
     <div class="container-fluid">
       <a class="navbar-brand brand-logo d-flex align-items-center" href="#home" aria-label="Inicio">
-        <img src="img/brand-icon.svg" width="38" height="38" alt="Logo E" class="brand-img me-2" />
+        <div class="brand-logo-wrapper d-flex align-items-center gap-2">
+          <img src="img/brand-icon.svg" width="38" height="38" alt="Logo E" class="brand-img" />
+          <span class="brand-code" aria-hidden="true">&lt;/&gt;</span>
+        </div>
         <span class="brand-text">Elías</span>
       </a>
       <!-- Botón Descargar CV (visible en pantallas grandes) -->
@@ -78,6 +82,7 @@
         download
         aria-label="Descargar CV en PDF"
         title="Descargar CV (PDF)"
+        data-i18n="nav_download_cv"
       >
         Descargar CV
       </a>
@@ -94,11 +99,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto nav-links align-items-lg-center align-items-start gap-lg-0 gap-2">
-          <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">Sobre mí</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="#home" data-i18n="nav_inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav_about">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certifications" data-i18n="nav_certifications">Certificaciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects" data-i18n="nav_projects">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills" data-i18n="nav_skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav_contact">Contacto</a></li>
+          <!-- Botón Language Toggle -->
+          <li class="nav-item">
+            <button class="btn-language-toggle" id="languageToggle" aria-label="Toggle language" title="English / Español">
+              <span class="lang-code">EN</span>
+            </button>
+          </li>
           <!-- Enlace Descargar CV (visible solo en móvil/tablet) -->
           <li class="nav-item d-lg-none">
             <a
@@ -106,7 +118,8 @@
               href="assets/cv/CVElias.pdf"
               download
               aria-label="Descargar CV en PDF"
-            >Descargar CV (PDF)</a>
+              data-i18n="nav_download_cv"
+            >Descargar CV</a>
           </li>
         </ul>
       </div>
@@ -114,7 +127,7 @@
   </nav>
 
  <section id="home" class="home-section site-section d-flex flex-column justify-content-center align-items-center text-center">
-  <p class="home-tagline fade-in">Portafolio de <strong>Elías González</strong> · Desarrollo Web, Interfaces & Accesibilidad</p>
+  <p class="home-tagline fade-in" data-i18n="home_tagline" data-i18n-html="true">Portafolio de <strong>Elías González</strong> · Ingeniería Informática & Desarrollo Full-Stack</p>
   <div class="turntable">
     <div class="vinyl-container">
       <div class="vinyl">
@@ -131,7 +144,7 @@
         </div>
         <div class="label">
           <h1 class="artist-name">Elías González</h1>
-          <p class="profession">Informático / Developer</p>
+          <p class="profession">Ingeniero Informático</p>
         </div>
         <!-- Progreso circular -->
         <svg class="track-progress" viewBox="0 0 120 120" aria-hidden="true">
@@ -141,38 +154,10 @@
       </div>
       <!-- Pulso reactivo -->
       <div class="audio-pulse" aria-hidden="true"></div>
-      <!-- Knob de volumen -->
-      <div class="volume-knob-wrapper">
-        <div class="volume-label">Volumen</div>
-        <div class="volume-knob" id="volumeKnob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" tabindex="0"></div>
-        <div class="volume-value" id="volumeValue">80%</div>
-        <div class="aux-knobs" aria-label="Controles adicionales">
-          <div class="knob-group">
-            <div class="mini-knob-label">Mute</div>
-            <div class="mini-knob" id="muteKnob" role="switch" aria-label="Silenciar" aria-checked="false" data-state="off" tabindex="0"></div>
-          </div>
-          <div class="knob-group">
-            <div class="mini-knob-label">Boost</div>
-            <div class="mini-knob" id="boostKnob" role="switch" aria-label="Potenciar volumen" aria-checked="false" data-state="off" tabindex="0"></div>
-          </div>
-          <div class="knob-group">
-            <div class="mini-knob-label">Loop</div>
-            <div class="mini-knob" id="loopKnob" role="switch" aria-label="Repetir pista" aria-checked="false" data-state="off" tabindex="0"></div>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="tonearm"></div>
   </div>
 
-  <button id="togglePlay" class="btn btn-outline-dark mt-4">
-    ▶ Play
-  </button>
-  <div class="mini-eq eq-below mt-3" aria-hidden="true">
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
-  <div class="time-display mt-2" aria-label="Tiempo de reproducción"><span id="elapsed">0:00</span> / <span id="duration">0:00</span></div>
-  <audio id="audioTrack" preload="auto" src="assets/fonts/demo.mp3"></audio>
 </section>
 
  <!-- Secciones adicionales -->
@@ -189,8 +174,8 @@
          </figure>
        </div>
        <div class="about-content-block">
-         <h2 class="section-title">Sobre mí</h2>
-         <p class="about-intro">Me defino como alguien curioso y detallista: disfruto creando interfaces limpias, accesibles y con una estética cuidada. Me inspira combinar tecnología y ritmo visual, como se ve en el tocadiscos de inicio.</p>
+         <h2 class="section-title" data-i18n="about_title">Sobre mí</h2>
+         <p class="about-intro" data-i18n="about_intro">Me defino como alguien curioso y detallista: disfruto creando interfaces limpias, accesibles y con una estética cuidada. Me inspira combinar tecnología y ritmo visual, como se ve en el tocadiscos de inicio.</p>
          <div class="edu-timeline-wrapper">
            <div class="education-visual-block legacy-education-block">
              <div class="edu-visual-record" role="group" aria-label="Línea temporal formativa visual">
@@ -277,7 +262,7 @@
            </div>
            <!-- Timeline simplificada clara -->
            <div class="education-simple" aria-labelledby="eduSimpleTitle">
-             <h3 id="eduSimpleTitle" class="timeline-title">Formación</h3>
+             <h3 id="eduSimpleTitle" class="timeline-title" data-i18n="about_formation">Formación</h3>
              <!-- Crossfader estilo mesa de mezclas -->
              <div class="edu-crossfader" role="slider" aria-label="Progresión formativa" aria-valuemin="2007" aria-valuemax="2026" aria-valuenow="2007" aria-valuetext="Año 2007" tabindex="0" data-stage="1" data-ratio="0">
                <div class="fader-rail">
@@ -342,8 +327,8 @@
  <!-- Franja full-width de highlights personales -->
  <section class="highlights-strip" aria-labelledby="aboutHighlightsTitle">
    <div class="hs-inner">
-     <h3 id="aboutHighlightsTitle" class="hs-title">Más de mí</h3>
-     <p class="hs-intro">Me gusta complementar mi perfil técnico con habilidades que aportan valor transversal: comunicación internacional, gestión de identidad digital, criterio estético y experiencia operativa real.</p>
+     <h3 id="aboutHighlightsTitle" class="hs-title" data-i18n="highlights_title">Más de mí</h3>
+     <p class="hs-intro" data-i18n="highlights_intro">Me gusta complementar mi perfil técnico con habilidades que aportan valor transversal: comunicación internacional, gestión de identidad digital, criterio estético y experiencia operativa real.</p>
      <div class="hs-grid" role="list">
        <div class="hs-card" role="listitem">
          <div class="hs-icon" aria-hidden="true">
@@ -355,8 +340,8 @@
              <path d="M35 39c-3-2-6-3-11-3-6 0-9-2-11-5" />
            </svg>
          </div>
-  <h4>Inglés (B2 Cambridge)</h4>
-  <p>Certificación oficial Cambridge B2. Practico el idioma a diario (lectura de documentación técnica, vídeos y conversación) y amplío vocabulario especializado en tecnología, producto y colaboración internacional.</p>
+  <h4 data-i18n="highlight_english">Inglés (B2 Cambridge)</h4>
+  <p data-i18n="highlight_english_desc">Certificación oficial Cambridge B2. Practico el idioma a diario (lectura de documentación técnica, vídeos y conversación) y amplío vocabulario especializado en tecnología, producto y colaboración internacional.</p>
        </div>
        <div class="hs-card" role="listitem">
          <div class="hs-icon" aria-hidden="true">
@@ -369,8 +354,8 @@
              <circle cx="31" cy="28" r="2" />
            </svg>
          </div>
-         <h4>Community Manager</h4>
-  <p>Gestión de redes de Torrenueva FS (futsal): planificación de publicaciones, copy adaptado al tono deportivo, coherencia gráfica de identidad y análisis básico de alcance e interacción para iterar contenido.</p>
+         <h4 data-i18n="highlight_community">Community Manager</h4>
+  <p data-i18n="highlight_community_desc">Gestión de redes de Torrenueva FS (futsal): planificación de publicaciones, copy adaptado al tono deportivo, coherencia gráfica de identidad y análisis básico de alcance e interacción para iterar contenido.</p>
        </div>
        <div class="hs-card" role="listitem">
          <div class="hs-icon" aria-hidden="true">
@@ -384,8 +369,8 @@
              <circle cx="34" cy="28" r="1" fill="currentColor" stroke="none" />
            </svg>
          </div>
-         <h4>Creatividad visual</h4>
-  <p>Creación y edición de imágenes (Procreate y herramientas de IA) centrada en narrativa visual, color, composición y adaptación a distintos formatos sociales manteniendo legibilidad y coherencia estética.</p>
+         <h4 data-i18n="highlight_creativity">Creatividad visual</h4>
+  <p data-i18n="highlight_creativity_desc">Creación y edición de imágenes (Procreate y herramientas de IA) centrada en narrativa visual, color, composición y adaptación a distintos formatos sociales manteniendo legibilidad y coherencia estética.</p>
        </div>
        <div class="hs-card" role="listitem">
          <div class="hs-icon" aria-hidden="true">
@@ -404,24 +389,178 @@
              <path d="M31.2 38.9 29.8 39.7" />
            </svg>
          </div>
-         <h4>Experiencia y gestión</h4>
-  <p>Primer verano: cocinero en un bar (ritmo de servicio y trabajo en equipo). Segundo: autónomo en España gestionando y cocinando en mi propio bar de piscina (menú, aprovisionamiento, control de costes, higiene y coordinación en picos de demanda).</p>
+         <h4 data-i18n="highlight_experience">Experiencia y gestión</h4>
+  <p data-i18n="highlight_experience_desc">Primer verano: cocinero en un bar (ritmo de servicio y trabajo en equipo). Segundo: autónomo en España gestionando y cocinando en mi propio bar de piscina (menú, aprovisionamiento, control de costes, higiene y coordinación en picos de demanda).</p>
        </div>
+     </div>
+   </div>
+ </section>
+
+ <!-- SECCIÓN DE CERTIFICACIONES -->
+ <section id="certifications" class="site-section certifications-section">
+   <div class="container py-5">
+     <h2 class="section-title" data-i18n="cert_title">Certificaciones</h2>
+     <p class="section-intro" data-i18n="cert_intro">Formación continua en IA Generativa y tecnologías emergentes. Certificados profesionales que reflejan mi compromiso con el aprendizaje y la actualización en tecnologías de futuro.</p>
+     
+     <div class="certifications-grid" role="list">
+       <!-- Certificación 1 -->
+       <article class="cert-card" role="listitem">
+         <div class="cert-header">
+           <div class="cert-icon" aria-hidden="true">📜</div>
+           <h3 class="cert-title" data-i18n="cert_1_title">IA Generativa: Conceptos Fundamentales</h3>
+         </div>
+         <p class="cert-desc" data-i18n="cert_1_desc">Introducción a qué es IA generativa y sus aplicaciones prácticas en desarrollo e innovación.</p>
+         <a href="assets/certificaciones/CertificadoDeFinalizacion_Que es la IA generativa.pdf" target="_blank" rel="noopener" class="cert-link" data-i18n="cert_view">
+           <svg class="cert-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+             <polyline points="14 2 14 8 20 8"></polyline>
+             <line x1="12" y1="11" x2="12" y2="17"></line>
+             <line x1="9" y1="14" x2="15" y2="14"></line>
+           </svg>
+           Ver Certificado
+         </a>
+       </article>
+
+       <!-- Certificación 2 -->
+       <article class="cert-card" role="listitem">
+         <div class="cert-header">
+           <div class="cert-icon" aria-hidden="true">🔍</div>
+           <h3 class="cert-title" data-i18n="cert_2_title">IA Generativa & Búsqueda Inteligente</h3>
+         </div>
+         <p class="cert-desc" data-i18n="cert_2_desc">Evolución de búsqueda en internet con IA generativa y cómo impacta en la experiencia del usuario.</p>
+         <a href="assets/certificaciones/CertificadoDeFinalizacion_Inteligencia artificial generativa la evolucion de la busqueda inteligente en Internet.pdf" target="_blank" rel="noopener" class="cert-link" data-i18n="cert_view">
+           <svg class="cert-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+             <polyline points="14 2 14 8 20 8"></polyline>
+             <line x1="12" y1="11" x2="12" y2="17"></line>
+             <line x1="9" y1="14" x2="15" y2="14"></line>
+           </svg>
+           Ver Certificado
+         </a>
+       </article>
+
+       <!-- Certificación 3 -->
+       <article class="cert-card" role="listitem">
+         <div class="cert-header">
+           <div class="cert-icon" aria-hidden="true">🤖</div>
+           <h3 class="cert-title" data-i18n="cert_3_title">IA Generativa: Más Allá de Ingeniería</h3>
+         </div>
+         <p class="cert-desc" data-i18n="cert_3_desc">Aplicaciones de IA en otras disciplinas y cómo la IA generativa transforma diferentes industrias.</p>
+         <a href="assets/certificaciones/CertificadoDeFinalizacion_Inteligencia artificial mas alla de la ingenieria.pdf" target="_blank" rel="noopener" class="cert-link" data-i18n="cert_view">
+           <svg class="cert-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+             <polyline points="14 2 14 8 20 8"></polyline>
+             <line x1="12" y1="11" x2="12" y2="17"></line>
+             <line x1="9" y1="14" x2="15" y2="14"></line>
+           </svg>
+           Ver Certificado
+         </a>
+       </article>
+
+       <!-- Certificación 4 -->
+       <article class="cert-card" role="listitem">
+         <div class="cert-header">
+           <div class="cert-icon" aria-hidden="true">⚖️</div>
+           <h3 class="cert-title" data-i18n="cert_4_title">Ética en IA Generativa</h3>
+         </div>
+         <p class="cert-desc" data-i18n="cert_4_desc">Problemáticas sociales, desafíos éticos y sesgos en sistemas de IA generativa.</p>
+         <a href="assets/certificaciones/CertificadoDeFinalizacion_Problematicas sociales desafios eticos y sesgos de la inteligencia artificial generativa.pdf" target="_blank" rel="noopener" class="cert-link" data-i18n="cert_view">
+           <svg class="cert-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+             <polyline points="14 2 14 8 20 8"></polyline>
+             <line x1="12" y1="11" x2="12" y2="17"></line>
+             <line x1="9" y1="14" x2="15" y2="14"></line>
+           </svg>
+           Ver Certificado
+         </a>
+       </article>
+
+       <!-- Certificación 5 -->
+       <article class="cert-card" role="listitem">
+         <div class="cert-header">
+           <div class="cert-icon" aria-hidden="true">📚</div>
+           <h3 class="cert-title" data-i18n="cert_5_title">Fundamentos Profesionales de IA</h3>
+         </div>
+         <p class="cert-desc" data-i18n="cert_5_desc">Certificado Microsoft & LinkedIn: Fundamentos profesionales de inteligencia artificial generativa.</p>
+         <a href="assets/certificaciones/CertificadoDeFinalizacion_Fundamentos profesionales de IA generativa por Microsoft y LinkedIn.pdf" target="_blank" rel="noopener" class="cert-link" data-i18n="cert_view">
+           <svg class="cert-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+             <polyline points="14 2 14 8 20 8"></polyline>
+             <line x1="12" y1="11" x2="12" y2="17"></line>
+             <line x1="9" y1="14" x2="15" y2="14"></line>
+           </svg>
+           Ver Certificado
+         </a>
+       </article>
+
+       <!-- Certificación 6 -->
+       <article class="cert-card" role="listitem">
+         <div class="cert-header">
+           <div class="cert-icon" aria-hidden="true">☁️</div>
+           <h3 class="cert-title" data-i18n="cert_6_title">AWS: Servicios Principales</h3>
+         </div>
+         <p class="cert-desc" data-i18n="cert_6_desc">Introducción a AWS y sus servicios principales para desarrollo en la nube.</p>
+         <a href="assets/certificaciones/CertificadoDeFinalizacion_Introduccion a AWS Servicios principales.pdf" target="_blank" rel="noopener" class="cert-link" data-i18n="cert_view">
+           <svg class="cert-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+             <polyline points="14 2 14 8 20 8"></polyline>
+             <line x1="12" y1="11" x2="12" y2="17"></line>
+             <line x1="9" y1="14" x2="15" y2="14"></line>
+           </svg>
+           Ver Certificado
+         </a>
+       </article>
+
+       <!-- Certificación 7 -->
+       <article class="cert-card" role="listitem">
+         <div class="cert-header">
+           <div class="cert-icon" aria-hidden="true">🚀</div>
+           <h3 class="cert-title" data-i18n="cert_7_title">Microsoft Copilot: Agiliza tu Trabajo</h3>
+         </div>
+         <p class="cert-desc" data-i18n="cert_7_desc">Optimización de flujos de trabajo y productividad con Microsoft Copilot.</p>
+         <a href="assets/certificaciones/CertificadoDeFinalizacion_Agiliza tu trabajo con el chat de Microsoft Copilot.pdf" target="_blank" rel="noopener" class="cert-link" data-i18n="cert_view">
+           <svg class="cert-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+             <polyline points="14 2 14 8 20 8"></polyline>
+             <line x1="12" y1="11" x2="12" y2="17"></line>
+             <line x1="9" y1="14" x2="15" y2="14"></line>
+           </svg>
+           Ver Certificado
+         </a>
+       </article>
+
+       <!-- Certificación 8 -->
+       <article class="cert-card" role="listitem">
+         <div class="cert-header">
+           <div class="cert-icon" aria-hidden="true">💼</div>
+           <h3 class="cert-title" data-i18n="cert_8_title">Descubre Microsoft 365 Copilot</h3>
+         </div>
+         <p class="cert-desc" data-i18n="cert_8_desc">Integración de Copilot en el ecosistema Microsoft 365 para productividad empresarial.</p>
+         <a href="assets/certificaciones/CertificadoDeFinalizacion_Descubre Microsoft 365 Copilot.pdf" target="_blank" rel="noopener" class="cert-link" data-i18n="cert_view">
+           <svg class="cert-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+             <polyline points="14 2 14 8 20 8"></polyline>
+             <line x1="12" y1="11" x2="12" y2="17"></line>
+             <line x1="9" y1="14" x2="15" y2="14"></line>
+           </svg>
+           Ver Certificado
+         </a>
+       </article>
      </div>
    </div>
  </section>
 
  <section id="projects" class="site-section projects-section">
    <div class="projects-header container-narrow">
-  <h2 class="section-title">PROYECTOS</h2>
-  <p class="projects-intro">Selección compacta de trabajos que combinan desarrollo web, interfaces, lógica de juego, gestión y creación de contenido. Cada tarjeta muestra de forma directa contexto, enfoque técnico y un enlace para explorar más.</p>
-  <p class="projects-intro">La sección irá creciendo con proyectos más profundos (rendimiento, APIs, accesibilidad, multijugador, herramientas propias y colaboraciones) conforme avance mi trayectoria.</p>
+  <h2 class="section-title" data-i18n="projects_title">PROYECTOS</h2>
+  <p class="projects-intro" data-i18n="projects_intro">Selección compacta de trabajos que combinan desarrollo web, interfaces, lógica de juego, gestión y creación de contenido. Cada tarjeta muestra de forma directa contexto, enfoque técnico y un enlace para explorar más.</p>
+  <p class="projects-intro" data-i18n="projects_intro_2">La sección irá creciendo con proyectos más profundos (rendimiento, APIs, accesibilidad, multijugador, herramientas propias y colaboraciones) conforme avance mi trayectoria.</p>
      <div class="projects-filters" role="toolbar" aria-label="Filtrar proyectos">
-       <button class="pf-btn active" type="button" data-filter="all" aria-pressed="true">Todos</button>
-       <button class="pf-btn" type="button" data-filter="web" aria-pressed="false">Web</button>
-       <button class="pf-btn" type="button" data-filter="ui" aria-pressed="false">UI</button>
-       <button class="pf-btn" type="button" data-filter="tools" aria-pressed="false">Herramientas</button>
-       <button class="pf-btn" type="button" data-filter="otros" aria-pressed="false">Otros</button>
+       <button class="pf-btn active" type="button" data-filter="all" aria-pressed="true" data-i18n="projects_filter_all">Todos</button>
+       <button class="pf-btn" type="button" data-filter="web" aria-pressed="false" data-i18n="projects_filter_web">Web</button>
+       <button class="pf-btn" type="button" data-filter="ui" aria-pressed="false" data-i18n="projects_filter_ui">UI</button>
+       <button class="pf-btn" type="button" data-filter="tools" aria-pressed="false" data-i18n="projects_filter_tools">Herramientas</button>
+       <button class="pf-btn" type="button" data-filter="otros" aria-pressed="false" data-i18n="projects_filter_otros">Otros</button>
      </div>
      <div id="projectsLive" class="sr-only" aria-live="polite"></div>
    </div>
@@ -446,7 +585,7 @@
            </ul>
          </div>
          <div class="project-actions">
-           <a href="https://github.com/AlbertoPalenciaQuinones/ISI-LAB" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Spotify to Vinyl"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span>Código</span></a>
+           <a href="https://github.com/AlbertoPalenciaQuinones/ISI-LAB" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Spotify to Vinyl"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span data-i18n="projects_code">Código</span></a>
          </div>
        </article>
        <!-- Proyecto 6 -->
@@ -516,7 +655,7 @@
            </ul>
          </div>
          <div class="project-actions">
-           <a href="https://github.com/eliasgv04/Curso-Swift" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Curso Swift"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span>Código</span></a>
+           <a href="https://github.com/eliasgv04/Curso-Swift" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Curso Swift"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span data-i18n="projects_code">Código</span></a>
          </div>
        </article>
        <!-- Proyecto 4 -->
@@ -560,7 +699,7 @@
            </ul>
          </div>
          <div class="project-actions">
-           <a href="https://github.com/eliasgv04/Juego-Pokemon" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Juego estilo Pokémon"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span>Código</span></a>
+           <a href="https://github.com/eliasgv04/Juego-Pokemon" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Juego estilo Pokémon"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span data-i18n="projects_code">Código</span></a>
          </div>
        </article>
          <!-- Proyecto 7 -->
@@ -582,7 +721,7 @@
              </ul>
            </div>
            <div class="project-actions">
-             <a href="https://github.com/eliasgv04/TrabajoTecnologiasEliasGlez" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Gramola Virtual"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span>Código</span></a>
+             <a href="https://github.com/eliasgv04/TrabajoTecnologiasEliasGlez" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Gramola Virtual"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span data-i18n="projects_code">Código</span></a>
            </div>
          </article>
      </div>
@@ -591,76 +730,219 @@
 
  <section id="skills" class="site-section skills-section">
    <div class="container py-5">
-     <h2 class="section-title">Skills</h2>
-     <div class="skills-mixer" role="list">
-        <div class="skill-channel" role="listitem" data-skill="HTML / CSS" data-level="90" data-info="Maquetación semántica, responsive y CSS modular.">
-          <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel HTML y CSS" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-html" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-html"/></svg></span><span class="chan-name">HTML / CSS</span></div>
-          </div>
-        </div>
-        <div class="skill-channel" role="listitem" data-skill="JavaScript" data-level="72" data-info="DOM, eventos, componentes ligeros vanilla.">
-          <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel JavaScript" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-js" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-js"/></svg></span><span class="chan-name">JavaScript</span></div>
-          </div>
-        </div>
-        <div class="skill-channel" role="listitem" data-skill="Git / Versionado" data-level="75" data-info="Branching, PRs, merges y resolución de conflictos.">
-          <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel Git y versionado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-git" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-git"/></svg></span><span class="chan-name">Git / Versionado</span></div>
-          </div>
-        </div>
-        <div class="skill-channel" role="listitem" data-skill="Python" data-level="82" data-info="Scripts, parsing, lógica y prototipos backend.">
-          <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel Python" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-py" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-python"/></svg></span><span class="chan-name">Python</span></div>
-          </div>
-        </div>
-        <div class="skill-channel" role="listitem" data-skill="UI / Accesibilidad" data-level="72" data-info="Semántica, ARIA, contraste y foco usable.">
-          <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel UI y accesibilidad" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-a11y" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-a11y"/></svg></span><span class="chan-name">UI / Accesibilidad</span></div>
-          </div>
-        </div>
-        <div class="skill-channel" role="listitem" data-skill="SQL" data-level="75" data-info="Consultas, joins, normalización e índices básicos.">
-          <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel SQL" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-sql" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-sql"/></svg></span><span class="chan-name">SQL</span></div>
-          </div>
-        </div>
-        <div class="skill-channel" role="listitem" data-skill="Gestión / Iteración" data-level="68" data-info="Planificación iterativa y control de calidad.">
-          <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel gestión e iteración" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-mgmt" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-manage"/></svg></span><span class="chan-name">Gestión / Iteración</span></div>
-          </div>
-        </div>
-  <div class="skill-channel" role="listitem" data-skill="Angular" data-level="90" data-info="Componentes, servicios, routing, estado y formularios reactivos.">
-          <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel Angular" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-ng" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-angular"/></svg></span><span class="chan-name">Angular</span></div>
-          </div>
-        </div>
-  <div class="skill-channel" role="listitem" data-skill="Spring Boot" data-level="88" data-info="APIs REST, JPA, seguridad, transacciones y arquitectura.">
-          <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel Spring Boot" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-spring" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-spring"/></svg></span><span class="chan-name">Spring Boot</span></div>
-          </div>
-        </div>
-  <div class="skill-channel" role="listitem" data-skill="Testing" data-level="82" data-info="Pruebas unitarias, integración, Junit, Mockito y Selenium.">
-          <div class="channel-inner">
-            <div class="meter" role="progressbar" aria-label="Nivel Testing" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            <div class="channel-label"><span class="chan-icon ci-test" aria-hidden="true"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-test"/></svg></span><span class="chan-name">Testing</span></div>
-          </div>
-        </div>
+     <h2 class="section-title" data-i18n="skills_title">Skills</h2>
+     
+     <!-- Filtros por categoría -->
+     <div class="skills-filters" role="toolbar" aria-label="Filtrar tecnologías por categoría">
+       <button class="skill-filter-btn active" data-filter="all" aria-pressed="true" data-i18n="skills_filter_all">Todas</button>
+       <button class="skill-filter-btn" data-filter="backend" aria-pressed="false" data-i18n="skills_filter_backend">Backend</button>
+       <button class="skill-filter-btn" data-filter="frontend" aria-pressed="false" data-i18n="skills_filter_frontend">Frontend</button>
+       <button class="skill-filter-btn" data-filter="testing" aria-pressed="false" data-i18n="skills_filter_testing">Testing</button>
+       <button class="skill-filter-btn" data-filter="database" aria-pressed="false" data-i18n="skills_filter_database">Bases de Datos</button>
+       <button class="skill-filter-btn" data-filter="devops" aria-pressed="false" data-i18n="skills_filter_devops">DevOps & Tools</button>
+       <button class="skill-filter-btn" data-filter="ai" aria-pressed="false" data-i18n="skills_filter_ai">AI Assistants</button>
+       <button class="skill-filter-btn" data-filter="mobile" aria-pressed="false" data-i18n="skills_filter_mobile">Mobile</button>
      </div>
-      <p class="skills-note" aria-live="off">Representación visual aproximada.</p>
+
+     <!-- Grid de tecnologías -->
+     <div class="skills-grid" role="list">
+       <!-- BACKEND -->
+       <div class="skill-card" role="listitem" data-category="backend" data-skill="Spring Boot">
+         <div class="skill-icon ci-spring"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-spring"/></svg></div>
+         <h3 class="skill-name">Spring Boot</h3>
+         <p class="skill-desc">APIs REST, JPA, seguridad y arquitectura</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
+         <span class="skill-level">88%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="backend" data-skill="Java">
+         <div class="skill-icon ci-java"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-java"/></svg></div>
+         <h3 class="skill-name">Java</h3>
+         <p class="skill-desc">POO, patrones y desarrollo enterprise</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+         <span class="skill-level">85%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="backend" data-skill="Python">
+         <div class="skill-icon ci-py"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-python"/></svg></div>
+         <h3 class="skill-name">Python</h3>
+         <p class="skill-desc">Scripts, lógica y prototipos</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 82%"></div></div>
+         <span class="skill-level">82%</span>
+       </div>
+
+       <!-- FRONTEND -->
+       <div class="skill-card" role="listitem" data-category="frontend" data-skill="Angular">
+         <div class="skill-icon ci-ng"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-angular"/></svg></div>
+         <h3 class="skill-name">Angular</h3>
+         <p class="skill-desc">Componentes, routing y estado</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+         <span class="skill-level">90%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="frontend" data-skill="JavaScript">
+         <div class="skill-icon ci-js"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-js"/></svg></div>
+         <h3 class="skill-name">JavaScript</h3>
+         <p class="skill-desc">DOM, eventos y vanilla</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+         <span class="skill-level">80%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="frontend" data-skill="HTML / CSS">
+         <div class="skill-icon ci-html"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-html"/></svg></div>
+         <h3 class="skill-name">HTML / CSS</h3>
+         <p class="skill-desc">Semántica, responsive y modular</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 92%"></div></div>
+         <span class="skill-level">92%</span>
+       </div>
+
+       <!-- TESTING -->
+       <div class="skill-card" role="listitem" data-category="testing" data-skill="JUnit">
+         <div class="skill-icon ci-test"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-test"/></svg></div>
+         <h3 class="skill-name">JUnit</h3>
+         <p class="skill-desc">Testing unitario en Java</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+         <span class="skill-level">85%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="testing" data-skill="Karma">
+         <div class="skill-icon ci-test"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-test"/></svg></div>
+         <h3 class="skill-name">Karma</h3>
+         <p class="skill-desc">Test runner para Angular</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 82%"></div></div>
+         <span class="skill-level">82%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="testing" data-skill="Jasmine">
+         <div class="skill-icon ci-test"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-test"/></svg></div>
+         <h3 class="skill-name">Jasmine</h3>
+         <p class="skill-desc">Framework de testing para JS</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+         <span class="skill-level">80%</span>
+       </div>
+
+       <!-- DATABASES -->
+       <div class="skill-card" role="listitem" data-category="database" data-skill="MySQL">
+         <div class="skill-icon ci-sql"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-sql"/></svg></div>
+         <h3 class="skill-name">MySQL</h3>
+         <p class="skill-desc">Bases de datos relacionales</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+         <span class="skill-level">80%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="database" data-skill="MongoDB">
+         <div class="skill-icon ci-db"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-mongodb"/></svg></div>
+         <h3 class="skill-name">MongoDB</h3>
+         <p class="skill-desc">Bases de datos NoSQL</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 72%"></div></div>
+         <span class="skill-level">72%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="database" data-skill="Oracle">
+         <div class="skill-icon ci-db"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-oracle"/></svg></div>
+         <h3 class="skill-name">Oracle</h3>
+         <p class="skill-desc">Bases de datos enterprise</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 70%"></div></div>
+         <span class="skill-level">70%</span>
+       </div>
+
+       <!-- DEVOPS & TOOLS -->
+       <div class="skill-card" role="listitem" data-category="devops" data-skill="Git">
+         <div class="skill-icon ci-git"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-git"/></svg></div>
+         <h3 class="skill-name">Git</h3>
+         <p class="skill-desc">Control de versiones</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
+         <span class="skill-level">88%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="devops" data-skill="GitHub">
+         <div class="skill-icon ci-git"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-github"/></svg></div>
+         <h3 class="skill-name">GitHub</h3>
+         <p class="skill-desc">Versionado y colaboración</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+         <span class="skill-level">85%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="devops" data-skill="Jenkins">
+         <div class="skill-icon ci-devops"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-jenkins"/></svg></div>
+         <h3 class="skill-name">Jenkins</h3>
+         <p class="skill-desc">CI/CD y automatización</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 65%"></div></div>
+         <span class="skill-level">65%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="devops" data-skill="Jira">
+         <div class="skill-icon ci-devops"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-jira"/></svg></div>
+         <h3 class="skill-name">Jira</h3>
+         <p class="skill-desc">Gestión de proyectos</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 78%"></div></div>
+         <span class="skill-level">78%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="devops" data-skill="Trello">
+         <div class="skill-icon ci-devops"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-trello"/></svg></div>
+         <h3 class="skill-name">Trello</h3>
+         <p class="skill-desc">Planificación ágil</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
+         <span class="skill-level">75%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="devops" data-skill="Supabase">
+         <div class="skill-icon ci-devops"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-supabase"/></svg></div>
+         <h3 class="skill-name">Supabase</h3>
+         <p class="skill-desc">Backend como servicio</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 72%"></div></div>
+         <span class="skill-level">72%</span>
+       </div>
+
+       <!-- AI ASSISTANTS -->
+       <div class="skill-card" role="listitem" data-category="ai" data-skill="Claude">
+         <div class="skill-icon ci-ai"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-claude"/></svg></div>
+         <h3 class="skill-name">Claude</h3>
+         <p class="skill-desc">Asistente de IA Anthropic</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+         <span class="skill-level">85%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="ai" data-skill="GitHub Copilot">
+         <div class="skill-icon ci-ai"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-copilot"/></svg></div>
+         <h3 class="skill-name">GitHub Copilot</h3>
+         <p class="skill-desc">Asistente de código</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+         <span class="skill-level">80%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="ai" data-skill="OpenAI Codex">
+         <div class="skill-icon ci-ai"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-openai"/></svg></div>
+         <h3 class="skill-name">OpenAI Codex</h3>
+         <p class="skill-desc">Modelo de código OpenAI</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
+         <span class="skill-level">75%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="ai" data-skill="Groq">
+         <div class="skill-icon ci-ai"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-groq"/></svg></div>
+         <h3 class="skill-name">Groq</h3>
+         <p class="skill-desc">API de IA ultrarrápida</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 78%"></div></div>
+         <span class="skill-level">78%</span>
+       </div>
+
+       <!-- MOBILE -->
+       <div class="skill-card" role="listitem" data-category="mobile" data-skill="Swift">
+         <div class="skill-icon ci-mobile"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-swift"/></svg></div>
+         <h3 class="skill-name">Swift</h3>
+         <p class="skill-desc">Desarrollo iOS</p>
+         <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+         <span class="skill-level">60%</span>
+       </div>
+     </div>
    </div>
  </section>
 
  <section id="contact" class="site-section contact-section">
    <div class="container py-5">
-     <h2 class="section-title">Contacto</h2>
+     <h2 class="section-title" data-i18n="contact_title">Contacto</h2>
      <div class="contact-grid">
        <!-- Casete visual + formulario -->
        <div class="cassette-wrapper" aria-labelledby="contactTitle" role="group">
@@ -692,51 +974,47 @@
            <span class="scribble" aria-hidden="true">Elías '25</span>
          </div>
        </div>
-        <!-- Formulario ahora en una fila aparte a ancho completo -->
-        <form id="contactForm" class="cassette-form wide-form" novalidate>
-          <div class="field-row span-6">
-            <label for="cfName">Nombre</label>
-            <input id="cfName" name="name" type="text" autocomplete="name" maxlength="80" required placeholder="Tu nombre" />
-            <span class="f-msg" data-for="cfName"></span>
-          </div>
-          <div class="field-row span-6">
-            <label for="cfEmail">Email</label>
-            <input id="cfEmail" name="email" type="email" autocomplete="email" required placeholder="tu@email.com" />
-            <span class="f-msg" data-for="cfEmail"></span>
-          </div>
-          <div class="field-row motive-row span-12">
-            <span class="motive-label" id="motiveLabel">Motivo</span>
-            <div class="motive-group" role="radiogroup" aria-labelledby="motiveLabel">
-              <input type="radio" name="subject" id="motColab" value="Colaboración" class="mot-radio" />
-              <label for="motColab" class="mot-pill">Colaboración</label>
-              <input type="radio" name="subject" id="motProy" value="Proyecto" class="mot-radio" />
-              <label for="motProy" class="mot-pill">Proyecto</label>
-              <input type="radio" name="subject" id="motDuda" value="Duda" class="mot-radio" />
-              <label for="motDuda" class="mot-pill">Duda</label>
-              <input type="radio" name="subject" id="motOtro" value="Otro" class="mot-radio" checked />
-              <label for="motOtro" class="mot-pill">Otro</label>
+        <!-- Chatbot AI Container - MEJORADO -->
+        <div class="chatbot-container wide-form" id="chatbotContainer">
+          <div class="chatbot-messages" id="chatMessages" role="log" aria-live="polite" aria-label="Conversación del chatbot">
+            <div class="chat-message bot-message">
+              <div class="message-content" id="chatInitialMessage">
+                <strong data-i18n="chatbot_greeting">¡Hola! 👋</strong><br>
+                <span data-i18n="chatbot_intro">Soy el asistente de Elías. Puedo ayudarte con preguntas sobre:</span>
+                <ul style="margin: 8px 0 0 0; padding-left: 20px; font-size: 0.9em;">
+                  <li data-i18n="chatbot_experience">Mi experiencia (Spring Boot, Angular, Testing)</li>
+                  <li data-i18n="chatbot_projects">Mis proyectos y GitHub</li>
+                  <li data-i18n="chatbot_collaborations">Colaboraciones o ofertas</li>
+                </ul>
+                <div style="margin-top: 8px; font-size: 0.85em; opacity: 0.8;" data-i18n="chatbot_question">¿En qué puedo ayudarte? 😊</div>
+              </div>
             </div>
           </div>
-          <div class="field-row span-12">
-            <label for="cfMessage">Mensaje</label>
-            <textarea id="cfMessage" name="message" rows="4" required placeholder="Cuéntame brevemente tu idea..." maxlength="1200"></textarea>
-            <div class="msg-meter" aria-hidden="true"><div class="mm-fill"></div></div>
-            <span class="f-msg" data-for="cfMessage"></span>
-          </div>
-          <div class="quick-tags span-12" aria-label="Inserta etiquetas rápidas">
-            <button type="button" class="qt-btn" data-tag="Frontend">Frontend</button>
-            <button type="button" class="qt-btn" data-tag="UI/UX">UI/UX</button>
-            <button type="button" class="qt-btn" data-tag="Accesibilidad">Accesibilidad</button>
-            <button type="button" class="qt-btn" data-tag="Prototipo">Prototipo</button>
-            <button type="button" class="qt-btn" data-tag="Consulta">Consulta</button>
-          </div>
-          <div class="form-actions span-12">
-            <button type="submit" class="btn-send" aria-label="Enviar mensaje (abre tu cliente de correo)">
-              <span class="rec-dot" aria-hidden="true"></span><span class="btn-text">ENVIAR / REC</span>
+          
+          <div class="chatbot-input-area">
+            <input 
+              type="text" 
+              id="chatInput" 
+              class="chat-input" 
+              placeholder="Pregunta sobre experiencia, proyectos, etc..."
+              aria-label="Campo de entrada del chat"
+            />
+            <button 
+              id="chatSend" 
+              class="chat-send-btn" 
+              aria-label="Enviar mensaje"
+            >
+              <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
             </button>
-            <div class="send-status" role="status" aria-live="polite" aria-atomic="true"></div>
           </div>
-        </form>
+          
+          <div class="chatbot-footer">
+            <small>Powered by Groq AI | Tu información será procesada confidencialmente</small>
+          </div>
+        </div>
        <!-- Panel de enlaces directos -->
        <aside class="contact-links" aria-label="Enlaces directos">
          <h3 class="cl-title">Conecta</h3>
@@ -774,10 +1052,13 @@
 
   <!-- JS personalizados -->
   <script src="js/vinyl.js"></script>
-  <script src="js/skills.js"></script>
-  <script src="js/contact.js"></script>
+  <script src="js/skills-grid.js"></script>
+  <script src="js/chatbot.js"></script>
   <!-- Sprite de iconos inline -->
   <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-git" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12.504 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3.252 5.25h-2.333v4.249h-1.332V5.25h-2.333V3.921h5.998v1.329zm-4.917 6.667H7.087V16.5h.879V14.75h1.921v1.75h.879v-4.333zm5.246 0h-1.754v4.333h.879v-1.75h.875v1.75h.879v-4.333zm.752-6.667h-2.333v4.249h1.332V6.583h1.001v1.667zm0 0"/>
+    </symbol>
     <symbol id="icon-github" viewBox="0 0 24 24">
       <path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.31 6.84 9.66.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.55 2.34 1.1 2.91.84.09-.66.35-1.1.63-1.35-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .84-.27 2.75 1.05a9.2 9.2 0 0 1 2.5-.35c.85 0 1.7.12 2.5.35 1.9-1.32 2.74-1.05 2.74-1.05.55 1.43.2 2.49.1 2.75.64.72 1.02 1.63 1.02 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .26.18.58.69.48A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" />
     </symbol>
@@ -841,6 +1122,39 @@
     </symbol>
     <symbol id="icon-linkedin" viewBox="0 0 24 24">
       <path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm7.5 0h3.8l.2 1.7c.7-1 2.1-2 3.9-2 3.1 0 5.1 2.2 5.1 5.8V21h-4v-6.1c0-1.8-.9-2.9-2.4-2.9-1.6 0-2.6 1.1-2.6 3V21h-4V9Z"/>
+    </symbol>
+    <symbol id="icon-java" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M8.85 2c-.35.45-.58 1.28-1.27 3.15C6.89 7.12 6.37 8.8 6.37 10.3c0 2.65 1.27 5 3.2 6.5.7.55 1.4 1 2.1 1.32-.4.65-.95 1.45-1.4 2.2-.8 1.35-1.5 2.45-2 3.12-.65.95-1.8 2.6-1.8 2.6s1.7-1.95 2.8-3.5c1.45-2.05 2.45-3.7 3.1-5.15.65 1.45 1.65 3.1 3.1 5.15 1.1 1.55 2.8 3.5 2.8 3.5s-1.15-1.65-1.8-2.6c-.5-.67-1.2-1.77-2-3.12-.45-.75-1-1.55-1.4-2.2.7-.32 1.4-.77 2.1-1.32 1.93-1.5 3.2-3.85 3.2-6.5 0-1.5-.52-3.18-1.21-4.15-.69-1.87-.92-2.7-1.27-3.15H8.85Z"/>
+    </symbol>
+    <symbol id="icon-mongodb" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2c.7 0 1.4.3 1.9.8.5.5.8 1.2.8 1.9v2.6c0 .7-.3 1.4-.8 1.9-.5.5-1.2.8-1.9.8s-1.4-.3-1.9-.8c-.5-.5-.8-1.2-.8-1.9V4.7c0-.7.3-1.4.8-1.9.5-.5 1.2-.8 1.9-.8zm0 10c3.3 0 6 1.8 6 4v3c0 2.2-2.7 4-6 4s-6-1.8-6-4v-3c0-2.2 2.7-4 6-4z"/>
+    </symbol>
+    <symbol id="icon-oracle" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm0-14c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z"/>
+    </symbol>
+    <symbol id="icon-jenkins" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2c5.5 0 10 4.5 10 10s-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2m0 2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"/>
+    </symbol>
+    <symbol id="icon-jira" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 2.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
+    </symbol>
+    <symbol id="icon-trello" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M3 3h7v16H3V3zm9 0h7v10h-7V3z"/>
+    </symbol>
+    <symbol id="icon-supabase" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2l7.5 4.5v11L12 22l-7.5-4.5v-11L12 2zm0 14l4-2.5V7L12 9.5l-4-2.5v6.5L12 16z"/>
+    </symbol>
+    <symbol id="icon-claude" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+    </symbol>
+    <symbol id="icon-copilot" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+    </symbol>
+    <symbol id="icon-openai" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+    </symbol>
+    <symbol id="icon-groq" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 10c-1.93 0-3.5 1.57-3.5 3.5S13.57 19 15.5 19 19 17.43 19 15.5 17.43 12 15.5 12zm-7 0c-1.93 0-3.5 1.57-3.5 3.5S5.57 19 7.5 19 11 17.43 11 15.5 9.43 12 7.5 12z"/>
     </symbol>
   </svg>
   <script src="js/projects.js"></script>
