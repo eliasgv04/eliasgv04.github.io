@@ -1,0 +1,12 @@
+# Config local con la API key — NUNCA subir al repo
+js/config.local.js
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+*.swp

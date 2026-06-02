@@ -261,6 +261,33 @@ document.addEventListener("DOMContentLoaded", () => {
     updateUI();
   }
 
+  // ===== Language Toggle =====
+  const langToggle = document.getElementById('languageToggle');
+  const langFlagEl = langToggle?.querySelector('.lang-flag');
+
+  function updateLangButton(lang) {
+    if (!langFlagEl || !langToggle) return;
+    if (lang === 'es') {
+      langFlagEl.textContent = '🇪🇸';
+      langToggle.setAttribute('aria-label', 'Switch to English');
+    } else {
+      langFlagEl.textContent = '🇬🇧';
+      langToggle.setAttribute('aria-label', 'Cambiar a Español');
+    }
+  }
+
+  if (langToggle && typeof i18n !== 'undefined') {
+    langToggle.addEventListener('click', () => {
+      i18n.toggleLanguage();
+      updateLangButton(i18n.getCurrentLanguage());
+    });
+    updateLangButton(i18n.getCurrentLanguage());
+  }
+
+  window.addEventListener('languageChange', (e) => {
+    updateLangButton(e.detail.language);
+  });
+
   const activateLink = (id) => {
     navLinks.forEach(l => {
       l.classList.toggle('active', l.getAttribute('href') === `#${id}`);

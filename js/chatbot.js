@@ -1,267 +1,171 @@
 /**
- * 💬 CHATBOT AI PROFESIONAL - Elías González
- * Implementación con Groq API (gratuita)
- * Características: Conversación fluida, contextual, con CTA y fallback
+ * Chatbot de Elías González
+ * Llama al endpoint proxy /api/chat — la API key está en variables de entorno de Netlify
  */
 
 (function () {
   'use strict';
 
-  // ============= CONFIGURACIÓN =============
-  const GROQ_API_KEY = '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';
-  const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
+  // En local (config.local.js) llama a Groq directamente.
+  // En producción (Netlify) usa el proxy seguro /api/chat.
+  const LOCAL_KEY = window.__GROQ_KEY || null;
+  const GROQ_URL  = 'https://api.groq.com/openai/v1/chat/completions';
+  const PROXY_URL = '/api/chat';
 
-  // ============= ELEMENTOS DEL DOM =============
-  const chatContainer = document.getElementById('chatbotContainer');
-  const messagesContainer = document.getElementById('chatMessages');
-  const chatInput = document.getElementById('chatInput');
-  const chatSendBtn = document.getElementById('chatSend');
+  const messagesEl = document.getElementById('chatMessages');
+  const inputEl    = document.getElementById('chatInput');
+  const sendBtn    = document.getElementById('chatSend');
 
-  // ============= ESTADO DEL CHATBOT =============
-  let conversationHistory = [];
-  let isWaitingForResponse = false;
-  let messageCount = 0;
-  let userContactInfo = {
-    name: null,
-    email: null
-  };
+  if (!messagesEl || !inputEl || !sendBtn) return;
 
-  // ============= SYSTEM PROMPT MEJORADO =============
-  const SYSTEM_PROMPT = `Eres Elías, un Full-Stack Developer profesional y amable. Información sobre ti:
+  let history  = [];
+  let waiting  = false;
+  let msgCount = 0;
 
-📋 EXPERIENCIA LABORAL:
-- Prácticas en Minsait (2026): Desarrollo con Spring Boot + Angular, testing con JUnit/Karma/Jasmine
-- Educación: Grado en Ingeniería Informática (UCLM, 2022-2026)
-- Inglés: B2 Cambridge certificado
+  // ── System prompt ────────────────────────────────────────
+  const SYSTEM = `Eres el asistente de Elías González, un Full-Stack Developer. Habla en primera persona como si fueras Elías.
 
-🛠️ STACK TÉCNICO:
-Backend: Spring Boot (88%), Java (85%), Python (82%)
-Frontend: Angular (90%), TypeScript, HTML5, CSS3, JavaScript
-Testing: JUnit (85%), Karma/Jasmine (85%), Mockito
-Bases de datos: MySQL (80%), MongoDB (72%), Oracle (70%), SQL avanzado
-DevOps & Tools: Git (88%), GitHub (85%), Jenkins (65%), Jira (78%), Trello (75%)
-AI Assistants: Claude (85%), GitHub Copilot (80%), Groq (78%), OpenAI Codex (75%)
-Mobile: Swift (60%)
+PERFIL:
+- Estudiante en UCLM (Ingeniería Informática, 2022-2026)
+- Prácticas en Minsait 2026: Spring Boot + Angular, testing JUnit/Karma/Jasmine
+- Inglés B2 Cambridge certificado
+- Disponible para ofertas Full-Stack en España
 
-🚀 PROYECTOS PRINCIPALES:
-1. Spotify to Vinyl - Búsqueda musical + compra de vinilos (Python, HTML, SQL)
-2. InvenCloud - Gestión de inventario para ferretería (HTML, CSS, JavaScript, CRUD)
-3. Gestión de Proyecto Iterativa - Dirección end-to-end (Visual Paradigm, Maven)
-4. Curso Swift - Fundamentos + apps con SwiftUI (Swift, API integration)
-5. Mi Portafolio - Este sitio que estás visitando (Angular, Responsive, Chatbot AI)
+STACK: Spring Boot (88%), Java (85%), Python (72%), Angular (90%), JavaScript (80%), HTML/CSS (92%), JUnit/Karma/Jasmine, MySQL/MongoDB/Oracle, Git/GitHub, Jenkins, Jira, Claude, GitHub Copilot, Swift
 
-💡 VALORES:
-- Curioso y detallista: disfruto crear interfaces limpias y accesibles
-- Orientado a resultados: código mantenible, pruebas rigurosas
-- Comunicativo: B2 inglés, experiencia en community management
-- Experiencia operativa: autonomía desde trabajos de verano
+PROYECTOS: Spotify to Vinyl (Python, HTML, SQL), InvenCloud (gestión ferretería), Curso Swift (SwiftUI), este portafolio
 
-📞 DISPONIBILIDAD:
-- Abierto a ofertas de empleo en desarrollo Full-Stack
-- Interesado en colaboraciones y proyectos desafiantes
-- Ubicación: España
-- Contacto: eliasgonzalezvaldepenas@gmail.com
+CONTACTO: eliasgonzalezvaldepenas@gmail.com | github.com/eliasgv04
 
-INSTRUCCIONES DE CONVERSACIÓN:
-1. Sé profesional pero amable y cercano (no robótico)
-2. Responde preguntas sobre skills, experiencia, proyectos de forma clara y concisa
-3. Usa emojis ocasionalmente para mantener tono positivo
-4. Si alguien pregunta por disponibilidad/colaboración: muestra entusiasmo genuino
-5. Después de 5-6 mensajes: ofrece de forma natural compartir nombre/email para seguimiento
-6. Si preguntan algo fuera de tu contexto: responde brevemente y redirige al portafolio
-7. NO menciones que eres una IA, actúa como Elías mismo
-8. Proporciona URLs cuando sea relevante (GitHub, LinkedIn, portfolios)
+REGLAS:
+- Respuestas concisas (máx 150 palabras)
+- Tono cercano y profesional
+- Usa bullets si hay varios puntos
+- Termina con una pregunta breve para continuar la conversación
+- Si no sabes algo específico di que pregunta directamente a Elías por email`;
 
-FORMATO DE RESPUESTA:
-- Mantén respuestas concisas (máx 200 palabras)
-- Estructura con bullets si hay múltiples puntos
-- Termina con pregunta relevante para continuar conversación
-- Antes de pedir contacto, permite al menos 4 intercambios naturales`;
+  // ── Render helpers ───────────────────────────────────────
+  function addMsg(text, isUser = false, isHTML = false) {
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-message ' + (isUser ? 'user-message' : 'bot-message');
 
-  // ============= FUNCIÓN: ENVIAR A GROQ API =============
-  async function sendToGroq(userMessage) {
-    if (!GROQ_API_KEY) {
-      return {
-        error: 'API Key no configurada'
-      };
-    }
+    const bubble = document.createElement('div');
+    bubble.className = 'message-content';
+    if (isHTML) bubble.innerHTML = text;
+    else bubble.textContent = text;
 
-    conversationHistory.push({
-      role: 'user',
-      content: userMessage,
-    });
+    wrap.appendChild(bubble);
+    messagesEl.appendChild(wrap);
+    requestAnimationFrame(() => { messagesEl.scrollTop = messagesEl.scrollHeight; });
+  }
+
+  function showTyping() {
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-message bot-message';
+    wrap.id = 'typing-indicator';
+    wrap.innerHTML = '<div class="message-content loading"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>';
+    messagesEl.appendChild(wrap);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function hideTyping() {
+    document.getElementById('typing-indicator')?.remove();
+  }
+
+  function fallbackHTML() {
+    return `<div class="error-message">
+      <p>⚠️ No puedo conectar ahora. Contacta a Elías directamente:</p>
+      <div class="contact-options">
+        <a href="mailto:eliasgonzalezvaldepenas@gmail.com" class="contact-btn email-btn">📧 Email</a>
+        <a href="https://linkedin.com/in/elias-gonzález-valdepeñas-98aa97170" target="_blank" rel="noopener" class="contact-btn linkedin-btn">💼 LinkedIn</a>
+        <a href="https://github.com/eliasgv04" target="_blank" rel="noopener" class="contact-btn github-btn">🐙 GitHub</a>
+      </div>
+    </div>`;
+  }
+
+  // ── API call ─────────────────────────────────────────────
+  // local dev: llama a Groq directamente con la key de config.local.js
+  // producción: usa el proxy serverless /api/chat (key en Netlify env vars)
+  async function callAPI(userMsg) {
+    history.push({ role: 'user', content: userMsg });
+
+    const useLocal = !!LOCAL_KEY;
+    const url      = useLocal ? GROQ_URL : PROXY_URL;
+    const headers  = { 'Content-Type': 'application/json' };
+    if (useLocal) headers['Authorization'] = 'Bearer ' + LOCAL_KEY;
+
+    const payload = useLocal
+      ? { model: 'llama-3.1-8b-instant', messages: [{ role: 'system', content: SYSTEM }, ...history], temperature: 0.72, max_tokens: 512 }
+      : { messages: [{ role: 'system', content: SYSTEM }, ...history] };
 
     try {
-      const response = await fetch(GROQ_API_URL, {
+      const res = await fetch(url, {
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${GROQ_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: 'mixtral-8x7b-32768',
-          messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
-            ...conversationHistory,
-          ],
-          temperature: 0.7,
-          max_tokens: 1024,
-        }),
+        headers,
+        body: JSON.stringify(payload),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error?.message || 'Error en Groq API');
-      }
+      if (!res.ok) throw new Error('HTTP ' + res.status);
 
-      const data = await response.json();
-      const assistantMessage = data.choices[0]?.message?.content || 'No se pudo obtener respuesta';
+      const data = await res.json();
+      const reply = data.choices?.[0]?.message?.content;
+      if (!reply) throw new Error('empty response');
 
-      conversationHistory.push({
-        role: 'assistant',
-        content: assistantMessage,
-      });
-
-      return { success: true, message: assistantMessage };
-    } catch (error) {
-      console.error('Error Groq:', error);
-      return {
-        error: `No puedo conectar ahora, pero puedes contactar directamente a Elías:`,
-        fallback: true
-      };
+      history.push({ role: 'assistant', content: reply });
+      return { ok: true, text: reply };
+    } catch (err) {
+      console.warn('[chatbot]', err.message);
+      return { ok: false };
     }
   }
 
-  // ============= FUNCIÓN: RENDERIZAR MENSAJE =============
-  function addMessageToUI(message, isUser = false, isHTML = false) {
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `chat-message ${isUser ? 'user-message' : 'bot-message'}`;
+  // ── Send ─────────────────────────────────────────────────
+  async function send() {
+    const msg = inputEl.value.trim();
+    if (!msg || waiting) return;
 
-    const contentDiv = document.createElement('div');
-    contentDiv.className = 'message-content';
-    
-    if (isHTML) {
-      contentDiv.innerHTML = message;
+    waiting = true;
+    inputEl.disabled = true;
+    sendBtn.disabled = true;
+    inputEl.value = '';
+    msgCount++;
+
+    addMsg(msg, true);
+    showTyping();
+
+    const result = await callAPI(msg);
+
+    hideTyping();
+
+    if (result.ok) {
+      addMsg(result.text);
     } else {
-      contentDiv.textContent = message;
+      addMsg(fallbackHTML(), false, true);
     }
 
-    messageDiv.appendChild(contentDiv);
-    messagesContainer.appendChild(messageDiv);
-
-    // Auto-scroll
-    setTimeout(() => {
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }, 50);
+    inputEl.disabled = false;
+    sendBtn.disabled = false;
+    waiting = false;
+    inputEl.focus();
   }
 
-  // ============= FUNCIÓN: MOSTRAR CARGA =============
-  function showLoadingIndicator() {
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'chat-message bot-message';
-    messageDiv.id = 'loading-indicator';
-
-    const contentDiv = document.createElement('div');
-    contentDiv.className = 'message-content loading';
-    contentDiv.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
-
-    messageDiv.appendChild(contentDiv);
-    messagesContainer.appendChild(messageDiv);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  }
-
-  // ============= FUNCIÓN: REMOVER CARGA =============
-  function removeLoadingIndicator() {
-    const loadingDiv = document.getElementById('loading-indicator');
-    if (loadingDiv) {
-      loadingDiv.remove();
+  // ── Mini EQ header animation ─────────────────────────────
+  function buildHeaderEQ() {
+    const eq = document.getElementById('chatHeaderEQ');
+    if (!eq) return;
+    for (let i = 0; i < 5; i++) {
+      const b = document.createElement('span');
+      b.className = 'heq-bar';
+      const dur = (500 + i * 110) + 'ms';
+      const delay = (i * 85) + 'ms';
+      b.style.cssText = `--dur:${dur};--delay:${delay}`;
+      eq.appendChild(b);
     }
   }
 
-  // ============= FUNCIÓN: RENDERIZAR RESPUESTA CON FALLBACK =============
-  function renderBotResponse(result) {
-    if (result.error) {
-      if (result.fallback) {
-        const contactHTML = `
-          <div class="error-message">
-            <p><strong>⚠️ ${result.error}</strong></p>
-            <div class="contact-options">
-              <a href="mailto:eliasgonzalezvaldepenas@gmail.com" class="contact-btn email-btn">📧 Email</a>
-              <a href="https://linkedin.com/in/elias-gonzález-valdepeñas-98aa97170" target="_blank" class="contact-btn linkedin-btn">💼 LinkedIn</a>
-              <a href="https://github.com/eliasgv04" target="_blank" class="contact-btn github-btn">🐙 GitHub</a>
-            </div>
-          </div>
-        `;
-        addMessageToUI(contactHTML, false, true);
-      } else {
-        addMessageToUI(`❌ ${result.error}`, false);
-      }
-    } else {
-      addMessageToUI(result.message, false);
-      
-      // Ofrecer contacto después de ciertos mensajes
-      if (messageCount >= 5 && !userContactInfo.name) {
-        setTimeout(() => {
-          addMessageToUI('📞 ¿Te gustaría que Elías se comunique contigo? Comparte tu nombre y email aquí o contacta directamente.', false);
-        }, 800);
-      }
-    }
-  }
+  // ── Events ────────────────────────────────────────────────
+  sendBtn.addEventListener('click', send);
+  inputEl.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
 
-  // ============= FUNCIÓN: ENVIAR MENSAJE =============
-  async function sendMessage() {
-    const message = chatInput.value.trim();
-
-    if (!message) return;
-
-    chatInput.disabled = true;
-    chatSendBtn.disabled = true;
-    isWaitingForResponse = true;
-
-    // Mostrar mensaje del usuario
-    addMessageToUI(message, true);
-    chatInput.value = '';
-    messageCount++;
-
-    // Mostrar indicador de carga
-    showLoadingIndicator();
-
-    // Pequeño delay para mejor UX
-    await new Promise(resolve => setTimeout(resolve, 300));
-
-    // Enviar a Groq
-    const result = await sendToGroq(message);
-
-    // Remover carga
-    removeLoadingIndicator();
-
-    // Renderizar respuesta
-    renderBotResponse(result);
-
-    // Reactivar input
-    chatInput.disabled = false;
-    chatSendBtn.disabled = false;
-    isWaitingForResponse = false;
-    chatInput.focus();
-  }
-
-  // ============= EVENT LISTENERS =============
-  chatSendBtn.addEventListener('click', sendMessage);
-  chatInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && !isWaitingForResponse) {
-      sendMessage();
-    }
-  });
-
-  // Enfoque automático al chatbot
-  chatInput.addEventListener('focus', () => {
-    chatContainer.classList.add('focused');
-  });
-
-  chatInput.addEventListener('blur', () => {
-    chatContainer.classList.remove('focused');
-  });
-
-  // ============= INICIALIZACIÓN =============
-  console.log('✅ Chatbot profesional cargado');
+  buildHeaderEQ();
 })();

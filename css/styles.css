@@ -97,7 +97,7 @@ body {
   transition: var(--transition);
 }
 
-.main-nav .nav-link:hover { color: var(--text-color); }
+.main-nav .nav-link:hover { color: var(--primary); font-weight: 600; }
 
 .main-nav .nav-link::after {
   content: "";
@@ -169,6 +169,46 @@ body {
 
 /* Botón CV en navbar */
 .cv-download { white-space: nowrap; }
+
+/* Botón selector de idioma (bandera redonda) */
+.btn-language-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.15rem;
+  padding: 0;
+  line-height: 1;
+  transition: var(--transition), box-shadow 0.25s ease;
+  overflow: hidden;
+  margin-left: 4px;
+}
+
+.btn-language-toggle:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(209,17,65,0.15);
+  transform: scale(1.1);
+}
+
+.btn-language-toggle:focus {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn-language-toggle:active { transform: scale(0.95); }
+
+.lang-flag {
+  display: block;
+  font-size: 1.1rem;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
 
 /* Hover de sección (ligero levantamiento) */
 .site-section:hover {

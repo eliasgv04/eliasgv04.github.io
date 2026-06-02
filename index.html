@@ -107,8 +107,8 @@
           <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav_contact">Contacto</a></li>
           <!-- Botón Language Toggle -->
           <li class="nav-item">
-            <button class="btn-language-toggle" id="languageToggle" aria-label="Toggle language" title="English / Español">
-              <span class="lang-code">EN</span>
+            <button class="btn-language-toggle" id="languageToggle" aria-label="Switch to English" title="English / Español">
+              <span class="lang-flag" aria-hidden="true">🇪🇸</span>
             </button>
           </li>
           <!-- Enlace Descargar CV (visible solo en móvil/tablet) -->
@@ -747,194 +747,182 @@
      <!-- Grid de tecnologías -->
      <div class="skills-grid" role="list">
        <!-- BACKEND -->
-       <div class="skill-card" role="listitem" data-category="backend" data-skill="Spring Boot">
-         <div class="skill-icon ci-spring"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-spring"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="backend" data-level="88">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">Spring Boot</h3>
          <p class="skill-desc">APIs REST, JPA, seguridad y arquitectura</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
-         <span class="skill-level">88%</span>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="backend" data-skill="Java">
-         <div class="skill-icon ci-java"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-java"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="backend" data-level="85">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">Java</h3>
          <p class="skill-desc">POO, patrones y desarrollo enterprise</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
-         <span class="skill-level">85%</span>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="backend" data-skill="Python">
-         <div class="skill-icon ci-py"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-python"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="backend" data-level="72">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">Python</h3>
          <p class="skill-desc">Scripts, lógica y prototipos</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 82%"></div></div>
-         <span class="skill-level">82%</span>
        </div>
 
        <!-- FRONTEND -->
-       <div class="skill-card" role="listitem" data-category="frontend" data-skill="Angular">
-         <div class="skill-icon ci-ng"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-angular"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="frontend" data-level="90">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="Angular" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">Angular</h3>
          <p class="skill-desc">Componentes, routing y estado</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
-         <span class="skill-level">90%</span>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="frontend" data-skill="JavaScript">
-         <div class="skill-icon ci-js"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-js"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="frontend" data-level="80">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">JavaScript</h3>
-         <p class="skill-desc">DOM, eventos y vanilla</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-         <span class="skill-level">80%</span>
+         <p class="skill-desc">DOM, eventos y vanilla JS</p>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="frontend" data-skill="HTML / CSS">
-         <div class="skill-icon ci-html"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-html"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="frontend" data-level="92">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">HTML / CSS</h3>
-         <p class="skill-desc">Semántica, responsive y modular</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 92%"></div></div>
-         <span class="skill-level">92%</span>
+         <p class="skill-desc">Semántica, responsive y accesibilidad</p>
        </div>
 
        <!-- TESTING -->
-       <div class="skill-card" role="listitem" data-category="testing" data-skill="JUnit">
-         <div class="skill-icon ci-test"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-test"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="testing" data-level="85">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/junit/junit-plain.svg" alt="JUnit" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">JUnit</h3>
          <p class="skill-desc">Testing unitario en Java</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
-         <span class="skill-level">85%</span>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="testing" data-skill="Karma">
-         <div class="skill-icon ci-test"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-test"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="testing" data-level="82">
+         <div class="skill-icon-wrap skill-letter" data-brand="karma">K</div>
          <h3 class="skill-name">Karma</h3>
          <p class="skill-desc">Test runner para Angular</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 82%"></div></div>
-         <span class="skill-level">82%</span>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="testing" data-skill="Jasmine">
-         <div class="skill-icon ci-test"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-test"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="testing" data-level="80">
+         <div class="skill-icon-wrap skill-letter" data-brand="jasmine">J</div>
          <h3 class="skill-name">Jasmine</h3>
          <p class="skill-desc">Framework de testing para JS</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-         <span class="skill-level">80%</span>
        </div>
 
        <!-- DATABASES -->
-       <div class="skill-card" role="listitem" data-category="database" data-skill="MySQL">
-         <div class="skill-icon ci-sql"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-sql"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="database" data-level="80">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">MySQL</h3>
          <p class="skill-desc">Bases de datos relacionales</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-         <span class="skill-level">80%</span>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="database" data-skill="MongoDB">
-         <div class="skill-icon ci-db"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-mongodb"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="database" data-level="72">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">MongoDB</h3>
          <p class="skill-desc">Bases de datos NoSQL</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 72%"></div></div>
-         <span class="skill-level">72%</span>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="database" data-skill="Oracle">
-         <div class="skill-icon ci-db"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-oracle"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="database" data-level="70">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg" alt="Oracle" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">Oracle</h3>
          <p class="skill-desc">Bases de datos enterprise</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 70%"></div></div>
-         <span class="skill-level">70%</span>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="database" data-level="72">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" alt="Supabase" class="skill-icon-img" loading="lazy">
+         </div>
+         <h3 class="skill-name">Supabase</h3>
+         <p class="skill-desc">Backend como servicio y base de datos</p>
        </div>
 
        <!-- DEVOPS & TOOLS -->
-       <div class="skill-card" role="listitem" data-category="devops" data-skill="Git">
-         <div class="skill-icon ci-git"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-git"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="devops" data-level="88">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">Git</h3>
          <p class="skill-desc">Control de versiones</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
-         <span class="skill-level">88%</span>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="devops" data-skill="GitHub">
-         <div class="skill-icon ci-git"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-github"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="devops" data-level="85">
+         <div class="skill-icon-wrap skill-letter" data-brand="github">
+           <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.31 6.84 9.66.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.55 2.34 1.1 2.91.84.09-.66.35-1.1.63-1.35-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .84-.27 2.75 1.05a9.2 9.2 0 0 1 2.5-.35c.85 0 1.7.12 2.5.35 1.9-1.32 2.74-1.05 2.74-1.05.55 1.43.2 2.49.1 2.75.64.72 1.02 1.63 1.02 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .26.18.58.69.48A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/></svg>
+         </div>
          <h3 class="skill-name">GitHub</h3>
          <p class="skill-desc">Versionado y colaboración</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
-         <span class="skill-level">85%</span>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="devops" data-skill="Jenkins">
-         <div class="skill-icon ci-devops"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-jenkins"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="devops" data-level="65">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" alt="Jenkins" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">Jenkins</h3>
          <p class="skill-desc">CI/CD y automatización</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 65%"></div></div>
-         <span class="skill-level">65%</span>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="devops" data-skill="Jira">
-         <div class="skill-icon ci-devops"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-jira"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="devops" data-level="78">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="Jira" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">Jira</h3>
-         <p class="skill-desc">Gestión de proyectos</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 78%"></div></div>
-         <span class="skill-level">78%</span>
+         <p class="skill-desc">Gestión ágil de proyectos</p>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="devops" data-skill="Trello">
-         <div class="skill-icon ci-devops"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-trello"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="devops" data-level="75">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/trello/trello-plain.svg" alt="Trello" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">Trello</h3>
-         <p class="skill-desc">Planificación ágil</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
-         <span class="skill-level">75%</span>
-       </div>
-
-       <div class="skill-card" role="listitem" data-category="devops" data-skill="Supabase">
-         <div class="skill-icon ci-devops"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-supabase"/></svg></div>
-         <h3 class="skill-name">Supabase</h3>
-         <p class="skill-desc">Backend como servicio</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 72%"></div></div>
-         <span class="skill-level">72%</span>
+         <p class="skill-desc">Planificación visual de tareas</p>
        </div>
 
        <!-- AI ASSISTANTS -->
-       <div class="skill-card" role="listitem" data-category="ai" data-skill="Claude">
-         <div class="skill-icon ci-ai"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-claude"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="ai" data-level="90">
+         <div class="skill-icon-wrap skill-letter" data-brand="claude">C</div>
          <h3 class="skill-name">Claude</h3>
          <p class="skill-desc">Asistente de IA Anthropic</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
-         <span class="skill-level">85%</span>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="ai" data-skill="GitHub Copilot">
-         <div class="skill-icon ci-ai"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-copilot"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="ai" data-level="85">
+         <div class="skill-icon-wrap skill-letter" data-brand="copilot">⬡</div>
          <h3 class="skill-name">GitHub Copilot</h3>
-         <p class="skill-desc">Asistente de código</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-         <span class="skill-level">80%</span>
+         <p class="skill-desc">Asistente de código por IA</p>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="ai" data-skill="OpenAI Codex">
-         <div class="skill-icon ci-ai"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-openai"/></svg></div>
-         <h3 class="skill-name">OpenAI Codex</h3>
-         <p class="skill-desc">Modelo de código OpenAI</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
-         <span class="skill-level">75%</span>
+       <div class="skill-card" role="listitem" data-category="ai" data-level="80">
+         <div class="skill-icon-wrap skill-letter" data-brand="openai">AI</div>
+         <h3 class="skill-name">OpenAI</h3>
+         <p class="skill-desc">Modelos GPT y APIs de IA</p>
        </div>
 
-       <div class="skill-card" role="listitem" data-category="ai" data-skill="Groq">
-         <div class="skill-icon ci-ai"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-groq"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="ai" data-level="75">
+         <div class="skill-icon-wrap skill-letter" data-brand="groq">G</div>
          <h3 class="skill-name">Groq</h3>
-         <p class="skill-desc">API de IA ultrarrápida</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 78%"></div></div>
-         <span class="skill-level">78%</span>
+         <p class="skill-desc">API de inferencia ultrarrápida</p>
        </div>
 
        <!-- MOBILE -->
-       <div class="skill-card" role="listitem" data-category="mobile" data-skill="Swift">
-         <div class="skill-icon ci-mobile"><svg class="tech-icon" viewBox="0 0 24 24"><use href="#icon-swift"/></svg></div>
+       <div class="skill-card" role="listitem" data-category="mobile" data-level="60">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" alt="Swift" class="skill-icon-img" loading="lazy">
+         </div>
          <h3 class="skill-name">Swift</h3>
-         <p class="skill-desc">Desarrollo iOS</p>
-         <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
-         <span class="skill-level">60%</span>
+         <p class="skill-desc">Desarrollo iOS nativo</p>
        </div>
      </div>
    </div>
@@ -943,103 +931,89 @@
  <section id="contact" class="site-section contact-section">
    <div class="container py-5">
      <h2 class="section-title" data-i18n="contact_title">Contacto</h2>
+     <p class="section-intro contact-intro" data-i18n="contact_intro">Chatea conmigo sobre experiencia, proyectos o colaboraciones</p>
+
      <div class="contact-grid">
-       <!-- Casete visual + formulario -->
-       <div class="cassette-wrapper" aria-labelledby="contactTitle" role="group">
-         <div class="cassette" aria-hidden="true">
-           <div class="cassette-shell"></div>
-           <div class="cassette-label">
-             <div class="c-label-top">
-               <span class="c-brand">SIDE A · GET IN TOUCH</span>
-               <span class="c-year">2025</span>
-             </div>
-             <div class="c-window">
-               <div class="reel reel-left"><div class="spokes"></div></div>
-                <div class="tape-level" aria-hidden="true"><div class="tape-level-fill"></div></div>
-               <div class="tape-ticks" aria-hidden="true">
-                 <span></span><span></span><span></span><span></span><span></span>
-               </div>
-               <div class="reel reel-right"><div class="spokes"></div></div>
-             </div>
-             <div class="c-label-bottom">
-               <span class="c-type">HIGH BIAS CHROME</span>
-               <span class="c-code">EG-90</span>
+       <!-- ── Chatbot ── -->
+       <div class="chatbot-container" id="chatbotContainer">
+
+         <!-- Cabecera musical -->
+         <div class="chatbot-header" aria-hidden="true">
+           <div class="cb-avatar">
+             <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3Zm0 2a7 7 0 1 1 0 14A7 7 0 0 1 12 5Zm-1 3v4l3.5 2-.7 1.2L10 13.5V8h1Z"/></svg>
+           </div>
+           <div class="cb-meta">
+             <span class="cb-name">Asistente de Elías</span>
+             <span class="cb-online"><span class="cb-dot"></span>online</span>
+           </div>
+           <div class="cb-eq" id="chatHeaderEQ" aria-hidden="true"></div>
+         </div>
+
+         <!-- Mensajes -->
+         <div class="chatbot-messages" id="chatMessages" role="log" aria-live="polite" aria-label="Conversación del chatbot">
+           <div class="chat-message bot-message">
+             <div class="message-content">
+               <strong data-i18n="chatbot_greeting">¡Hola! 👋</strong><br>
+               <span data-i18n="chatbot_intro">Soy el asistente de Elías. Puedo ayudarte con:</span>
+               <ul style="margin:7px 0 4px 0;padding-left:18px;font-size:.88em;line-height:1.55">
+                 <li data-i18n="chatbot_experience">Mi experiencia (Spring Boot, Angular, Testing)</li>
+                 <li data-i18n="chatbot_projects">Mis proyectos y GitHub</li>
+                 <li data-i18n="chatbot_collaborations">Colaboraciones u ofertas</li>
+               </ul>
+               <span style="font-size:.85em;opacity:.75" data-i18n="chatbot_question">¿En qué puedo ayudarte? 😊</span>
              </div>
            </div>
-           <div class="cassette-holes" aria-hidden="true">
-             <span></span><span></span><span></span>
-           </div>
-           <span class="sticker sticker-a" aria-hidden="true">EG MIX</span>
-           <span class="sticker sticker-b" aria-hidden="true">#DEV</span>
-           <span class="scribble" aria-hidden="true">Elías '25</span>
+         </div>
+
+         <!-- Input -->
+         <div class="chatbot-input-area">
+           <input
+             type="text"
+             id="chatInput"
+             class="chat-input"
+             data-i18n-attr='{"placeholder":"chatbot_placeholder"}'
+             placeholder="Pregunta sobre experiencia, proyectos, etc..."
+             aria-label="Mensaje para el chatbot"
+             autocomplete="off"
+           />
+           <button id="chatSend" class="chat-send-btn" aria-label="Enviar mensaje" data-i18n-attr='{"title":"chatbot_send"}'>
+             <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+               <line x1="22" y1="2" x2="11" y2="13"/>
+               <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+             </svg>
+           </button>
+         </div>
+
+         <div class="chatbot-footer">
+           <small>Powered by Groq · llama-3.1-8b-instant</small>
          </div>
        </div>
-        <!-- Chatbot AI Container - MEJORADO -->
-        <div class="chatbot-container wide-form" id="chatbotContainer">
-          <div class="chatbot-messages" id="chatMessages" role="log" aria-live="polite" aria-label="Conversación del chatbot">
-            <div class="chat-message bot-message">
-              <div class="message-content" id="chatInitialMessage">
-                <strong data-i18n="chatbot_greeting">¡Hola! 👋</strong><br>
-                <span data-i18n="chatbot_intro">Soy el asistente de Elías. Puedo ayudarte con preguntas sobre:</span>
-                <ul style="margin: 8px 0 0 0; padding-left: 20px; font-size: 0.9em;">
-                  <li data-i18n="chatbot_experience">Mi experiencia (Spring Boot, Angular, Testing)</li>
-                  <li data-i18n="chatbot_projects">Mis proyectos y GitHub</li>
-                  <li data-i18n="chatbot_collaborations">Colaboraciones o ofertas</li>
-                </ul>
-                <div style="margin-top: 8px; font-size: 0.85em; opacity: 0.8;" data-i18n="chatbot_question">¿En qué puedo ayudarte? 😊</div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="chatbot-input-area">
-            <input 
-              type="text" 
-              id="chatInput" 
-              class="chat-input" 
-              placeholder="Pregunta sobre experiencia, proyectos, etc..."
-              aria-label="Campo de entrada del chat"
-            />
-            <button 
-              id="chatSend" 
-              class="chat-send-btn" 
-              aria-label="Enviar mensaje"
-            >
-              <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-              </svg>
-            </button>
-          </div>
-          
-          <div class="chatbot-footer">
-            <small>Powered by Groq AI | Tu información será procesada confidencialmente</small>
-          </div>
-        </div>
-       <!-- Panel de enlaces directos -->
+
+       <!-- ── Links directos ── -->
        <aside class="contact-links" aria-label="Enlaces directos">
-         <h3 class="cl-title">Conecta</h3>
+         <h3 class="cl-title" data-i18n="contact_connect">Conecta</h3>
          <ul class="cl-list">
-            <li>
-              <a class="cl-link" href="mailto:eliasgonzalezvaldepenas@gmail.com" data-kind="email" aria-label="Email: eliasgonzalezvaldepenas@gmail.com">
-                <span class="cl-icon" aria-hidden="true"><svg class="icon"><use href="#icon-mail"/></svg></span>
-                <span class="cl-label">Email</span>
-                <span class="cl-username">eliasgonzalezvaldepenas@gmail.com</span>
-              </a>
-            </li>
-            <li>
-              <a class="cl-link" href="https://github.com/eliasgv04" target="_blank" rel="noopener" data-kind="github" aria-label="GitHub usuario eliasgv04 (abre nueva pestaña)">
-                <span class="cl-icon" aria-hidden="true"><svg class="icon"><use href="#icon-github"/></svg></span>
-                <span class="cl-label">GitHub</span>
-                <span class="cl-username">@eliasgv04</span>
-              </a>
-            </li>
-            <li>
-              <a class="cl-link" href="https://www.linkedin.com/in/elias-gonzález-valdepeñas-98aa97170" target="_blank" rel="noopener" data-kind="linkedin" aria-label="LinkedIn perfil elias-gonzález-valdepeñas-98aa97170 (abre nueva pestaña)">
-                <span class="cl-icon" aria-hidden="true"><svg class="icon"><use href="#icon-linkedin"/></svg></span>
-                <span class="cl-label">LinkedIn</span>
-                <span class="cl-username">/in/elias-gonzález-valdepeñas-98aa97170</span>
-              </a>
-            </li>
+           <li>
+             <a class="cl-link" href="mailto:eliasgonzalezvaldepenas@gmail.com" data-kind="email" aria-label="Enviar email">
+               <span class="cl-icon" aria-hidden="true"><svg class="icon"><use href="#icon-mail"/></svg></span>
+               <span class="cl-label" data-i18n="contact_email">Email</span>
+               <span class="cl-username">eliasgonzalezvaldepenas@gmail.com</span>
+             </a>
+           </li>
+           <li>
+             <a class="cl-link" href="https://github.com/eliasgv04" target="_blank" rel="noopener" data-kind="github" aria-label="GitHub">
+               <span class="cl-icon" aria-hidden="true"><svg class="icon"><use href="#icon-github"/></svg></span>
+               <span class="cl-label" data-i18n="contact_github">GitHub</span>
+               <span class="cl-username">@eliasgv04</span>
+             </a>
+           </li>
+           <li>
+             <a class="cl-link" href="https://www.linkedin.com/in/elias-gonz%C3%A1lez-valdepe%C3%B1as-98aa97170" target="_blank" rel="noopener" data-kind="linkedin" aria-label="LinkedIn">
+               <span class="cl-icon" aria-hidden="true"><svg class="icon"><use href="#icon-linkedin"/></svg></span>
+               <span class="cl-label" data-i18n="contact_linkedin">LinkedIn</span>
+               <span class="cl-username">/in/elias-gonzález-valdepeñas</span>
+             </a>
+           </li>
          </ul>
        </aside>
      </div>
@@ -1053,6 +1027,8 @@
   <!-- JS personalizados -->
   <script src="js/vinyl.js"></script>
   <script src="js/skills-grid.js"></script>
+  <!-- Config local con la key (gitignoreado, solo en tu máquina) -->
+  <script src="js/config.local.js" onerror="void 0"></script>
   <script src="js/chatbot.js"></script>
   <!-- Sprite de iconos inline -->
   <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
@@ -1157,6 +1133,9 @@
       <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 10c-1.93 0-3.5 1.57-3.5 3.5S13.57 19 15.5 19 19 17.43 19 15.5 17.43 12 15.5 12zm-7 0c-1.93 0-3.5 1.57-3.5 3.5S5.57 19 7.5 19 11 17.43 11 15.5 9.43 12 7.5 12z"/>
     </symbol>
   </svg>
+  <script src="js/i18n.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/skills.js"></script>
   <script src="js/projects.js"></script>
   <script src="js/main.js"></script>
   <!-- Botón flotante modo claro/oscuro -->
