@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Elías González Valdepeñas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red:    #d11141;
+    --red2:   #ff3d5e;
+    --dark:   #0f1013;
+    --body:   #ffffff;
+    --soft:   #f5f7fa;
+    --text:   #1a1b1f;
+    --muted:  #5a6070;
+    --border: #e3e6ea;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #d4d4d4;
+    color: var(--text);
+    font-size: 10.4px;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-bar {
+    background: var(--dark);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    align-items: center;
+  }
+  .print-bar span { color: #aaa; font-size: 11px; }
+  .btn-print {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-print:hover { background: var(--red2); }
+  .btn-print:disabled { opacity: 0.6; cursor: wait; }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    background: var(--body);
+    margin: 16px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.28);
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    background: var(--dark);
+    padding: 22px 28px 18px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2.5px solid var(--red);
+    flex-shrink: 0;
+  }
+
+  .header-main { flex: 1; }
+  .header-main h1 { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -0.5px; line-height: 1.1; }
+  .header-main .role { font-size: 11px; font-weight: 600; color: var(--red2); margin-top: 3px; letter-spacing: 0.3px; }
+  .header-main .location { font-size: 9.5px; color: #888; margin-top: 2px; }
+
+  .header-logo { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .header-logo svg { width: 44px; height: 44px; }
+  .header-logo-text { font-size: 8px; font-weight: 700; color: #aaa; letter-spacing: 0.5px; }
+
+  .contact-bar {
+    background: #181b20;
+    padding: 8px 28px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    border-top: 1px solid #2a2e36;
+  }
+
+  .contact-bar a, .contact-bar span {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .contact-bar a:hover { color: var(--red2); }
+  .c-dot { width: 3px; height: 3px; background: #444; border-radius: 50%; display: inline-block; }
+
+  .body { padding: 20px 28px 14px; flex: 1; display: flex; flex-direction: column; gap: 14px; }
+
+  section { display: flex; flex-direction: column; gap: 6px; }
+
+  .section-title {
+    font-size: 10.5px;
+    font-weight: 800;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid var(--red);
+    margin-bottom: 2px;
+  }
+
+  .summary-text { color: var(--muted); font-size: 9.5px; line-height: 1.55; }
+
+  .exp-item { display: flex; flex-direction: column; gap: 4px; }
+  .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
+  .exp-company { font-size: 11px; font-weight: 700; color: var(--text); }
+  .exp-date    { font-size: 8.5px; color: var(--muted); font-weight: 500; }
+  .exp-role    { font-size: 9px; color: var(--muted); font-weight: 500; }
+
+  .exp-bullets { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 3px; margin-top: 3px; }
+  .exp-bullets li { font-size: 9px; color: var(--text); padding-left: 12px; position: relative; line-height: 1.5; }
+  .exp-bullets li::before { content: '·'; position: absolute; left: 2px; color: var(--red); font-weight: 700; font-size: 12px; line-height: 1.1; }
+
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .tag { font-size: 7.8px; font-weight: 600; color: var(--red); background: rgba(209,17,65,0.08); border-radius: 4px; padding: 2px 6px; }
+
+  .skills-table { display: flex; flex-direction: column; gap: 4px; }
+  .skill-row { display: grid; grid-template-columns: 90px 1fr; gap: 8px; align-items: start; }
+  .skill-category { font-size: 9px; font-weight: 700; color: var(--text); }
+  .skill-list { font-size: 9px; color: var(--muted); line-height: 1.5; }
+
+  .bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  .edu-item { display: flex; flex-direction: column; gap: 1px; }
+  .edu-degree { font-size: 9.5px; font-weight: 700; color: var(--text); }
+  .edu-school { font-size: 9px; color: var(--muted); }
+  .edu-date   { font-size: 8.5px; color: var(--muted); margin-top: 1px; }
+
+  .lang-row { display: flex; justify-content: space-between; align-items: center; font-size: 9px; padding: 3px 0; border-bottom: 1px solid var(--border); }
+  .lang-row:last-child { border-bottom: none; }
+  .lang-name  { font-weight: 700; color: var(--text); }
+  .lang-level { color: var(--muted); }
+
+  .cert-list { display: flex; flex-wrap: wrap; gap: 4px; }
+  .cert-pill { font-size: 7.8px; font-weight: 500; color: var(--muted); background: var(--soft); border-radius: 4px; padding: 2px 7px; border: 1px solid var(--border); }
+
+  .proj-row { display: grid; grid-template-columns: auto 1fr auto; gap: 6px; align-items: baseline; padding: 2px 0; border-bottom: 1px solid var(--border); }
+  .proj-row:last-child { border-bottom: none; }
+  .proj-name { font-size: 9.5px; font-weight: 700; color: var(--text); }
+  .proj-desc { font-size: 8.5px; color: var(--muted); }
+  .proj-tech { font-size: 8px; color: var(--red); font-weight: 600; text-align: right; }
+</style>
+</head>
+<body>
+
+<div class="print-bar">
+  <span>English Version · Elías González CV</span>
+  <button class="btn-print" id="btnDownload" onclick="downloadCV()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download PDF
+  </button>
+</div>
+
+<div class="page" id="cvPage">
+
+  <header>
+    <img src="../../img/fotoPerfil.jpeg" alt="Elías González" class="photo">
+    <div class="header-main">
+      <h1>Elías González Valdepeñas</h1>
+      <div class="role">Full-Stack Developer · Junior</div>
+      <div class="location">Ciudad Real, Spain · Open to remote</div>
+    </div>
+    <div class="header-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="#d11141"/>
+            <stop offset="100%" stop-color="#ff5f7a"/>
+          </linearGradient>
+        </defs>
+        <circle cx="128" cy="128" r="122" fill="#111" stroke="#d11141" stroke-width="12"/>
+        <circle cx="128" cy="128" r="90" fill="none" stroke="url(#g)" stroke-width="10" stroke-dasharray="8 14" stroke-linecap="round"/>
+        <text x="50%" y="53%" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="72" fill="#fff" font-weight="600" dy="16">E</text>
+      </svg>
+      <span class="header-logo-text">&lt;/&gt;Elías</span>
+    </div>
+  </header>
+
+  <div class="contact-bar">
+    <a href="mailto:eliasgonzalezvaldepenas@gmail.com">✉ eliasgonzalezvaldepenas@gmail.com</a>
+    <span class="c-dot"></span>
+    <a href="https://linkedin.com/in/elias-gonzález-valdepeñas-98aa97170" target="_blank">in linkedin.com/in/elias-gonzález-valdepeñas</a>
+    <span class="c-dot"></span>
+    <a href="https://github.com/eliasgv04" target="_blank">⌥ github.com/eliasgv04</a>
+    <span class="c-dot"></span>
+    <a href="https://portfolio-eliasgonzalez.vercel.app" target="_blank">🌐 portfolio-eliasgonzalez.vercel.app</a>
+  </div>
+
+  <div class="body">
+
+    <section>
+      <div class="section-title">Summary</div>
+      <p class="summary-text">
+        Full-Stack developer with real production experience on a project for <strong>MAPFRE</strong> — one of Spain's leading insurance companies — gained during my internship at Minsait. Core stack: Spring Boot + Angular, with solid testing practices (JUnit, Karma, Jasmine). Detail-oriented and quality-focused: I thrive building clean interfaces and well-structured, scalable code. Cambridge B2 English. Graduating in Computer Science (UCLM) in 2026 and available to join immediately.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-title">Experience</div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">Minsait (Indra)</span>
+          <span class="exp-date">Feb 2026 — Jun 2026</span>
+        </div>
+        <div class="exp-role">Software Engineering Intern · Full-Stack</div>
+        <ul class="exp-bullets">
+          <li>Contributed to a digitalisation project for <strong>MAPFRE</strong>, one of Spain's leading insurance companies, within a multidisciplinary agile team.</li>
+          <li>Implemented Full-Stack features: REST API endpoints with <strong>Spring Boot</strong> (Java) on the backend and UI components with <strong>Angular</strong> on the frontend.</li>
+          <li>Wrote, fixed and refactored unit tests using <strong>JUnit 5</strong> (backend) and <strong>Karma / Jasmine</strong> (frontend), increasing overall test coverage.</li>
+          <li>Version control with <strong>Git / GitHub</strong> and task management with <strong>Jira</strong> following Scrum methodology.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Spring Boot</span><span class="tag">Java</span><span class="tag">Angular</span>
+          <span class="tag">TypeScript</span><span class="tag">JUnit 5</span><span class="tag">Karma</span>
+          <span class="tag">Jasmine</span><span class="tag">Git</span><span class="tag">Jira</span><span class="tag">Scrum</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Selected Projects</div>
+      <div class="proj-row">
+        <span class="proj-name">Spotify to Vinyl</span>
+        <span class="proj-desc">Music search + vinyl purchase app. Full CRUD logic and design.</span>
+        <span class="proj-tech">Python · HTML · SQL</span>
+      </div>
+      <div class="proj-row">
+        <span class="proj-name">Gramola Virtual</span>
+        <span class="proj-desc">Bar jukebox: customers search songs via Spotify API and queue them by paying with Stripe. Account management, email notifications, MySQL persistence; E2E tests with Selenium.</span>
+        <span class="proj-tech">Angular · Spring · MySQL · Spotify API · Stripe · Selenium</span>
+      </div>
+      <div class="proj-row">
+        <span class="proj-name">Portfolio + AI Chatbot</span>
+        <span class="proj-desc">This site: functional AI chatbot (Groq), music-themed design, ES/EN i18n.</span>
+        <span class="proj-tech">HTML · CSS · JS · Groq API</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Skills</div>
+      <div class="skills-table">
+        <div class="skill-row">
+          <span class="skill-category">Backend</span>
+          <span class="skill-list">Spring Boot · Java · Python · REST APIs · JPA / Hibernate</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Frontend</span>
+          <span class="skill-list">Angular · TypeScript · JavaScript · HTML5 · CSS3 · Responsive Design</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Testing</span>
+          <span class="skill-list">JUnit 5 · Karma · Jasmine · Mockito · TDD · Test Coverage</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Databases</span>
+          <span class="skill-list">MySQL · Oracle · MongoDB · Advanced SQL</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">DevOps & Tools</span>
+          <span class="skill-list">Git · GitHub · Jenkins · Jira · Trello · Scrum / Kanban</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">AI & Assistants</span>
+          <span class="skill-list">Claude · GitHub Copilot · Groq API · OpenAI</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="bottom-row">
+      <section>
+        <div class="section-title">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">Bachelor's Degree in Computer Science</div>
+          <div class="edu-school">University of Castilla-La Mancha (UCLM) · ESI</div>
+          <div class="edu-date">2022 – 2026</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">Languages</div>
+        <div class="lang-row">
+          <span class="lang-name">Spanish</span>
+          <span class="lang-level">Native</span>
+        </div>
+        <div class="lang-row">
+          <span class="lang-name">English</span>
+          <span class="lang-level">B2 · Cambridge Certificate</span>
+        </div>
+      </section>
+    </div>
+
+    <section>
+      <div class="section-title">Certifications</div>
+      <div class="cert-list">
+        <span class="cert-pill">Generative AI: Fundamental Concepts</span>
+        <span class="cert-pill">Generative AI & Intelligent Search</span>
+        <span class="cert-pill">Ethics in Generative AI</span>
+        <span class="cert-pill">Professional AI Fundamentals · Microsoft & LinkedIn</span>
+        <span class="cert-pill">AWS: Core Services</span>
+        <span class="cert-pill">Microsoft Copilot: Accelerate Your Work</span>
+        <span class="cert-pill">Discover Microsoft 365 Copilot</span>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  function downloadCV() {
+    const btn = document.getElementById('btnDownload');
+    btn.disabled = true;
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/></svg> Generating...';
+
+    html2pdf().set({
+      margin: 0,
+      filename: 'CV-Elias-Gonzalez-EN.pdf',
+      image: { type: 'jpeg', quality: 0.97 },
+      html2canvas: { scale: 3, useCORS: true, logging: false },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    }).from(document.getElementById('cvPage')).save().then(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF';
+    });
+  }
+</script>
+</body>
+</html>

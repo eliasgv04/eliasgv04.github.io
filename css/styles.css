@@ -167,8 +167,48 @@ body {
 .brand-logo:hover .brand-img { box-shadow: 0 4px 14px -4px rgba(209,17,65,0.55); transform: translateY(-2px); }
 .brand-logo:active .brand-img { transform: translateY(0); }
 
-/* Botón CV en navbar */
-.cv-download { white-space: nowrap; }
+/* Botones CV bilingüe en navbar */
+.cv-buttons { align-items: center; }
+
+.cv-btn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.cv-btn-es {
+  background: rgba(209,17,65,0.08);
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+}
+.cv-btn-es:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.cv-btn-en {
+  background: rgba(0,82,204,0.06);
+  border: 1.5px solid #0052cc;
+  color: #0052cc;
+}
+.cv-btn-en:hover {
+  background: #0052cc;
+  color: #fff;
+}
+
+html[data-theme='dark'] .cv-btn-en {
+  border-color: #5b9cf6;
+  color: #5b9cf6;
+}
+html[data-theme='dark'] .cv-btn-en:hover {
+  background: #5b9cf6;
+  color: #fff;
+}
 
 /* Botón selector de idioma (bandera redonda) */
 .btn-language-toggle {
