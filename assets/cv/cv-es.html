@@ -73,58 +73,59 @@
   /* ── Header ── */
   header {
     background: var(--dark);
-    padding: 22px 28px 18px;
+    padding: 26px 30px 20px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 22px;
   }
 
   .photo {
-    width: 72px;
-    height: 72px;
+    width: 112px;
+    height: 112px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center top;
-    border: 2.5px solid var(--red);
+    border: 3px solid var(--red);
     flex-shrink: 0;
+    box-shadow: 0 0 0 5px rgba(209,17,65,0.18);
   }
 
   .header-main { flex: 1; }
 
   .header-main h1 {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 800;
     color: #fff;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.6px;
     line-height: 1.1;
   }
 
   .header-main .role {
-    font-size: 11px;
+    font-size: 11.5px;
     font-weight: 600;
     color: var(--red2);
-    margin-top: 3px;
+    margin-top: 4px;
     letter-spacing: 0.3px;
   }
 
   .header-main .location {
     font-size: 9.5px;
     color: #888;
-    margin-top: 2px;
+    margin-top: 3px;
   }
 
   .header-logo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3px;
+    gap: 4px;
   }
-  .header-logo svg { width: 44px; height: 44px; }
+  .header-logo svg { width: 52px; height: 52px; }
   .header-logo-text {
-    font-size: 8px;
-    font-weight: 700;
-    color: #aaa;
-    letter-spacing: 0.5px;
+    font-size: 8.5px;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 0.8px;
   }
 
   .contact-bar {
@@ -279,21 +280,30 @@
   .lang-level { color: var(--muted); }
 
   /* ── Certifications ── */
-  .cert-list {
+  /* Certificaciones como lista enlazada en 2 columnas */
+  .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+  .cert-item {
     display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 3.5px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 8.5px;
   }
-
-  .cert-pill {
-    font-size: 7.8px;
-    font-weight: 500;
-    color: var(--muted);
-    background: var(--soft);
-    border-radius: 4px;
-    padding: 2px 7px;
-    border: 1px solid var(--border);
+  .cert-item:nth-last-child(-n+2) { border-bottom: none; }
+  .cert-bullet { color: var(--red); font-weight: 800; font-size: 11px; flex-shrink: 0; line-height: 1.2; }
+  .cert-name { color: var(--text); font-weight: 500; flex: 1; line-height: 1.35; }
+  .cert-link-cv {
+    color: var(--red);
+    text-decoration: none;
+    font-size: 7.5px;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0.75;
+    flex-shrink: 0;
+    padding-top: 1px;
   }
+  .cert-link-cv:hover { opacity: 1; text-decoration: underline; }
 
   /* ── Projects ── */
   .proj-row {
@@ -342,7 +352,7 @@
         <circle cx="128" cy="128" r="90" fill="none" stroke="url(#g)" stroke-width="10" stroke-dasharray="8 14" stroke-linecap="round"/>
         <text x="50%" y="53%" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="72" fill="#fff" font-weight="600" dy="16">E</text>
       </svg>
-      <span class="header-logo-text">&lt;/&gt;Elías</span>
+      <span class="header-logo-text">elías.dev</span>
     </div>
   </header>
 
@@ -460,7 +470,7 @@
         </div>
         <div class="lang-row">
           <span class="lang-name">Inglés</span>
-          <span class="lang-level">B2 · Cambridge (oficial)</span>
+          <span class="lang-level">B2 · Cambridge</span>
         </div>
       </section>
     </div>
@@ -468,14 +478,47 @@
     <!-- Certificaciones -->
     <section>
       <div class="section-title">Certificaciones</div>
-      <div class="cert-list">
-        <span class="cert-pill">IA Generativa: Conceptos Fundamentales</span>
-        <span class="cert-pill">IA Generativa & Búsqueda Inteligente</span>
-        <span class="cert-pill">Ética en IA Generativa</span>
-        <span class="cert-pill">Fundamentos Profesionales de IA · Microsoft & LinkedIn</span>
-        <span class="cert-pill">AWS: Servicios Principales</span>
-        <span class="cert-pill">Microsoft Copilot: Agiliza tu Trabajo</span>
-        <span class="cert-pill">Descubre Microsoft 365 Copilot</span>
+      <div class="cert-grid">
+        <div class="cert-item">
+          <span class="cert-bullet">·</span>
+          <span class="cert-name">IA Generativa: Conceptos Fundamentales</span>
+          <a class="cert-link-cv" href="../certificaciones/CertificadoDeFinalizacion_Que es la IA generativa.pdf" target="_blank">↗ Ver</a>
+        </div>
+        <div class="cert-item">
+          <span class="cert-bullet">·</span>
+          <span class="cert-name">Fundamentos Profesionales de IA · Microsoft & LinkedIn</span>
+          <a class="cert-link-cv" href="../certificaciones/CertificadoDeFinalizacion_Fundamentos profesionales de IA generativa por Microsoft y LinkedIn.pdf" target="_blank">↗ Ver</a>
+        </div>
+        <div class="cert-item">
+          <span class="cert-bullet">·</span>
+          <span class="cert-name">IA Generativa & Búsqueda Inteligente</span>
+          <a class="cert-link-cv" href="../certificaciones/CertificadoDeFinalizacion_Inteligencia artificial generativa la evolucion de la busqueda inteligente en Internet.pdf" target="_blank">↗ Ver</a>
+        </div>
+        <div class="cert-item">
+          <span class="cert-bullet">·</span>
+          <span class="cert-name">AWS: Servicios Principales</span>
+          <a class="cert-link-cv" href="../certificaciones/CertificadoDeFinalizacion_Introduccion a AWS Servicios principales.pdf" target="_blank">↗ Ver</a>
+        </div>
+        <div class="cert-item">
+          <span class="cert-bullet">·</span>
+          <span class="cert-name">IA Generativa: Más Allá de Ingeniería</span>
+          <a class="cert-link-cv" href="../certificaciones/CertificadoDeFinalizacion_Inteligencia artificial mas alla de la ingenieria.pdf" target="_blank">↗ Ver</a>
+        </div>
+        <div class="cert-item">
+          <span class="cert-bullet">·</span>
+          <span class="cert-name">Microsoft Copilot: Agiliza tu Trabajo</span>
+          <a class="cert-link-cv" href="../certificaciones/CertificadoDeFinalizacion_Agiliza tu trabajo con el chat de Microsoft Copilot.pdf" target="_blank">↗ Ver</a>
+        </div>
+        <div class="cert-item">
+          <span class="cert-bullet">·</span>
+          <span class="cert-name">Ética en IA Generativa</span>
+          <a class="cert-link-cv" href="../certificaciones/CertificadoDeFinalizacion_Problematicas sociales desafios eticos y sesgos de la inteligencia artificial generativa.pdf" target="_blank">↗ Ver</a>
+        </div>
+        <div class="cert-item">
+          <span class="cert-bullet">·</span>
+          <span class="cert-name">Descubre Microsoft 365 Copilot</span>
+          <a class="cert-link-cv" href="../certificaciones/CertificadoDeFinalizacion_Descubre Microsoft 365 Copilot.pdf" target="_blank">↗ Ver</a>
+        </div>
       </div>
     </section>
 

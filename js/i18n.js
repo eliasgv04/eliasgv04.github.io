@@ -69,6 +69,21 @@ const translations = {
     projects_filter_tools: 'Herramientas',
     projects_filter_otros: 'Otros',
     projects_code: 'Código',
+    // Project cards
+    proj_1_title: 'Spotify to Vinyl',
+    proj_1_desc: 'Aplicación que conecta búsqueda musical con compra de vinilos: localizar discos y artistas, marcar favoritos, recibir notificaciones y acceder a enlaces de compra directos aprovechando el auge del formato físico.',
+    proj_invencloud_title: 'InvenCloud (Inventario Ferretería)',
+    proj_invencloud_desc: 'Aplicación web HTML/CSS/JS para gestión de inventario de ferretería: altas/bajas y edición de productos y categorías, seguimiento de stock, búsqueda rápida, login básico, formulario de contacto y enfoque en organización clara en la nube.',
+    proj_management_title: 'Gestión de Proyecto Iterativa',
+    proj_management_desc: 'Dirección y control end‑to‑end: planificación en iteraciones, autoevaluación periódica del equipo, gestión de la calidad (criterios y métricas de aceptación), control de configuración (versionado, trazabilidad de artefactos y baseline), identificación y mitigación de riesgos, comunicación continua y revisión de entregables.',
+    proj_swift_title: 'Curso / Tutorial de Swift',
+    proj_swift_desc: 'Recorrido por los fundamentos del lenguaje (tipos, optionals, estructuras, control de flujo y protocolos) culminando en dos mini‑apps: calculadora de IMC y visor de superhéroes consumiendo una API (búsqueda + detalle de características) construido con SwiftUI.',
+    proj_futsal_title: 'Torrenueva Futsal · Community Manager',
+    proj_futsal_desc: 'Gestión digital del club: planning semanal, piezas gráficas (resultados, convocatorias, highlights), cobertura en vivo (stories y marcador), clips de vídeo corto y seguimiento de métricas para iterar contenido.',
+    proj_pokemon_title: 'Juego estilo Pokémon (Diseño + Batallas)',
+    proj_pokemon_desc: 'Aplicación en XAML/C#: creador de criatura (nombre, tipos, stats, sprite) y núcleo de juego con colección, sistema de turnos, cálculo de daño, estados, batallas multijugador y notificaciones de eventos/captura.',
+    proj_gramola_title: 'Gramola Virtual (Jukebox con Spotify)',
+    proj_gramola_desc: 'Servicio para bares donde los clientes eligen canciones que se cuelan en la playlist tras la actual. El propietario gestiona el local; los clientes buscan temas vía API de Spotify y pagan para insertarlos en la cola. Backend Spring + Stripe + MySQL; front Angular; pruebas funcionales con Selenium.',
 
     // Skills Section
     skills_title: 'Skills',
@@ -166,6 +181,21 @@ const translations = {
     projects_filter_tools: 'Tools',
     projects_filter_otros: 'Other',
     projects_code: 'Code',
+    // Project cards
+    proj_1_title: 'Spotify to Vinyl',
+    proj_1_desc: 'App connecting music search with vinyl record purchases: find albums and artists, bookmark favorites, receive notifications and access direct purchase links, leveraging the resurgence of physical music formats.',
+    proj_invencloud_title: 'InvenCloud (Hardware Store Inventory)',
+    proj_invencloud_desc: 'HTML/CSS/JS web app for hardware store inventory management: add/remove and edit products and categories, stock tracking, quick search, basic login, contact form and cloud-based organization.',
+    proj_management_title: 'Iterative Project Management',
+    proj_management_desc: 'End-to-end direction and control: iteration planning, periodic team self-assessment, quality management (acceptance criteria and metrics), configuration control (versioning, artifact traceability and baseline), risk identification and mitigation, continuous communication and deliverable review.',
+    proj_swift_title: 'Swift Course / Tutorial',
+    proj_swift_desc: 'Tour through Swift fundamentals (types, optionals, structs, control flow and protocols) culminating in two mini-apps: a BMI calculator and a superhero viewer consuming an API (search + feature detail) built with SwiftUI.',
+    proj_futsal_title: 'Torrenueva Futsal · Community Manager',
+    proj_futsal_desc: 'Club digital management: weekly planning, graphic pieces (results, squads, highlights), live coverage (stories and scoreboard), short video clips and metrics tracking to iterate content.',
+    proj_pokemon_title: 'Pokémon-style Game (Design + Battles)',
+    proj_pokemon_desc: 'XAML/C# app: creature creator (name, types, stats, sprite) and game core with collection, turn system, damage calculation, status effects, multiplayer battles and event/capture notifications.',
+    proj_gramola_title: 'Virtual Jukebox (with Spotify)',
+    proj_gramola_desc: 'Bar service where customers pick songs that jump into the current playlist. The owner manages the venue; customers search tracks via Spotify API and pay to queue them. Spring backend + Stripe + MySQL; Angular frontend; functional tests with Selenium.',
 
     // Skills Section
     skills_title: 'Skills',

@@ -304,3 +304,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach(sec => observer.observe(sec));
 });
+

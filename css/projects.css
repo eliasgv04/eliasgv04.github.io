@@ -319,16 +319,25 @@ body[data-theme="light"], [data-theme="light"] .projects-header .section-title {
 
 .project-title {
 	font-size: 1.1rem;
+	font-weight: 600;
 	line-height: 1.2;
 	letter-spacing: .4px;
+	margin: 0;
+	padding: 0;
+	color: var(--text-color, #1e2126);
 }
+
+[data-theme="dark"] .project-title { color: #f0f2f5; }
 
 .project-desc {
 	font-size: .85rem;
+	font-weight: 400;
 	line-height: 1.45;
 	color: var(--proj-text-dim);
 	flex-grow: 1;
 	max-width: 60ch;
+	margin: 0;
+	padding: 0;
 }
 
 
