@@ -72,8 +72,9 @@ const translations = {
     // Project cards
     proj_1_title: 'Spotify to Vinyl',
     proj_1_desc: 'Aplicación que conecta búsqueda musical con compra de vinilos: localizar discos y artistas, marcar favoritos, recibir notificaciones y acceder a enlaces de compra directos aprovechando el auge del formato físico.',
-    proj_invencloud_title: 'InvenCloud (Inventario Ferretería)',
-    proj_invencloud_desc: 'Aplicación web HTML/CSS/JS para gestión de inventario de ferretería: altas/bajas y edición de productos y categorías, seguimiento de stock, búsqueda rápida, login básico, formulario de contacto y enfoque en organización clara en la nube.',
+    proj_futsal_app_title: 'Torrenueva Futsal · App de Gestión Integral',
+    proj_futsal_app_desc: 'App web desarrollada con el cuerpo técnico del club: catálogo de ejercicios propio, planificador de sesiones con convocatoria, dashboard de carga de trabajo sobre 574 registros, exportación a PDF y Excel, estadísticas de partidos en tiempo real y pizarra táctica con Drag & Drop. Datos blindados con RLS y autenticación real.',
+    proj_demo: 'Demo',
     proj_management_title: 'Gestión de Proyecto Iterativa',
     proj_management_desc: 'Dirección y control end‑to‑end: planificación en iteraciones, autoevaluación periódica del equipo, gestión de la calidad (criterios y métricas de aceptación), control de configuración (versionado, trazabilidad de artefactos y baseline), identificación y mitigación de riesgos, comunicación continua y revisión de entregables.',
     proj_swift_title: 'Curso / Tutorial de Swift',
@@ -184,8 +185,9 @@ const translations = {
     // Project cards
     proj_1_title: 'Spotify to Vinyl',
     proj_1_desc: 'App connecting music search with vinyl record purchases: find albums and artists, bookmark favorites, receive notifications and access direct purchase links, leveraging the resurgence of physical music formats.',
-    proj_invencloud_title: 'InvenCloud (Hardware Store Inventory)',
-    proj_invencloud_desc: 'HTML/CSS/JS web app for hardware store inventory management: add/remove and edit products and categories, stock tracking, quick search, basic login, contact form and cloud-based organization.',
+    proj_futsal_app_title: 'Torrenueva Futsal · Full Management App',
+    proj_futsal_app_desc: 'Web app built with the club coaching staff: custom exercise catalogue, session planner with squad selection, workload dashboard across 574 records, one-click PDF and Excel export, real-time match player stats and an interactive tactical board with Drag & Drop. Data secured with Row Level Security (RLS) and real authentication.',
+    proj_demo: 'Demo',
     proj_management_title: 'Iterative Project Management',
     proj_management_desc: 'End-to-end direction and control: iteration planning, periodic team self-assessment, quality management (acceptance criteria and metrics), configuration control (versioning, artifact traceability and baseline), risk identification and mitigation, continuous communication and deliverable review.',
     proj_swift_title: 'Swift Course / Tutorial',
