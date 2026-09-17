@@ -96,7 +96,8 @@
   .header-logo-text { display: block; font-size: 8.5px; font-weight: 600; color: #888; letter-spacing: 0.8px; margin-top: 4px; }
 
   .qr-frame {
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
     width: 52px;
     height: 52px;
     border-radius: 10px;
@@ -129,7 +130,7 @@
   .contact-bar a:hover { color: var(--red2); }
   .c-dot { width: 3px; height: 3px; background: #444; border-radius: 50%; display: inline-block; }
 
-  .body { padding: 16px 28px 10px; flex: 1; display: flex; flex-direction: column; gap: 11px; }
+  .body { padding: 14px 28px 6px; flex: 1; display: flex; flex-direction: column; gap: 9px; }
 
   section { display: flex; flex-direction: column; gap: 5px; }
 
@@ -219,7 +220,7 @@
     </div>
     <div class="header-logo">
       <div class="qr-frame">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=0&data=https%3A%2F%2Feliasgv04.github.io" alt="QR to Elías González's portfolio" class="qr-img">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQMAAACXljzdAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAwklEQVRYhd2VQQ7DIAwE9/+fdlXsXSz6gimREvBwGbE4qh6SSucjV6BE6up3drbcCpNsK9WtsElO8U/IyE4iycSrEf3NKIukL+RxBUky2nIVmOT6PtJYsrM3E7FJ/kyezEUjkiuoUope8Egb3hxOFAtLynWbWhJKhtnYi8KSWbpFnLOzM5Es5ZVFQYnHbhO1AYxct5jHHkniOX5tOtkkknpi+GSUSpTrpZwlmcy7D3LnkUakdHTvnLaBJMle2yaSTPIBYCSV90kbDcoAAAAASUVORK5CYII=" alt="QR to Elías González's portfolio" class="qr-img">
       </div>
       <span class="header-logo-text">elías.dev</span>
     </div>
@@ -412,23 +413,32 @@
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-  function downloadCV() {
+  // Manual single-page capture: html2pdf.js has a known bug that adds a near-blank
+  // 2nd page due to internal pagination rounding, even when content fits exactly
+  // one page. Generating the canvas with html2canvas and fitting it ourselves into
+  // a single jsPDF page avoids that automatic pagination logic entirely.
+  async function downloadCV() {
     const btn = document.getElementById('btnDownload');
     btn.disabled = true;
     btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/></svg> Generating...';
 
-    html2pdf().set({
-      margin: 0,
-      filename: 'CV-Elias-Gonzalez-EN.pdf',
-      image: { type: 'jpeg', quality: 0.97 },
-      html2canvas: { scale: 3, useCORS: true, logging: false },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    }).from(document.getElementById('cvPage')).save().then(() => {
+    try {
+      const el = document.getElementById('cvPage');
+      const canvas = await html2canvas(el, { scale: 3, useCORS: true, logging: false });
+      const imgData = canvas.toDataURL('image/jpeg', 0.97);
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+      // Exact proportional height from the captured canvas, so the aspect ratio is never distorted
+      const pdfHeight = 210 * (canvas.height / canvas.width);
+      pdf.addImage(imgData, 'JPEG', 0, 0, 210, pdfHeight);
+      pdf.save('CV-Elias-Gonzalez-EN.pdf');
+    } finally {
       btn.disabled = false;
       btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF';
-    });
+    }
   }
 </script>
 </body>
