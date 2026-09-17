@@ -115,19 +115,19 @@
   }
 
   .header-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+    text-align: center;
   }
   .header-logo-text {
+    display: block;
     font-size: 8.5px;
     font-weight: 600;
     color: #888;
     letter-spacing: 0.8px;
+    margin-top: 4px;
   }
 
   .qr-frame {
+    display: inline-block;
     width: 52px;
     height: 52px;
     border-radius: 10px;
@@ -328,20 +328,18 @@
   .proj-row:last-child { border-bottom: none; }
   .proj-name { font-size: 9.5px; font-weight: 700; color: var(--text); }
   .proj-desc { font-size: 8.5px; color: var(--muted); }
-  .proj-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; }
-  .proj-tech { font-size: 8px; color: var(--red); font-weight: 600; text-align: right; }
-  .proj-link { font-size: 7px; color: var(--muted); font-weight: 500; text-align: right; }
+  .proj-meta { text-align: right; }
+  .proj-tech { display: block; font-size: 8px; color: var(--red); font-weight: 600; text-align: right; white-space: nowrap; }
+  .proj-link { display: block; font-size: 7px; color: var(--muted); font-weight: 500; text-align: right; white-space: nowrap; margin-top: 1px; }
 
   /* ── Disponibilidad ── */
   .avail-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+    display: block;
     font-size: 8.5px;
     color: #7fe0a8;
     margin-top: 3px;
   }
-  .avail-dot { width: 5px; height: 5px; border-radius: 50%; background: #34d17a; box-shadow: 0 0 4px #34d17a; }
+  .avail-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #34d17a; box-shadow: 0 0 4px #34d17a; margin-right: 4px; vertical-align: middle; }
 </style>
 </head>
 <body>
