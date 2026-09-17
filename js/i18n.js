@@ -15,11 +15,11 @@ const translations = {
     nav_download_cv: 'Descargar CV',
 
     // Home Section
-    home_tagline: 'Portafolio de <strong>Elías González</strong> · Ingeniería Informática & Desarrollo Full-Stack',
+    home_tagline: 'Portafolio de <strong>Elías González</strong> · Ingeniería Informática & Desarrollo de Software',
 
     // About Section
     about_title: 'Sobre mí',
-    about_intro: 'Me defino como alguien curioso y detallista: disfruto creando interfaces limpias, accesibles y con una estética cuidada. Me inspira combinar tecnología y ritmo visual, como se ve en el tocadiscos de inicio.',
+    about_intro: 'Soy curioso por naturaleza y aprendo construyendo: disfruto tanto cuidar el detalle de una interfaz como explorar pipelines de datos, IA o infraestructura en la nube. Me mueve entender cómo encajan las piezas de un sistema completo, y esa misma curiosidad marca el ritmo de este portafolio, como en el tocadiscos de inicio.',
     about_formation: 'Formación',
     education_2007: 'Colegio Santiago el Mayor',
     education_2016: 'IES Francisco Nieva',
@@ -134,11 +134,11 @@ const translations = {
     nav_download_cv: 'Download CV',
 
     // Home Section
-    home_tagline: 'Portfolio of <strong>Elías González</strong> · Computer Science & Full-Stack Development',
+    home_tagline: 'Portfolio of <strong>Elías González</strong> · Computer Science & Software Development',
 
     // About Section
     about_title: 'About Me',
-    about_intro: 'I define myself as curious and detail-oriented: I enjoy creating clean, accessible interfaces with careful aesthetics. I\'m inspired by combining technology and visual rhythm, as seen in the home turntable.',
+    about_intro: 'I\'m naturally curious and I learn by building: I enjoy polishing the details of an interface just as much as digging into a data pipeline, AI, or cloud infrastructure. What drives me is understanding how the pieces of a whole system fit together, and that same curiosity sets the rhythm of this portfolio, just like the turntable on the home page.',
     about_formation: 'Education',
     education_2007: 'Santiago el Mayor School',
     education_2016: 'Francisco Nieva High School',

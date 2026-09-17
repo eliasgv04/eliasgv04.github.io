@@ -93,8 +93,19 @@
   .header-main .location { font-size: 9.5px; color: #888; margin-top: 3px; }
 
   .header-logo { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .header-logo svg { width: 52px; height: 52px; }
   .header-logo-text { font-size: 8.5px; font-weight: 600; color: #888; letter-spacing: 0.8px; }
+
+  .qr-frame {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 4px;
+    box-sizing: border-box;
+    border: 2.5px solid var(--red);
+    box-shadow: 0 0 0 5px rgba(209,17,65,0.18);
+  }
+  .qr-frame .qr-img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
   .contact-bar {
     background: #181b20;
@@ -172,11 +183,17 @@
   .cert-link-cv { color: var(--red); text-decoration: none; font-size: 7.5px; font-weight: 700; white-space: nowrap; opacity: 0.75; flex-shrink: 0; padding-top: 1px; }
   .cert-link-cv:hover { opacity: 1; text-decoration: underline; }
 
-  .proj-row { display: grid; grid-template-columns: auto 1fr auto; gap: 6px; align-items: baseline; padding: 2px 0; border-bottom: 1px solid var(--border); }
+  .proj-row { display: grid; grid-template-columns: auto 1fr auto; gap: 6px; align-items: start; padding: 2px 0; border-bottom: 1px solid var(--border); }
   .proj-row:last-child { border-bottom: none; }
   .proj-name { font-size: 9.5px; font-weight: 700; color: var(--text); }
   .proj-desc { font-size: 8.5px; color: var(--muted); }
+  .proj-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; }
   .proj-tech { font-size: 8px; color: var(--red); font-weight: 600; text-align: right; }
+  .proj-link { font-size: 7px; color: var(--muted); font-weight: 500; text-align: right; }
+
+  .avail-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 8.5px; color: #7fe0a8; margin-top: 3px; }
+  .avail-dot { width: 5px; height: 5px; border-radius: 50%; background: #34d17a; box-shadow: 0 0 4px #34d17a; }
+
 </style>
 </head>
 <body>
@@ -195,21 +212,14 @@
     <img src="../../img/fotoPerfil.jpeg" alt="Elías González" class="photo">
     <div class="header-main">
       <h1>Elías González Valdepeñas</h1>
-      <div class="role">Full-Stack Developer · Junior</div>
-      <div class="location">Ciudad Real, Spain · Open to remote</div>
+      <div class="role">Software Engineer · Junior</div>
+      <div class="location">Ciudad Real, Spain</div>
+      <div class="avail-badge"><span class="avail-dot"></span> Available immediately</div>
     </div>
     <div class="header-logo">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-        <defs>
-          <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stop-color="#d11141"/>
-            <stop offset="100%" stop-color="#ff5f7a"/>
-          </linearGradient>
-        </defs>
-        <circle cx="128" cy="128" r="122" fill="#111" stroke="#d11141" stroke-width="12"/>
-        <circle cx="128" cy="128" r="90" fill="none" stroke="url(#g)" stroke-width="10" stroke-dasharray="8 14" stroke-linecap="round"/>
-        <text x="50%" y="53%" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="72" fill="#fff" font-weight="600" dy="16">E</text>
-      </svg>
+      <div class="qr-frame">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=0&data=https%3A%2F%2Feliasgv04.github.io" alt="QR to Elías González's portfolio" class="qr-img">
+      </div>
       <span class="header-logo-text">elías.dev</span>
     </div>
   </header>
@@ -229,7 +239,7 @@
     <section>
       <div class="section-title">Summary</div>
       <p class="summary-text">
-        Full-Stack developer with real production experience on a project for <strong>MAPFRE</strong> — one of Spain's leading insurance companies — gained during my internship at Minsait. Core stack: Spring Boot + Angular, with solid testing practices (JUnit, Karma, Jasmine). Detail-oriented and quality-focused: I thrive building clean interfaces and well-structured, scalable code. Cambridge B2 English. Graduating in Computer Science (UCLM) in 2026 and available to join immediately.
+        Software engineer with real production experience on a project for <strong>MAPFRE</strong> — one of Spain's leading insurance companies — gained during my internship at Minsait, and a pattern that repeats across every project: I learn fast and prove it by building. I've shipped everything from Full-Stack APIs (Spring Boot + Angular) to Python data pipelines and AI-integrated platforms, always with thorough testing and code built to scale. Graduating in Computer Science (UCLM) in 2026, with my sights set on data, AI and cloud.
       </p>
     </section>
 
@@ -260,27 +270,42 @@
       <div class="proj-row">
         <span class="proj-name">FutsalKit (Thesis)</span>
         <span class="proj-desc">Multi-club futsal management platform in real use, born as a club delegate. 580+ tests, 96% coverage.</span>
-        <span class="proj-tech">React · Supabase · PostgreSQL · Vitest</span>
+        <span class="proj-meta">
+          <span class="proj-tech">React · Supabase · PostgreSQL · Vitest</span>
+          <span class="proj-link">github.com/eliasgv04/torrenuevafutsal</span>
+        </span>
       </div>
       <div class="proj-row">
         <span class="proj-name">Gramola Virtual</span>
         <span class="proj-desc">Bar jukebox: customers pay with Stripe to queue songs via the Spotify API. E2E tests with Selenium.</span>
-        <span class="proj-tech">Angular · Spring · MySQL · Stripe · Selenium</span>
+        <span class="proj-meta">
+          <span class="proj-tech">Angular · Spring · MySQL · Stripe · Selenium</span>
+          <span class="proj-link">github.com/eliasgv04/TrabajoTecnologiasEliasGlez</span>
+        </span>
       </div>
       <div class="proj-row">
         <span class="proj-name">Netflix Data Warehouse</span>
         <span class="proj-desc">Star-schema data warehouse over the Netflix catalogue: Python/Pandas ETL, loaded into MySQL on Docker.</span>
-        <span class="proj-tech">Python · Pandas · MySQL · Docker</span>
+        <span class="proj-meta">
+          <span class="proj-tech">Python · Pandas · MySQL · Docker</span>
+          <span class="proj-link">github.com/eliasgv04/bbdda-datawarehouse</span>
+        </span>
       </div>
       <div class="proj-row">
         <span class="proj-name">Corporate Websites (Astro)</span>
         <span class="proj-desc">Two live sites for real clients (a construction firm and a sports club), optimized for speed and SEO.</span>
-        <span class="proj-tech">Astro · HTML · CSS · SEO</span>
+        <span class="proj-meta">
+          <span class="proj-tech">Astro · HTML · CSS · SEO</span>
+          <span class="proj-link">prakisama.com · torrenuevafutsal.com</span>
+        </span>
       </div>
       <div class="proj-row">
         <span class="proj-name">Portfolio + AI Chatbot</span>
         <span class="proj-desc">This site: functional AI chatbot (Groq), music-themed design, ES/EN i18n.</span>
-        <span class="proj-tech">HTML · CSS · JS · Groq API</span>
+        <span class="proj-meta">
+          <span class="proj-tech">HTML · CSS · JS · Groq API</span>
+          <span class="proj-link">github.com/eliasgv04/eliasgv04.github.io</span>
+        </span>
       </div>
     </section>
 
