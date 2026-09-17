@@ -94,6 +94,8 @@ html[data-theme='dark'] .skill-si-wrap { background: #ececec; }
 .skill-letter[data-brand="copilot"] { background: linear-gradient(135deg,#6e40c9,#8b5cf6); }
 .skill-letter[data-brand="openai"]  { background: linear-gradient(135deg,#10A37F,#0e7d63); }
 .skill-letter[data-brand="groq"]    { background: linear-gradient(135deg,#F55036,#ff6b4d); }
+.skill-letter[data-brand="xquery"]  { background: linear-gradient(135deg,#e07a1f,#c2570f); }
+.skill-letter[data-brand="basex"]   { background: linear-gradient(135deg,#2e8b57,#1f6b41); }
 /* GitHub: blanco con el Octocat negro — se lee en ambos temas */
 .skill-letter[data-brand="github"]  { background: #fff; color: #1b1f23; border: 1.5px solid var(--border-color); }
 html[data-theme='dark'] .skill-letter[data-brand="github"] { background: #e8eaed; }

@@ -117,9 +117,9 @@
   .contact-bar a:hover { color: var(--red2); }
   .c-dot { width: 3px; height: 3px; background: #444; border-radius: 50%; display: inline-block; }
 
-  .body { padding: 20px 28px 14px; flex: 1; display: flex; flex-direction: column; gap: 14px; }
+  .body { padding: 16px 28px 10px; flex: 1; display: flex; flex-direction: column; gap: 11px; }
 
-  section { display: flex; flex-direction: column; gap: 6px; }
+  section { display: flex; flex-direction: column; gap: 5px; }
 
   .section-title {
     font-size: 10.5px;
@@ -127,9 +127,9 @@
     color: var(--red);
     text-transform: uppercase;
     letter-spacing: 0.9px;
-    padding-bottom: 4px;
+    padding-bottom: 3px;
     border-bottom: 1.5px solid var(--red);
-    margin-bottom: 2px;
+    margin-bottom: 1px;
   }
 
   .summary-text { color: var(--muted); font-size: 9.5px; line-height: 1.55; }
@@ -258,14 +258,24 @@
     <section>
       <div class="section-title">Selected Projects</div>
       <div class="proj-row">
-        <span class="proj-name">Spotify to Vinyl</span>
-        <span class="proj-desc">Music search + vinyl purchase app. Full CRUD logic and design.</span>
-        <span class="proj-tech">Python · HTML · SQL</span>
+        <span class="proj-name">FutsalKit (Thesis)</span>
+        <span class="proj-desc">Multi-club futsal management platform in real use, born as a club delegate. 580+ tests, 96% coverage.</span>
+        <span class="proj-tech">React · Supabase · PostgreSQL · Vitest</span>
       </div>
       <div class="proj-row">
         <span class="proj-name">Gramola Virtual</span>
-        <span class="proj-desc">Bar jukebox: customers search songs via Spotify API and queue them by paying with Stripe. Account management, email notifications, MySQL persistence; E2E tests with Selenium.</span>
-        <span class="proj-tech">Angular · Spring · MySQL · Spotify API · Stripe · Selenium</span>
+        <span class="proj-desc">Bar jukebox: customers pay with Stripe to queue songs via the Spotify API. E2E tests with Selenium.</span>
+        <span class="proj-tech">Angular · Spring · MySQL · Stripe · Selenium</span>
+      </div>
+      <div class="proj-row">
+        <span class="proj-name">Netflix Data Warehouse</span>
+        <span class="proj-desc">Star-schema data warehouse over the Netflix catalogue: Python/Pandas ETL, loaded into MySQL on Docker.</span>
+        <span class="proj-tech">Python · Pandas · MySQL · Docker</span>
+      </div>
+      <div class="proj-row">
+        <span class="proj-name">Corporate Websites (Astro)</span>
+        <span class="proj-desc">Two live sites for real clients (a construction firm and a sports club), optimized for speed and SEO.</span>
+        <span class="proj-tech">Astro · HTML · CSS · SEO</span>
       </div>
       <div class="proj-row">
         <span class="proj-name">Portfolio + AI Chatbot</span>
@@ -279,23 +289,23 @@
       <div class="skills-table">
         <div class="skill-row">
           <span class="skill-category">Backend</span>
-          <span class="skill-list">Spring Boot · Java · Python · REST APIs · JPA / Hibernate</span>
+          <span class="skill-list">Spring Boot · Java · Python · Flask · Pandas · SQLAlchemy · REST APIs · JPA / Hibernate</span>
         </div>
         <div class="skill-row">
           <span class="skill-category">Frontend</span>
-          <span class="skill-list">Angular · TypeScript · JavaScript · HTML5 · CSS3 · Responsive Design</span>
+          <span class="skill-list">Angular · TypeScript · JavaScript · HTML5 · CSS3 · Astro</span>
         </div>
         <div class="skill-row">
           <span class="skill-category">Testing</span>
-          <span class="skill-list">JUnit 5 · Karma · Jasmine · Mockito · TDD · Test Coverage</span>
+          <span class="skill-list">JUnit 5 · Karma · Jasmine · Vitest · Mockito · TDD</span>
         </div>
         <div class="skill-row">
           <span class="skill-category">Databases</span>
-          <span class="skill-list">MySQL · Oracle · MongoDB · Advanced SQL</span>
+          <span class="skill-list">MySQL · PostgreSQL · Oracle · MongoDB · Supabase · XML / XQuery</span>
         </div>
         <div class="skill-row">
           <span class="skill-category">DevOps & Tools</span>
-          <span class="skill-list">Git · GitHub · Jenkins · Jira · Trello · Scrum / Kanban</span>
+          <span class="skill-list">Git · GitHub · Docker · Jenkins · Jira · Trello · Scrum / Kanban</span>
         </div>
         <div class="skill-row">
           <span class="skill-category">AI & Assistants</span>

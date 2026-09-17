@@ -539,6 +539,7 @@
        <button class="pf-btn" type="button" data-filter="web" aria-pressed="false" data-i18n="projects_filter_web">Web</button>
        <button class="pf-btn" type="button" data-filter="ui" aria-pressed="false" data-i18n="projects_filter_ui">UI</button>
        <button class="pf-btn" type="button" data-filter="tools" aria-pressed="false" data-i18n="projects_filter_tools">Herramientas</button>
+       <button class="pf-btn" type="button" data-filter="data" aria-pressed="false" data-i18n="projects_filter_data">Data</button>
        <button class="pf-btn" type="button" data-filter="otros" aria-pressed="false" data-i18n="projects_filter_otros">Otros</button>
      </div>
      <div id="projectsLive" class="sr-only" aria-live="polite"></div>
@@ -546,21 +547,21 @@
    <div class="projects-grid-wrapper">
      <div class="projects-grid" role="list">
        <!-- Proyecto 1 REAL (restaurado formato básico) -->
-  <article class="project-card" role="listitem" data-cat="web tools" data-stack="Python,HTML,SQL" data-tone="green">
+  <article class="project-card" role="listitem" data-cat="web tools" data-stack="Python,Flask,MySQL,Docker" data-tone="green">
          <div class="project-thumb" aria-hidden="true">
            <div class="pt-overlay"></div>
            <div class="pl-top">THIS IS</div>
            <div class="pl-title">SPOTIFY → VINYL</div>
            <div class="pl-bottom">
              <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-             <div class="pl-meta">PY • HT • SQL</div>
+             <div class="pl-meta">PY • FLK • MYS</div>
            </div>
          </div>
          <div class="project-body">
            <h3 class="project-title" data-i18n="proj_1_title">Spotify to Vinyl</h3>
-           <p class="project-desc" data-i18n="proj_1_desc">Aplicación que conecta búsqueda musical con compra de vinilos: localizar discos y artistas, marcar favoritos, recibir notificaciones y acceder a enlaces de compra directos aprovechando el auge del formato físico.</p>
+           <p class="project-desc" data-i18n="proj_1_desc">Aplicación web (Flask + MySQL) para descubrir vinilos: búsqueda de artistas y álbumes combinando las APIs de Discogs y Last.fm, ficha de detalle por álbum, wishlist de favoritos y notificaciones. Autenticación real con contraseñas hasheadas y sesiones, contenerizada con Docker. Proyecto de Ingeniería del Software desarrollado en equipo con metodología Scrum.</p>
            <ul class="project-tags" aria-label="Stack principal">
-             <li>Python</li><li>HTML</li><li>SQL</li><li>Notifs</li>
+             <li>Python</li><li>Flask</li><li>MySQL</li><li>Discogs API</li><li>Last.fm API</li><li>Docker</li>
            </ul>
          </div>
          <div class="project-actions">
@@ -568,27 +569,25 @@
          </div>
        </article>
        <!-- Proyecto 6 -->
-  <article class="project-card" role="listitem" data-cat="web tools" data-stack="React,Supabase,PostgreSQL,GitHub Actions" data-tone="red">
+  <article class="project-card" role="listitem" data-cat="web tools" data-stack="React,Vite,Supabase,PostgreSQL,Vitest,dnd-kit" data-tone="red">
          <div class="project-thumb" aria-hidden="true">
            <div class="pt-overlay"></div>
            <div class="pl-top">THIS IS</div>
-           <div class="pl-title">FUTSAL APP</div>
+           <div class="pl-title">FUTSALKIT</div>
            <div class="pl-bottom">
              <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-             <div class="pl-meta">RCT • SUP • GHA</div>
+             <div class="pl-meta">RCT • SUP • VTS</div>
            </div>
          </div>
          <div class="project-body">
-           <h3 class="project-title" data-i18n="proj_futsal_app_title">Torrenueva Futsal · App de Gestión Integral</h3>
-           <p class="project-desc" data-i18n="proj_futsal_app_desc">App web desarrollada con el cuerpo técnico del club: catálogo de ejercicios propio, planificador de sesiones con convocatoria, dashboard de carga de trabajo sobre 574 registros, exportación a PDF y Excel, estadísticas de partidos en tiempo real y pizarra táctica con Drag &amp; Drop. Datos blindados con RLS y autenticación real.</p>
+           <h3 class="project-title" data-i18n="proj_futsal_app_title">FutsalKit · Plataforma Multi-Club (TFG)</h3>
+           <p class="project-desc" data-i18n="proj_futsal_app_desc">Trabajo de Fin de Grado (Ingeniería Informática, UCLM) nacido de una necesidad real como delegado de C.D. Torrenueva Futsal. Plataforma multi-club para fútbol sala amateur: banco de ejercicios con ficha de sesión en PDF, pizarra táctica animada por fotogramas exportable a vídeo y estadísticas de partido en directo, con datos aislados por club (RLS). Más de 580 tests automatizados (~96% cobertura) y en uso real por el club.</p>
            <ul class="project-tags" aria-label="Stack y focos">
-             <li>React</li><li>Supabase</li><li>PostgreSQL</li><li>GitHub Actions</li><li>PDF-lib</li><li>SheetJS</li>
+             <li>React</li><li>Vite</li><li>Supabase</li><li>PostgreSQL</li><li>Vitest</li><li>dnd-kit</li>
            </ul>
          </div>
          <div class="project-actions">
-           <a href="https://lnkd.in/erwyVgrX" target="_blank" rel="noopener" class="proj-link is-action" title="Demo: Torrenueva Futsal App">
-             <svg class="icon inline" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span data-i18n="proj_demo">Demo</span>
-           </a>
+           <a href="https://github.com/eliasgv04/torrenuevafutsal" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: FutsalKit"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span data-i18n="projects_code">Código</span></a>
          </div>
        </article>
        <!-- Proyecto 2 -->
@@ -616,47 +615,73 @@
           </div>
        </article>
        <!-- Proyecto 3 -->
-  <article class="project-card" role="listitem" data-cat="ui tools" data-stack="Swift,SwiftUI,API" data-tone="blue">
+  <article class="project-card" role="listitem" data-cat="web ui" data-stack="Astro,HTML,CSS,SEO" data-tone="blue">
          <div class="project-thumb" aria-hidden="true">
            <div class="pt-overlay"></div>
            <div class="pl-top">THIS IS</div>
-           <div class="pl-title">SWIFT TUTORIAL</div>
+           <div class="pl-title">PRAKISAMA</div>
            <div class="pl-bottom">
              <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-             <div class="pl-meta">SWF • UI • API</div>
+             <div class="pl-meta">AST • WEB • SEO</div>
            </div>
          </div>
          <div class="project-body">
-           <h3 class="project-title" data-i18n="proj_swift_title">Curso / Tutorial de Swift</h3>
-           <p class="project-desc" data-i18n="proj_swift_desc">Recorrido por los fundamentos del lenguaje (tipos, optionals, estructuras, control de flujo y protocolos) culminando en dos mini‑apps: calculadora de IMC y visor de superhéroes consumiendo una API (búsqueda + detalle de características) construido con SwiftUI.</p>
+           <h3 class="project-title" data-i18n="proj_prakisama_title">Prakisama · Web Corporativa</h3>
+           <p class="project-desc" data-i18n="proj_prakisama_desc">Sitio web para Prakisama, empresa de construcción con más de 30 años de experiencia (obra nueva, reformas, espacios comerciales y obra pública). Catálogo de servicios, galería de proyectos ejecutados, noticias y formulario de contacto para presupuestos. Construido con Astro, priorizando velocidad de carga y SEO.</p>
            <ul class="project-tags" aria-label="Tecnologías">
-             <li>Swift</li><li>SwiftUI</li><li>API</li>
+             <li>Astro</li><li>HTML</li><li>CSS</li><li>SEO</li>
            </ul>
          </div>
          <div class="project-actions">
-           <a href="https://github.com/eliasgv04/Curso-Swift" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Curso Swift"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span data-i18n="projects_code">Código</span></a>
+           <a href="https://prakisama.com/" target="_blank" rel="noopener" class="proj-link is-action" title="Sitio web: Prakisama">
+             <svg class="icon inline" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span data-i18n="proj_website">Sitio web</span>
+           </a>
          </div>
        </article>
-       <!-- Proyecto 4 -->
-  <article class="project-card" role="listitem" data-cat="otros ui" data-stack="Procreate,Photoshop,Video" data-tone="amber">
+       <!-- Proyecto 3b -->
+  <article class="project-card" role="listitem" data-cat="web ui" data-stack="Astro,HTML,CSS,SEO" data-tone="cyan">
          <div class="project-thumb" aria-hidden="true">
            <div class="pt-overlay"></div>
            <div class="pl-top">THIS IS</div>
-           <div class="pl-title">TORRENUEVA FUTSAL</div>
+           <div class="pl-title">TORRENUEVA WEB</div>
            <div class="pl-bottom">
              <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-             <div class="pl-meta">SOC • VID • KPI</div>
+             <div class="pl-meta">AST • WEB • SEO</div>
            </div>
          </div>
          <div class="project-body">
-           <h3 class="project-title" data-i18n="proj_futsal_title">Torrenueva Futsal · Community Manager</h3>
-          <p class="project-desc" data-i18n="proj_futsal_desc">Gestión digital del club: planning semanal, piezas gráficas (resultados, convocatorias, highlights), cobertura en vivo (stories y marcador), clips de vídeo corto y seguimiento de métricas para iterar contenido.</p>
-           <ul class="project-tags" aria-label="Herramientas y focos">
-             <li>Procreate</li><li>Photoshop</li><li>Video Edición</li><li>Social Media</li><li>Métricas</li>
+           <h3 class="project-title" data-i18n="proj_torrenueva_web_title">Torrenueva Futsal · Web Oficial del Club</h3>
+           <p class="project-desc" data-i18n="proj_torrenueva_web_desc">Web pública del C.D. Torrenueva Futsal: noticias y calendario de temporada, plantilla y cuerpo técnico, resultados, tienda de merchandising y patrocinadores. Construida con Astro para carga rápida y buen SEO, con una estructura fácil de mantener desde el club.</p>
+           <ul class="project-tags" aria-label="Tecnologías">
+             <li>Astro</li><li>HTML</li><li>CSS</li><li>SEO</li>
+           </ul>
+         </div>
+         <div class="project-actions">
+           <a href="https://torrenuevafutsal.com/" target="_blank" rel="noopener" class="proj-link is-action" title="Sitio web: Torrenueva Futsal">
+             <svg class="icon inline" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span data-i18n="proj_website">Sitio web</span>
+           </a>
+         </div>
+       </article>
+       <!-- Proyecto 4 -->
+  <article class="project-card" role="listitem" data-cat="tools data" data-stack="Python,XML,XQuery,BaseX,XSD" data-tone="amber">
+         <div class="project-thumb" aria-hidden="true">
+           <div class="pt-overlay"></div>
+           <div class="pl-top">THIS IS</div>
+           <div class="pl-title">LALIGA XML</div>
+           <div class="pl-bottom">
+             <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+             <div class="pl-meta">XML • XQ • PY</div>
+           </div>
+         </div>
+         <div class="project-body">
+           <h3 class="project-title" data-i18n="proj_ligaxml_title">Análisis LaLiga · XML + XQuery</h3>
+          <p class="project-desc" data-i18n="proj_ligaxml_desc">Transformación de 37.147 partidos de Primera y Segunda División (1970-2018) de CSV a XML jerárquico, validado contra un esquema XSD. Consultas analíticas en XQuery sobre BaseX (goleadores, rendimiento local/visitante, evolución por temporada) y dashboard HTML de resultados.</p>
+           <ul class="project-tags" aria-label="Tecnologías">
+             <li>Python</li><li>XML</li><li>XQuery</li><li>BaseX</li><li>XSD</li>
            </ul>
          </div>
           <div class="project-actions">
-           <a href="https://www.instagram.com/torrenuevafutsal/" target="_blank" rel="noopener" class="proj-link is-action" title="Instagram oficial Torrenueva Futsal"><svg class="icon inline" aria-hidden="true"><use href="#icon-instagram"/></svg><span>Instagram</span></a>
+           <a href="https://github.com/eliasgv04/bbdda-xml" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Análisis LaLiga XML"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span data-i18n="projects_code">Código</span></a>
           </div>
        </article>
        <!-- Proyecto 5 -->
@@ -703,6 +728,28 @@
              <a href="https://github.com/eliasgv04/TrabajoTecnologiasEliasGlez" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Gramola Virtual"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span data-i18n="projects_code">Código</span></a>
            </div>
          </article>
+       <!-- Proyecto 8 -->
+  <article class="project-card" role="listitem" data-cat="tools data" data-stack="Python,MySQL,Docker,Pandas,SQLAlchemy" data-tone="crimson">
+         <div class="project-thumb" aria-hidden="true">
+           <div class="pt-overlay"></div>
+           <div class="pl-top">THIS IS</div>
+           <div class="pl-title">NETFLIX DW</div>
+           <div class="pl-bottom">
+             <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+             <div class="pl-meta">PY • SQL • DKR</div>
+           </div>
+         </div>
+         <div class="project-body">
+           <h3 class="project-title" data-i18n="proj_datawarehouse_title">Data Warehouse Netflix · Modelo en Estrella</h3>
+           <p class="project-desc" data-i18n="proj_datawarehouse_desc">Data warehouse sobre el catálogo de Netflix (asignatura BBDDA, UCLM): modelo en estrella con tabla de hechos y dimensiones (Actor, Director, Género, País) unidas por tablas puente N:M. Pipeline ETL en Python (Pandas + SQLAlchemy) con inserciones por lotes y limpieza de datos, cargando en MySQL sobre Docker. Incluye script de EDA inicial y menú de consultas analíticas.</p>
+           <ul class="project-tags" aria-label="Tecnologías">
+             <li>Python</li><li>MySQL</li><li>Docker</li><li>Pandas</li><li>SQLAlchemy</li>
+           </ul>
+         </div>
+         <div class="project-actions">
+           <a href="https://github.com/eliasgv04/bbdda-datawarehouse" target="_blank" rel="noopener" class="proj-link big-icon is-action" title="Repositorio en GitHub: Data Warehouse Netflix"><svg class="icon inline" aria-hidden="true"><use href="#icon-github"/></svg><span data-i18n="projects_code">Código</span></a>
+         </div>
+       </article>
      </div>
    </div>
  </section>
@@ -718,9 +765,9 @@
        <button class="skill-filter-btn" data-filter="frontend" aria-pressed="false" data-i18n="skills_filter_frontend">Frontend</button>
        <button class="skill-filter-btn" data-filter="testing" aria-pressed="false" data-i18n="skills_filter_testing">Testing</button>
        <button class="skill-filter-btn" data-filter="database" aria-pressed="false" data-i18n="skills_filter_database">Bases de Datos</button>
+       <button class="skill-filter-btn" data-filter="data" aria-pressed="false" data-i18n="skills_filter_data">Data</button>
        <button class="skill-filter-btn" data-filter="devops" aria-pressed="false" data-i18n="skills_filter_devops">DevOps & Tools</button>
        <button class="skill-filter-btn" data-filter="ai" aria-pressed="false" data-i18n="skills_filter_ai">AI Assistants</button>
-       <button class="skill-filter-btn" data-filter="mobile" aria-pressed="false" data-i18n="skills_filter_mobile">Mobile</button>
      </div>
 
      <!-- Grid de tecnologías -->
@@ -773,6 +820,14 @@
          </div>
          <h3 class="skill-name">HTML / CSS</h3>
          <p class="skill-desc">Semántica, responsive y accesibilidad</p>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="frontend" data-level="78">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg" alt="Astro" class="skill-icon-img" loading="lazy">
+         </div>
+         <h3 class="skill-name">Astro</h3>
+         <p class="skill-desc">Webs rápidas, estáticas y con buen SEO</p>
        </div>
 
        <!-- TESTING -->
@@ -833,7 +888,56 @@
          <p class="skill-desc">Backend como servicio y base de datos</p>
        </div>
 
+       <!-- DATA -->
+       <div class="skill-card" role="listitem" data-category="data" data-level="75">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" class="skill-icon-img" loading="lazy">
+         </div>
+         <h3 class="skill-name">Pandas</h3>
+         <p class="skill-desc">Limpieza y análisis de datos en Python</p>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="data" data-level="74">
+         <div class="skill-icon-wrap skill-si-wrap">
+           <img src="https://cdn.simpleicons.org/sqlalchemy" alt="SQLAlchemy" class="skill-icon-img" loading="lazy">
+         </div>
+         <h3 class="skill-name">SQLAlchemy</h3>
+         <p class="skill-desc">ORM y carga de datos a bases relacionales</p>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="data" data-level="76">
+         <div class="skill-icon-wrap skill-si-wrap">
+           <img src="https://cdn.simpleicons.org/xml" alt="XML" class="skill-icon-img" loading="lazy">
+         </div>
+         <h3 class="skill-name">XML / XSD</h3>
+         <p class="skill-desc">Modelado jerárquico y validación de esquemas</p>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="data" data-level="68">
+         <div class="skill-icon-wrap skill-letter" data-brand="xquery">
+           <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-label="XQuery"><path d="M7 4h2.2L12 8.4 14.8 4H17l-3.8 6L17 16h-2.2L12 11.6 9.2 16H7l3.8-6L7 4Z"/><path d="M4 19h16v1.4H4z" opacity=".55"/></svg>
+         </div>
+         <h3 class="skill-name">XQuery</h3>
+         <p class="skill-desc">Consultas analíticas sobre datos XML</p>
+       </div>
+
+       <div class="skill-card" role="listitem" data-category="data" data-level="65">
+         <div class="skill-icon-wrap skill-letter" data-brand="basex">
+           <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-label="BaseX"><path d="M4 6.5C4 5.12 7.58 4 12 4s8 1.12 8 2.5S16.42 9 12 9 4 7.88 4 6.5Z"/><path d="M4 6.5v11C4 18.88 7.58 20 12 20s8-1.12 8-2.5v-11" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 12c0 1.38 3.58 2.5 8 2.5s8-1.12 8-2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+         </div>
+         <h3 class="skill-name">BaseX</h3>
+         <p class="skill-desc">Base de datos nativa XML</p>
+       </div>
+
        <!-- DEVOPS & TOOLS -->
+       <div class="skill-card" role="listitem" data-category="devops" data-level="76">
+         <div class="skill-icon-wrap">
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" class="skill-icon-img" loading="lazy">
+         </div>
+         <h3 class="skill-name">Docker</h3>
+         <p class="skill-desc">Contenedores para bases de datos y servicios</p>
+       </div>
+
        <div class="skill-card" role="listitem" data-category="devops" data-level="88">
          <div class="skill-icon-wrap">
            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" class="skill-icon-img" loading="lazy">
@@ -911,14 +1015,6 @@
          <p class="skill-desc">API de inferencia ultrarrápida</p>
        </div>
 
-       <!-- MOBILE -->
-       <div class="skill-card" role="listitem" data-category="mobile" data-level="60">
-         <div class="skill-icon-wrap">
-           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" alt="Swift" class="skill-icon-img" loading="lazy">
-         </div>
-         <h3 class="skill-name">Swift</h3>
-         <p class="skill-desc">Desarrollo iOS nativo</p>
-       </div>
      </div>
    </div>
  </section>

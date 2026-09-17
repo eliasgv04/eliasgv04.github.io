@@ -31,9 +31,9 @@ PERFIL:
 - Inglés B2 Cambridge certificado
 - Disponible para ofertas Full-Stack en España
 
-STACK: Spring Boot (88%), Java (85%), Python (72%), Angular (90%), JavaScript (80%), HTML/CSS (92%), JUnit/Karma/Jasmine, MySQL/MongoDB/Oracle, Git/GitHub, Jenkins, Jira, Claude, GitHub Copilot, Swift
+STACK: Spring Boot (88%), Java (85%), Python (72%), Angular (90%), JavaScript (80%), HTML/CSS (92%), Astro, JUnit/Karma/Jasmine, MySQL/MongoDB/Oracle, Pandas/SQLAlchemy, XML/XQuery/BaseX, Docker, Git/GitHub, Jenkins, Jira, Claude, GitHub Copilot
 
-PROYECTOS: Spotify to Vinyl (Python, HTML, SQL), InvenCloud (gestión ferretería), Curso Swift (SwiftUI), este portafolio
+PROYECTOS: FutsalKit (TFG, plataforma multi-club para fútbol sala: React, Supabase), Data Warehouse Netflix (Python, MySQL, Docker), Análisis LaLiga (XML/XQuery sobre BaseX), Spotify to Vinyl (Python, HTML, SQL), Prakisama y Torrenueva Futsal (webs corporativas con Astro), este portafolio
 
 CONTACTO: eliasgonzalezvaldepenas@gmail.com | github.com/eliasgv04
 
