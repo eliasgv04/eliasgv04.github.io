@@ -57,6 +57,10 @@ const translations = {
     cert_7_desc: 'Optimización de flujos de trabajo y productividad con Microsoft Copilot.',
     cert_8_title: 'Descubre Microsoft 365 Copilot',
     cert_8_desc: 'Integración de Copilot en el ecosistema Microsoft 365 para productividad empresarial.',
+    cert_9_title: 'Nebius AI Cloud Ops · Associate',
+    cert_9_desc: 'Certificación oficial Nebius: operación de infraestructura cloud para cargas de IA (cómputo GPU, Kubernetes, almacenamiento y redes).',
+    cert_10_title: 'Nebius AI Leader · Foundational',
+    cert_10_desc: 'Certificación oficial Nebius: fundamentos de IA, adopción estratégica y aplicación de soluciones de IA en organizaciones.',
     cert_view: 'Ver Certificado',
 
     // Projects Section
@@ -176,6 +180,10 @@ const translations = {
     cert_7_desc: 'Workflow optimization and productivity enhancement with Microsoft Copilot.',
     cert_8_title: 'Discover Microsoft 365 Copilot',
     cert_8_desc: 'Copilot integration in the Microsoft 365 ecosystem for enterprise productivity.',
+    cert_9_title: 'Nebius AI Cloud Ops · Associate',
+    cert_9_desc: 'Official Nebius certification: operating cloud infrastructure for AI workloads (GPU compute, Kubernetes, storage and networking).',
+    cert_10_title: 'Nebius AI Leader · Foundational',
+    cert_10_desc: 'Official Nebius certification: AI fundamentals, strategic adoption and applying AI solutions in organizations.',
     cert_view: 'View Certificate',
 
     // Projects Section
