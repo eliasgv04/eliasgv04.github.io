@@ -77,7 +77,7 @@ REGLAS:
       <p>⚠️ No puedo conectar ahora. Contacta a Elías directamente:</p>
       <div class="contact-options">
         <a href="mailto:eliasgonzalezvaldepenas@gmail.com" class="contact-btn email-btn">📧 Email</a>
-        <a href="https://linkedin.com/in/elias-gonzález-valdepeñas-98aa97170" target="_blank" rel="noopener" class="contact-btn linkedin-btn">💼 LinkedIn</a>
+        <a href="https://www.linkedin.com/in/elias-gonzalez-valdepenas/" target="_blank" rel="noopener" class="contact-btn linkedin-btn">💼 LinkedIn</a>
         <a href="https://github.com/eliasgv04" target="_blank" rel="noopener" class="contact-btn github-btn">🐙 GitHub</a>
       </div>
     </div>`;
